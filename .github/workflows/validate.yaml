@@ -1,0 +1,14 @@
+name: Pull Request validation
+
+on: [pull_request]
+
+
+jobs:
+  Clickr_App_TS-contracts-ci:
+    name: Run Clickr_App_TS-contracts validation
+    uses: ./.github/workflows/Clickr_App_TS-contracts-ci.yaml
+
+  Clickr_App_TS-frontend-ci:
+    name: Run Clickr_App_TS-frontend validation
+    uses: ./.github/workflows/Clickr_App_TS-frontend-ci.yaml
+

@@ -1,0 +1,38 @@
+name: Release
+
+on:
+  push:
+    branches:
+      - main
+    paths-ignore:
+      - 'docs/**'
+      - '**.md'
+      - '.vscode/**'
+      - '.idea/**'
+
+permissions:
+  contents: read
+  packages: read
+
+jobs:
+  Clickr_App_TS-contracts-validate:
+    name: Run Clickr_App_TS-contracts release
+    secrets: inherit
+    uses: ./.github/workflows/Clickr_App_TS-contracts-ci.yaml
+
+  Clickr_App_TS-contracts-release:
+    name: Run Clickr_App_TS-contracts release
+    secrets: inherit
+    uses: ./.github/workflows/Clickr_App_TS-contracts-cd.yaml
+    needs: Clickr_App_TS-contracts-validate
+
+  Clickr_App_TS-frontend-validate:
+    name: Run Clickr_App_TS-frontend release
+    secrets: inherit
+    uses: ./.github/workflows/Clickr_App_TS-frontend-ci.yaml
+
+  Clickr_App_TS-frontend-release:
+    name: Run Clickr_App_TS-frontend release
+    secrets: inherit
+    uses: ./.github/workflows/Clickr_App_TS-frontend-cd.yaml
+    needs: Clickr_App_TS-frontend-validate
