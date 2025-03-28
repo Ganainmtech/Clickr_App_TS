@@ -1,0 +1,1257 @@
+{
+  "version": 3,
+  "sources": [
+    "/Users/sarajane/Documents/AlgoKitProjects/Clickr/Clickr_App_TS/projects/Clickr_App_TS-contracts/smart_contracts/click_cron/contract.algo.ts"
+  ],
+  "mappings": ";;;;;;;;;;;AA+BA;;AAAA;;;AAAA;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;;;AAAA;;;;;;;;;;;;AAAA;;AAsCG;;AAAA;AAAA;AAAA;;AAAA;AAtCH;;;AAAA;AAAA;;AAsCG;;;AAAA;AAAA;;;;;;AAAA;AAAA;AAAA;AAAA;;AAjBA;;AAAA;AAAA;AAAA;;AAAA;AAAA;;;AAAA;;AANA;;AAAA;AAAA;AAAA;;AAAA;AAfH;;;AAAA;AAAA;;AAeG;;;AAAA;;AALA;;AAAA;AAAA;AAAA;AAAA;;AAAA;AAAA;;;AAAA;;AALA;;AAAA;AAAA;AAAA;;AAAA;AALH;;;AAAA;AAAA;;AAKG;;;AAAA;;AALH;;AAAA;;;AAAA;;AAAA;AAAA;AAAA;;AAKE;;;AAJoC;AAMlC;;AAAA;;AAKoB;;AATiB;AASM;AAA3C;;AAGF;;;AAEa;;AAhBuB;AAAA;AAAA;AAAA;AAgB3B;AAAP;AAfwC;AAgBxC;;AAAA;;AAGF;;;AAnB0C;AAAA;AAqBhB;AAAA;;AAAxB;AACyC;;AAAQ;AArBZ;AAqBY;AAAA;AAAA;AAAA;;AAAA;AAA5B;;;;;AACD;;AAAgB;AAAsB;AAAtB;AAtBC;AAsBrC;AAAA;AAGA;AA1BwC;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;AA8B5B;;;;;;;AAJZ;;;AAKS;;;AALT;;AAJiE;;;;AAcnE;;;AAE+B;;AAAA;AArCQ;AAqCR;AAAA;AAAA;AAAA;;AAAA;AAAtB;;;;;AAAP;AAAA;AAA6C;",
+  "op_pc_offset": 0,
+  "pc_events": {
+    "1": {
+      "subroutine": "@algorandfoundation/algorand-typescript/arc4/index.d.ts::Contract.approvalProgram",
+      "params": {},
+      "block": "main",
+      "stack_in": [],
+      "op": "intcblock 0 1"
+    },
+    "5": {
+      "op": "bytecblock \"c\" \"a\""
+    },
+    "11": {
+      "op": "txn NumAppArgs",
+      "defined_out": [
+        "tmp%0#1"
+      ],
+      "stack_out": [
+        "tmp%0#1"
+      ]
+    },
+    "13": {
+      "op": "bz main_bare_routing@10",
+      "stack_out": []
+    },
+    "16": {
+      "op": "pushbytess 0xda53fefe 0x29314d95 0xe8a8c2c5 0xfd62c66d 0x9e20fc26 // method \"createApplication(account)void\", method \"optIn()void\", method \"setCronAccount(account)void\", method \"recordClick()void\", method \"getClickCount(account)uint64\"",
+      "defined_out": [
+        "Method(createApplication(account)void)",
+        "Method(getClickCount(account)uint64)",
+        "Method(optIn()void)",
+        "Method(recordClick()void)",
+        "Method(setCronAccount(account)void)"
+      ],
+      "stack_out": [
+        "Method(createApplication(account)void)",
+        "Method(optIn()void)",
+        "Method(setCronAccount(account)void)",
+        "Method(recordClick()void)",
+        "Method(getClickCount(account)uint64)"
+      ]
+    },
+    "43": {
+      "op": "txna ApplicationArgs 0",
+      "defined_out": [
+        "Method(createApplication(account)void)",
+        "Method(getClickCount(account)uint64)",
+        "Method(optIn()void)",
+        "Method(recordClick()void)",
+        "Method(setCronAccount(account)void)",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "Method(createApplication(account)void)",
+        "Method(optIn()void)",
+        "Method(setCronAccount(account)void)",
+        "Method(recordClick()void)",
+        "Method(getClickCount(account)uint64)",
+        "tmp%2#0"
+      ]
+    },
+    "46": {
+      "op": "match main_createApplication_route@3 main_optIn_route@4 main_setCronAccount_route@5 main_recordClick_route@6 main_getClickCount_route@7",
+      "stack_out": []
+    },
+    "58": {
+      "block": "main_after_if_else@14",
+      "stack_in": [],
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "59": {
+      "op": "return",
+      "stack_out": []
+    },
+    "60": {
+      "block": "main_getClickCount_route@7",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%23#0"
+      ],
+      "stack_out": [
+        "tmp%23#0"
+      ]
+    },
+    "62": {
+      "op": "!",
+      "defined_out": [
+        "tmp%24#0"
+      ],
+      "stack_out": [
+        "tmp%24#0"
+      ]
+    },
+    "63": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "64": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%25#0"
+      ],
+      "stack_out": [
+        "tmp%25#0"
+      ]
+    },
+    "66": {
+      "error": "can only call when not creating",
+      "op": "assert // can only call when not creating",
+      "stack_out": []
+    },
+    "67": {
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "reinterpret_bytes[1]%2#0"
+      ],
+      "stack_out": [
+        "reinterpret_bytes[1]%2#0"
+      ]
+    },
+    "70": {
+      "op": "btoi",
+      "defined_out": [
+        "tmp%27#0"
+      ],
+      "stack_out": [
+        "tmp%27#0"
+      ]
+    },
+    "71": {
+      "op": "txnas Accounts",
+      "defined_out": [
+        "tmp%28#0"
+      ],
+      "stack_out": [
+        "tmp%28#0"
+      ]
+    },
+    "73": {
+      "callsub": "smart_contracts/click_cron/contract.algo.ts::ClickCron.getClickCount",
+      "op": "callsub getClickCount",
+      "defined_out": [
+        "to_encode%0#0"
+      ],
+      "stack_out": [
+        "to_encode%0#0"
+      ]
+    },
+    "76": {
+      "op": "itob",
+      "defined_out": [
+        "val_as_bytes%0#0"
+      ],
+      "stack_out": [
+        "val_as_bytes%0#0"
+      ]
+    },
+    "77": {
+      "op": "pushbytes 0x151f7c75",
+      "defined_out": [
+        "0x151f7c75",
+        "val_as_bytes%0#0"
+      ],
+      "stack_out": [
+        "val_as_bytes%0#0",
+        "0x151f7c75"
+      ]
+    },
+    "83": {
+      "op": "swap",
+      "stack_out": [
+        "0x151f7c75",
+        "val_as_bytes%0#0"
+      ]
+    },
+    "84": {
+      "op": "concat",
+      "defined_out": [
+        "tmp%29#0"
+      ],
+      "stack_out": [
+        "tmp%29#0"
+      ]
+    },
+    "85": {
+      "op": "log",
+      "stack_out": []
+    },
+    "86": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "87": {
+      "op": "return",
+      "stack_out": []
+    },
+    "88": {
+      "block": "main_recordClick_route@6",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%19#0"
+      ],
+      "stack_out": [
+        "tmp%19#0"
+      ]
+    },
+    "90": {
+      "op": "!",
+      "defined_out": [
+        "tmp%20#0"
+      ],
+      "stack_out": [
+        "tmp%20#0"
+      ]
+    },
+    "91": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "92": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%21#0"
+      ],
+      "stack_out": [
+        "tmp%21#0"
+      ]
+    },
+    "94": {
+      "error": "can only call when not creating",
+      "op": "assert // can only call when not creating",
+      "stack_out": []
+    },
+    "95": {
+      "callsub": "smart_contracts/click_cron/contract.algo.ts::ClickCron.recordClick",
+      "op": "callsub recordClick"
+    },
+    "98": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "99": {
+      "op": "return",
+      "stack_out": []
+    },
+    "100": {
+      "block": "main_setCronAccount_route@5",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%13#0"
+      ],
+      "stack_out": [
+        "tmp%13#0"
+      ]
+    },
+    "102": {
+      "op": "!",
+      "defined_out": [
+        "tmp%14#0"
+      ],
+      "stack_out": [
+        "tmp%14#0"
+      ]
+    },
+    "103": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "104": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%15#0"
+      ],
+      "stack_out": [
+        "tmp%15#0"
+      ]
+    },
+    "106": {
+      "error": "can only call when not creating",
+      "op": "assert // can only call when not creating",
+      "stack_out": []
+    },
+    "107": {
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "reinterpret_bytes[1]%1#0"
+      ],
+      "stack_out": [
+        "reinterpret_bytes[1]%1#0"
+      ]
+    },
+    "110": {
+      "op": "btoi",
+      "defined_out": [
+        "tmp%17#0"
+      ],
+      "stack_out": [
+        "tmp%17#0"
+      ]
+    },
+    "111": {
+      "op": "txnas Accounts",
+      "defined_out": [
+        "tmp%18#0"
+      ],
+      "stack_out": [
+        "tmp%18#0"
+      ]
+    },
+    "113": {
+      "callsub": "smart_contracts/click_cron/contract.algo.ts::ClickCron.setCronAccount",
+      "op": "callsub setCronAccount",
+      "stack_out": []
+    },
+    "116": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "117": {
+      "op": "return",
+      "stack_out": []
+    },
+    "118": {
+      "block": "main_optIn_route@4",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%9#0"
+      ],
+      "stack_out": [
+        "tmp%9#0"
+      ]
+    },
+    "120": {
+      "op": "intc_1 // OptIn",
+      "defined_out": [
+        "OptIn",
+        "tmp%9#0"
+      ],
+      "stack_out": [
+        "tmp%9#0",
+        "OptIn"
+      ]
+    },
+    "121": {
+      "op": "==",
+      "defined_out": [
+        "tmp%10#0"
+      ],
+      "stack_out": [
+        "tmp%10#0"
+      ]
+    },
+    "122": {
+      "error": "OnCompletion is not OptIn",
+      "op": "assert // OnCompletion is not OptIn",
+      "stack_out": []
+    },
+    "123": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%11#0"
+      ],
+      "stack_out": [
+        "tmp%11#0"
+      ]
+    },
+    "125": {
+      "error": "can only call when not creating",
+      "op": "assert // can only call when not creating",
+      "stack_out": []
+    },
+    "126": {
+      "callsub": "smart_contracts/click_cron/contract.algo.ts::ClickCron.optIn",
+      "op": "callsub optIn"
+    },
+    "129": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "130": {
+      "op": "return",
+      "stack_out": []
+    },
+    "131": {
+      "block": "main_createApplication_route@3",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%3#0"
+      ],
+      "stack_out": [
+        "tmp%3#0"
+      ]
+    },
+    "133": {
+      "op": "!",
+      "defined_out": [
+        "tmp%4#0"
+      ],
+      "stack_out": [
+        "tmp%4#0"
+      ]
+    },
+    "134": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "135": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%5#0"
+      ],
+      "stack_out": [
+        "tmp%5#0"
+      ]
+    },
+    "137": {
+      "error": "can only call when not creating",
+      "op": "assert // can only call when not creating",
+      "stack_out": []
+    },
+    "138": {
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "reinterpret_bytes[1]%0#0"
+      ],
+      "stack_out": [
+        "reinterpret_bytes[1]%0#0"
+      ]
+    },
+    "141": {
+      "op": "btoi",
+      "defined_out": [
+        "tmp%7#0"
+      ],
+      "stack_out": [
+        "tmp%7#0"
+      ]
+    },
+    "142": {
+      "op": "txnas Accounts",
+      "defined_out": [
+        "tmp%8#0"
+      ],
+      "stack_out": [
+        "tmp%8#0"
+      ]
+    },
+    "144": {
+      "callsub": "smart_contracts/click_cron/contract.algo.ts::ClickCron.createApplication",
+      "op": "callsub createApplication",
+      "stack_out": []
+    },
+    "147": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "148": {
+      "op": "return",
+      "stack_out": []
+    },
+    "149": {
+      "block": "main_bare_routing@10",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%30#0"
+      ],
+      "stack_out": [
+        "tmp%30#0"
+      ]
+    },
+    "151": {
+      "op": "bnz main_after_if_else@14",
+      "stack_out": []
+    },
+    "154": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%31#0"
+      ],
+      "stack_out": [
+        "tmp%31#0"
+      ]
+    },
+    "156": {
+      "op": "!",
+      "defined_out": [
+        "tmp%32#0"
+      ],
+      "stack_out": [
+        "tmp%32#0"
+      ]
+    },
+    "157": {
+      "error": "can only call when creating",
+      "op": "assert // can only call when creating",
+      "stack_out": []
+    },
+    "158": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "159": {
+      "op": "return",
+      "stack_out": []
+    },
+    "160": {
+      "subroutine": "smart_contracts/click_cron/contract.algo.ts::ClickCron.createApplication",
+      "params": {
+        "admin#0": "bytes"
+      },
+      "block": "createApplication",
+      "stack_in": [],
+      "op": "proto 1 0"
+    },
+    "163": {
+      "op": "bytec_1 // \"a\"",
+      "defined_out": [
+        "\"a\""
+      ],
+      "stack_out": [
+        "\"a\""
+      ]
+    },
+    "164": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "\"a\"",
+        "admin#0 (copy)"
+      ],
+      "stack_out": [
+        "\"a\"",
+        "admin#0 (copy)"
+      ]
+    },
+    "166": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "167": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "168": {
+      "subroutine": "smart_contracts/click_cron/contract.algo.ts::ClickCron.optIn",
+      "params": {},
+      "block": "optIn",
+      "stack_in": [],
+      "op": "txn Sender",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "170": {
+      "op": "bytec_0 // \"c\"",
+      "defined_out": [
+        "\"c\"",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "\"c\""
+      ]
+    },
+    "171": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "\"c\"",
+        "0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "\"c\"",
+        "0"
+      ]
+    },
+    "172": {
+      "op": "app_local_put",
+      "stack_out": []
+    },
+    "173": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "174": {
+      "subroutine": "smart_contracts/click_cron/contract.algo.ts::ClickCron.setCronAccount",
+      "params": {
+        "account#0": "bytes"
+      },
+      "block": "setCronAccount",
+      "stack_in": [],
+      "op": "proto 1 0"
+    },
+    "177": {
+      "op": "txn Sender",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "179": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "0"
+      ]
+    },
+    "180": {
+      "op": "bytec_1 // \"a\"",
+      "defined_out": [
+        "\"a\"",
+        "0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "0",
+        "\"a\""
+      ]
+    },
+    "181": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0",
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "182": {
+      "error": "check GlobalState exists",
+      "op": "assert // check GlobalState exists",
+      "stack_out": [
+        "tmp%0#0",
+        "maybe_value%0#0"
+      ]
+    },
+    "183": {
+      "op": "==",
+      "defined_out": [
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%1#0"
+      ]
+    },
+    "184": {
+      "error": "Only admin can set cron account",
+      "op": "assert // Only admin can set cron account",
+      "stack_out": []
+    },
+    "185": {
+      "op": "bytec_0 // \"c\"",
+      "defined_out": [
+        "\"c\""
+      ],
+      "stack_out": [
+        "\"c\""
+      ]
+    },
+    "186": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "\"c\"",
+        "account#0 (copy)"
+      ],
+      "stack_out": [
+        "\"c\"",
+        "account#0 (copy)"
+      ]
+    },
+    "188": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "189": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "190": {
+      "subroutine": "smart_contracts/click_cron/contract.algo.ts::ClickCron.recordClick",
+      "params": {},
+      "block": "recordClick",
+      "stack_in": [],
+      "op": "proto 0 0"
+    },
+    "193": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "0"
+      ],
+      "stack_out": [
+        "0"
+      ]
+    },
+    "194": {
+      "op": "bytec_0 // \"c\"",
+      "defined_out": [
+        "\"c\"",
+        "0"
+      ],
+      "stack_out": [
+        "0",
+        "\"c\""
+      ]
+    },
+    "195": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "196": {
+      "op": "bury 1",
+      "stack_out": [
+        "maybe_exists%0#0"
+      ]
+    },
+    "198": {
+      "error": "Cron account not set",
+      "op": "assert // Cron account not set",
+      "stack_out": []
+    },
+    "199": {
+      "op": "txn Sender",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "201": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "tmp%0#0",
+        "0"
+      ]
+    },
+    "202": {
+      "op": "bytec_0 // \"c\"",
+      "stack_out": [
+        "tmp%0#0",
+        "0",
+        "\"c\""
+      ]
+    },
+    "203": {
+      "op": "app_local_get_ex",
+      "defined_out": [
+        "maybe_exists%1#0",
+        "maybe_value%1#0"
+      ],
+      "stack_out": [
+        "maybe_value%1#0",
+        "maybe_exists%1#0"
+      ]
+    },
+    "204": {
+      "op": "swap",
+      "stack_out": [
+        "maybe_exists%1#0",
+        "maybe_value%1#0"
+      ]
+    },
+    "205": {
+      "op": "dup",
+      "stack_out": [
+        "maybe_exists%1#0",
+        "maybe_value%1#0",
+        "maybe_value%1#0 (copy)"
+      ]
+    },
+    "206": {
+      "op": "uncover 2",
+      "defined_out": [
+        "maybe_exists%1#0",
+        "maybe_value%1#0"
+      ],
+      "stack_out": [
+        "maybe_value%1#0",
+        "maybe_value%1#0",
+        "maybe_exists%1#0"
+      ]
+    },
+    "208": {
+      "error": "check LocalState exists",
+      "op": "assert // check LocalState exists",
+      "stack_out": [
+        "maybe_value%1#0",
+        "maybe_value%1#0"
+      ]
+    },
+    "209": {
+      "op": "bz recordClick_ternary_false@2",
+      "stack_out": [
+        "maybe_value%1#0"
+      ]
+    },
+    "212": {
+      "op": "frame_dig 0",
+      "defined_out": [
+        "currentCount#0",
+        "maybe_value%1#0"
+      ],
+      "stack_out": [
+        "maybe_value%1#0",
+        "currentCount#0"
+      ]
+    },
+    "214": {
+      "block": "recordClick_ternary_merge@3",
+      "stack_in": [
+        "maybe_value%1#0",
+        "currentCount#0"
+      ],
+      "op": "txn Sender",
+      "defined_out": [
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "maybe_value%1#0",
+        "currentCount#0",
+        "tmp%1#0"
+      ]
+    },
+    "216": {
+      "op": "swap",
+      "defined_out": [
+        "currentCount#0",
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "maybe_value%1#0",
+        "tmp%1#0",
+        "currentCount#0"
+      ]
+    },
+    "217": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "1",
+        "currentCount#0",
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "maybe_value%1#0",
+        "tmp%1#0",
+        "currentCount#0",
+        "1"
+      ]
+    },
+    "218": {
+      "op": "+",
+      "defined_out": [
+        "new_state_value%0#0",
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "maybe_value%1#0",
+        "tmp%1#0",
+        "new_state_value%0#0"
+      ]
+    },
+    "219": {
+      "op": "bytec_0 // \"c\""
+    },
+    "220": {
+      "op": "swap",
+      "defined_out": [
+        "\"c\"",
+        "new_state_value%0#0",
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "maybe_value%1#0",
+        "tmp%1#0",
+        "\"c\"",
+        "new_state_value%0#0"
+      ]
+    },
+    "221": {
+      "op": "app_local_put",
+      "stack_out": [
+        "maybe_value%1#0"
+      ]
+    },
+    "222": {
+      "op": "itxn_begin"
+    },
+    "223": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "0"
+      ],
+      "stack_out": [
+        "maybe_value%1#0",
+        "0"
+      ]
+    },
+    "224": {
+      "op": "bytec_0 // \"c\"",
+      "stack_out": [
+        "maybe_value%1#0",
+        "0",
+        "\"c\""
+      ]
+    },
+    "225": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%2#0",
+        "maybe_value%2#0"
+      ],
+      "stack_out": [
+        "maybe_value%1#0",
+        "maybe_value%2#0",
+        "maybe_exists%2#0"
+      ]
+    },
+    "226": {
+      "error": "check GlobalState exists",
+      "op": "assert // check GlobalState exists",
+      "stack_out": [
+        "maybe_value%1#0",
+        "maybe_value%2#0"
+      ]
+    },
+    "227": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "maybe_value%1#0",
+        "maybe_value%2#0",
+        "0"
+      ]
+    },
+    "228": {
+      "op": "bytec_0 // \"c\"",
+      "stack_out": [
+        "maybe_value%1#0",
+        "maybe_value%2#0",
+        "0",
+        "\"c\""
+      ]
+    },
+    "229": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%3#0",
+        "maybe_value%2#0",
+        "maybe_value%3#0"
+      ],
+      "stack_out": [
+        "maybe_value%1#0",
+        "maybe_value%2#0",
+        "maybe_value%3#0",
+        "maybe_exists%3#0"
+      ]
+    },
+    "230": {
+      "error": "check GlobalState exists",
+      "op": "assert // check GlobalState exists",
+      "stack_out": [
+        "maybe_value%1#0",
+        "maybe_value%2#0",
+        "maybe_value%3#0"
+      ]
+    },
+    "231": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "maybe_value%1#0",
+        "maybe_value%2#0",
+        "maybe_value%3#0",
+        "0"
+      ]
+    },
+    "232": {
+      "op": "itxn_field Amount",
+      "stack_out": [
+        "maybe_value%1#0",
+        "maybe_value%2#0",
+        "maybe_value%3#0"
+      ]
+    },
+    "234": {
+      "op": "itxn_field Receiver",
+      "stack_out": [
+        "maybe_value%1#0",
+        "maybe_value%2#0"
+      ]
+    },
+    "236": {
+      "op": "itxn_field Sender",
+      "stack_out": [
+        "maybe_value%1#0"
+      ]
+    },
+    "238": {
+      "op": "intc_1 // 1",
+      "stack_out": [
+        "maybe_value%1#0",
+        "1"
+      ]
+    },
+    "239": {
+      "op": "itxn_field TypeEnum",
+      "stack_out": [
+        "maybe_value%1#0"
+      ]
+    },
+    "241": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "maybe_value%1#0",
+        "0"
+      ]
+    },
+    "242": {
+      "op": "itxn_field Fee",
+      "stack_out": [
+        "maybe_value%1#0"
+      ]
+    },
+    "244": {
+      "op": "itxn_submit"
+    },
+    "245": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "246": {
+      "block": "recordClick_ternary_false@2",
+      "stack_in": [
+        "maybe_value%1#0"
+      ],
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "currentCount#0"
+      ],
+      "stack_out": [
+        "maybe_value%1#0",
+        "currentCount#0"
+      ]
+    },
+    "247": {
+      "op": "b recordClick_ternary_merge@3"
+    },
+    "250": {
+      "subroutine": "smart_contracts/click_cron/contract.algo.ts::ClickCron.getClickCount",
+      "params": {
+        "user#0": "bytes"
+      },
+      "block": "getClickCount",
+      "stack_in": [],
+      "op": "proto 1 1"
+    },
+    "253": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "user#0 (copy)"
+      ],
+      "stack_out": [
+        "user#0 (copy)"
+      ]
+    },
+    "255": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "0",
+        "user#0 (copy)"
+      ],
+      "stack_out": [
+        "user#0 (copy)",
+        "0"
+      ]
+    },
+    "256": {
+      "op": "bytec_0 // \"c\"",
+      "defined_out": [
+        "\"c\"",
+        "0",
+        "user#0 (copy)"
+      ],
+      "stack_out": [
+        "user#0 (copy)",
+        "0",
+        "\"c\""
+      ]
+    },
+    "257": {
+      "op": "app_local_get_ex",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "258": {
+      "op": "swap",
+      "stack_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0"
+      ]
+    },
+    "259": {
+      "op": "dup",
+      "stack_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0",
+        "maybe_value%0#0 (copy)"
+      ]
+    },
+    "260": {
+      "op": "uncover 2",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "262": {
+      "error": "check LocalState exists",
+      "op": "assert // check LocalState exists",
+      "stack_out": [
+        "maybe_value%0#0",
+        "maybe_value%0#0"
+      ]
+    },
+    "263": {
+      "op": "bz getClickCount_ternary_false@2",
+      "stack_out": [
+        "maybe_value%0#0"
+      ]
+    },
+    "266": {
+      "op": "frame_dig 0",
+      "defined_out": [
+        "maybe_value%0#0",
+        "ternary_result%0#1"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "ternary_result%0#1"
+      ]
+    },
+    "268": {
+      "block": "getClickCount_ternary_merge@3",
+      "stack_in": [
+        "maybe_value%0#0",
+        "ternary_result%0#1"
+      ],
+      "op": "swap",
+      "defined_out": [
+        "ternary_result%0#1"
+      ]
+    },
+    "269": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "270": {
+      "block": "getClickCount_ternary_false@2",
+      "stack_in": [
+        "maybe_value%0#0"
+      ],
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "ternary_result%0#1"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "ternary_result%0#1"
+      ]
+    },
+    "271": {
+      "op": "b getClickCount_ternary_merge@3"
+    }
+  }
+}
