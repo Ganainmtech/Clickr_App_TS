@@ -24,7 +24,7 @@ import { SendParams, SendSingleTransactionResult, SendAtomicTransactionComposerR
 import { Address, encodeAddress, modelsv2, OnApplicationComplete, Transaction, TransactionSigner } from 'algosdk'
 import SimulateResponse = modelsv2.SimulateResponse
 
-export const APP_SPEC: Arc56Contract = {"name":"ClickCron","structs":{},"methods":[{"name":"createApplication","args":[{"type":"account","name":"admin"}],"returns":{"type":"void"},"actions":{"create":[],"call":["NoOp"]},"readonly":false,"events":[],"recommendations":{}},{"name":"optIn","args":[],"returns":{"type":"void"},"actions":{"create":[],"call":["OptIn"]},"readonly":false,"events":[],"recommendations":{}},{"name":"setCronAccount","args":[{"type":"account","name":"account"}],"returns":{"type":"void"},"actions":{"create":[],"call":["NoOp"]},"readonly":false,"events":[],"recommendations":{}},{"name":"recordClick","args":[],"returns":{"type":"void"},"actions":{"create":[],"call":["NoOp"]},"readonly":false,"events":[],"recommendations":{}},{"name":"getClickCount","args":[{"type":"account","name":"user"}],"returns":{"type":"uint64"},"actions":{"create":[],"call":["NoOp"]},"readonly":false,"events":[],"recommendations":{}}],"arcs":[22,28],"networks":{},"state":{"schema":{"global":{"ints":0,"bytes":2},"local":{"ints":1,"bytes":0}},"keys":{"global":{"admin":{"keyType":"AVMString","valueType":"AVMBytes","key":"YQ=="},"cronAccount":{"keyType":"AVMString","valueType":"AVMBytes","key":"Yw=="}},"local":{"clickCount":{"keyType":"AVMString","valueType":"AVMUint64","key":"Yw=="}},"box":{}},"maps":{"global":{},"local":{},"box":{}}},"bareActions":{"create":["NoOp"],"call":[]},"sourceInfo":{"approval":{"sourceInfo":[{"pc":[198],"errorMessage":"Cron account not set"},{"pc":[63,91,103,134],"errorMessage":"OnCompletion is not NoOp"},{"pc":[122],"errorMessage":"OnCompletion is not OptIn"},{"pc":[184],"errorMessage":"Only admin can set cron account"},{"pc":[157],"errorMessage":"can only call when creating"},{"pc":[66,94,106,125,137],"errorMessage":"can only call when not creating"},{"pc":[182,226,230],"errorMessage":"check GlobalState exists"},{"pc":[208,262],"errorMessage":"check LocalState exists"}],"pcOffsetMethod":"none"},"clear":{"sourceInfo":[],"pcOffsetMethod":"none"}},"source":{"approval":"I3ByYWdtYSB2ZXJzaW9uIDEwCiNwcmFnbWEgdHlwZXRyYWNrIGZhbHNlCgovLyBAYWxnb3JhbmRmb3VuZGF0aW9uL2FsZ29yYW5kLXR5cGVzY3JpcHQvYXJjNC9pbmRleC5kLnRzOjpDb250cmFjdC5hcHByb3ZhbFByb2dyYW0oKSAtPiB1aW50NjQ6Cm1haW46CiAgICBpbnRjYmxvY2sgMCAxCiAgICBieXRlY2Jsb2NrICJjIiAiYSIKICAgIC8vIHNtYXJ0X2NvbnRyYWN0cy9jbGlja19jcm9uL2NvbnRyYWN0LmFsZ28udHM6MzIKICAgIC8vIGV4cG9ydCBjbGFzcyBDbGlja0Nyb24gZXh0ZW5kcyBDb250cmFjdCB7CiAgICB0eG4gTnVtQXBwQXJncwogICAgYnogbWFpbl9iYXJlX3JvdXRpbmdAMTAKICAgIHB1c2hieXRlc3MgMHhkYTUzZmVmZSAweDI5MzE0ZDk1IDB4ZThhOGMyYzUgMHhmZDYyYzY2ZCAweDllMjBmYzI2IC8vIG1ldGhvZCAiY3JlYXRlQXBwbGljYXRpb24oYWNjb3VudCl2b2lkIiwgbWV0aG9kICJvcHRJbigpdm9pZCIsIG1ldGhvZCAic2V0Q3JvbkFjY291bnQoYWNjb3VudCl2b2lkIiwgbWV0aG9kICJyZWNvcmRDbGljaygpdm9pZCIsIG1ldGhvZCAiZ2V0Q2xpY2tDb3VudChhY2NvdW50KXVpbnQ2NCIKICAgIHR4bmEgQXBwbGljYXRpb25BcmdzIDAKICAgIG1hdGNoIG1haW5fY3JlYXRlQXBwbGljYXRpb25fcm91dGVAMyBtYWluX29wdEluX3JvdXRlQDQgbWFpbl9zZXRDcm9uQWNjb3VudF9yb3V0ZUA1IG1haW5fcmVjb3JkQ2xpY2tfcm91dGVANiBtYWluX2dldENsaWNrQ291bnRfcm91dGVANwoKbWFpbl9hZnRlcl9pZl9lbHNlQDE0OgogICAgLy8gc21hcnRfY29udHJhY3RzL2NsaWNrX2Nyb24vY29udHJhY3QuYWxnby50czozMgogICAgLy8gZXhwb3J0IGNsYXNzIENsaWNrQ3JvbiBleHRlbmRzIENvbnRyYWN0IHsKICAgIGludGNfMCAvLyAwCiAgICByZXR1cm4KCm1haW5fZ2V0Q2xpY2tDb3VudF9yb3V0ZUA3OgogICAgLy8gc21hcnRfY29udHJhY3RzL2NsaWNrX2Nyb24vY29udHJhY3QuYWxnby50czo3MAogICAgLy8gQGFiaW1ldGhvZCgpCiAgICB0eG4gT25Db21wbGV0aW9uCiAgICAhCiAgICBhc3NlcnQgLy8gT25Db21wbGV0aW9uIGlzIG5vdCBOb09wCiAgICB0eG4gQXBwbGljYXRpb25JRAogICAgYXNzZXJ0IC8vIGNhbiBvbmx5IGNhbGwgd2hlbiBub3QgY3JlYXRpbmcKICAgIC8vIHNtYXJ0X2NvbnRyYWN0cy9jbGlja19jcm9uL2NvbnRyYWN0LmFsZ28udHM6MzIKICAgIC8vIGV4cG9ydCBjbGFzcyBDbGlja0Nyb24gZXh0ZW5kcyBDb250cmFjdCB7CiAgICB0eG5hIEFwcGxpY2F0aW9uQXJncyAxCiAgICBidG9pCiAgICB0eG5hcyBBY2NvdW50cwogICAgLy8gc21hcnRfY29udHJhY3RzL2NsaWNrX2Nyb24vY29udHJhY3QuYWxnby50czo3MAogICAgLy8gQGFiaW1ldGhvZCgpCiAgICBjYWxsc3ViIGdldENsaWNrQ291bnQKICAgIGl0b2IKICAgIHB1c2hieXRlcyAweDE1MWY3Yzc1CiAgICBzd2FwCiAgICBjb25jYXQKICAgIGxvZwogICAgaW50Y18xIC8vIDEKICAgIHJldHVybgoKbWFpbl9yZWNvcmRDbGlja19yb3V0ZUA2OgogICAgLy8gc21hcnRfY29udHJhY3RzL2NsaWNrX2Nyb24vY29udHJhY3QuYWxnby50czo1MwogICAgLy8gQGFiaW1ldGhvZCgpCiAgICB0eG4gT25Db21wbGV0aW9uCiAgICAhCiAgICBhc3NlcnQgLy8gT25Db21wbGV0aW9uIGlzIG5vdCBOb09wCiAgICB0eG4gQXBwbGljYXRpb25JRAogICAgYXNzZXJ0IC8vIGNhbiBvbmx5IGNhbGwgd2hlbiBub3QgY3JlYXRpbmcKICAgIGNhbGxzdWIgcmVjb3JkQ2xpY2sKICAgIGludGNfMSAvLyAxCiAgICByZXR1cm4KCm1haW5fc2V0Q3JvbkFjY291bnRfcm91dGVANToKICAgIC8vIHNtYXJ0X2NvbnRyYWN0cy9jbGlja19jcm9uL2NvbnRyYWN0LmFsZ28udHM6NDcKICAgIC8vIEBhYmltZXRob2QoKQogICAgdHhuIE9uQ29tcGxldGlvbgogICAgIQogICAgYXNzZXJ0IC8vIE9uQ29tcGxldGlvbiBpcyBub3QgTm9PcAogICAgdHhuIEFwcGxpY2F0aW9uSUQKICAgIGFzc2VydCAvLyBjYW4gb25seSBjYWxsIHdoZW4gbm90IGNyZWF0aW5nCiAgICAvLyBzbWFydF9jb250cmFjdHMvY2xpY2tfY3Jvbi9jb250cmFjdC5hbGdvLnRzOjMyCiAgICAvLyBleHBvcnQgY2xhc3MgQ2xpY2tDcm9uIGV4dGVuZHMgQ29udHJhY3QgewogICAgdHhuYSBBcHBsaWNhdGlvbkFyZ3MgMQogICAgYnRvaQogICAgdHhuYXMgQWNjb3VudHMKICAgIC8vIHNtYXJ0X2NvbnRyYWN0cy9jbGlja19jcm9uL2NvbnRyYWN0LmFsZ28udHM6NDcKICAgIC8vIEBhYmltZXRob2QoKQogICAgY2FsbHN1YiBzZXRDcm9uQWNjb3VudAogICAgaW50Y18xIC8vIDEKICAgIHJldHVybgoKbWFpbl9vcHRJbl9yb3V0ZUA0OgogICAgLy8gc21hcnRfY29udHJhY3RzL2NsaWNrX2Nyb24vY29udHJhY3QuYWxnby50czo0MgogICAgLy8gQGFiaW1ldGhvZCh7IGFsbG93QWN0aW9uczogJ09wdEluJyB9KQogICAgdHhuIE9uQ29tcGxldGlvbgogICAgaW50Y18xIC8vIE9wdEluCiAgICA9PQogICAgYXNzZXJ0IC8vIE9uQ29tcGxldGlvbiBpcyBub3QgT3B0SW4KICAgIHR4biBBcHBsaWNhdGlvbklECiAgICBhc3NlcnQgLy8gY2FuIG9ubHkgY2FsbCB3aGVuIG5vdCBjcmVhdGluZwogICAgY2FsbHN1YiBvcHRJbgogICAgaW50Y18xIC8vIDEKICAgIHJldHVybgoKbWFpbl9jcmVhdGVBcHBsaWNhdGlvbl9yb3V0ZUAzOgogICAgLy8gc21hcnRfY29udHJhY3RzL2NsaWNrX2Nyb24vY29udHJhY3QuYWxnby50czozNwogICAgLy8gQGFiaW1ldGhvZCgpCiAgICB0eG4gT25Db21wbGV0aW9uCiAgICAhCiAgICBhc3NlcnQgLy8gT25Db21wbGV0aW9uIGlzIG5vdCBOb09wCiAgICB0eG4gQXBwbGljYXRpb25JRAogICAgYXNzZXJ0IC8vIGNhbiBvbmx5IGNhbGwgd2hlbiBub3QgY3JlYXRpbmcKICAgIC8vIHNtYXJ0X2NvbnRyYWN0cy9jbGlja19jcm9uL2NvbnRyYWN0LmFsZ28udHM6MzIKICAgIC8vIGV4cG9ydCBjbGFzcyBDbGlja0Nyb24gZXh0ZW5kcyBDb250cmFjdCB7CiAgICB0eG5hIEFwcGxpY2F0aW9uQXJncyAxCiAgICBidG9pCiAgICB0eG5hcyBBY2NvdW50cwogICAgLy8gc21hcnRfY29udHJhY3RzL2NsaWNrX2Nyb24vY29udHJhY3QuYWxnby50czozNwogICAgLy8gQGFiaW1ldGhvZCgpCiAgICBjYWxsc3ViIGNyZWF0ZUFwcGxpY2F0aW9uCiAgICBpbnRjXzEgLy8gMQogICAgcmV0dXJuCgptYWluX2JhcmVfcm91dGluZ0AxMDoKICAgIC8vIHNtYXJ0X2NvbnRyYWN0cy9jbGlja19jcm9uL2NvbnRyYWN0LmFsZ28udHM6MzIKICAgIC8vIGV4cG9ydCBjbGFzcyBDbGlja0Nyb24gZXh0ZW5kcyBDb250cmFjdCB7CiAgICB0eG4gT25Db21wbGV0aW9uCiAgICBibnogbWFpbl9hZnRlcl9pZl9lbHNlQDE0CiAgICB0eG4gQXBwbGljYXRpb25JRAogICAgIQogICAgYXNzZXJ0IC8vIGNhbiBvbmx5IGNhbGwgd2hlbiBjcmVhdGluZwogICAgaW50Y18xIC8vIDEKICAgIHJldHVybgoKCi8vIHNtYXJ0X2NvbnRyYWN0cy9jbGlja19jcm9uL2NvbnRyYWN0LmFsZ28udHM6OkNsaWNrQ3Jvbi5jcmVhdGVBcHBsaWNhdGlvbihhZG1pbjogYnl0ZXMpIC0+IHZvaWQ6CmNyZWF0ZUFwcGxpY2F0aW9uOgogICAgLy8gc21hcnRfY29udHJhY3RzL2NsaWNrX2Nyb24vY29udHJhY3QuYWxnby50czozNy0zOAogICAgLy8gQGFiaW1ldGhvZCgpCiAgICAvLyBwdWJsaWMgY3JlYXRlQXBwbGljYXRpb24oYWRtaW46IEFjY291bnQpOiB2b2lkIHsKICAgIHByb3RvIDEgMAogICAgLy8gc21hcnRfY29udHJhY3RzL2NsaWNrX2Nyb24vY29udHJhY3QuYWxnby50czozMwogICAgLy8gYWRtaW4gPSBHbG9iYWxTdGF0ZTxBY2NvdW50Pih7IGtleTogJ2EnIH0pOwogICAgYnl0ZWNfMSAvLyAiYSIKICAgIC8vIHNtYXJ0X2NvbnRyYWN0cy9jbGlja19jcm9uL2NvbnRyYWN0LmFsZ28udHM6MzkKICAgIC8vIHRoaXMuYWRtaW4udmFsdWUgPSBhZG1pbjsKICAgIGZyYW1lX2RpZyAtMQogICAgYXBwX2dsb2JhbF9wdXQKICAgIHJldHN1YgoKCi8vIHNtYXJ0X2NvbnRyYWN0cy9jbGlja19jcm9uL2NvbnRyYWN0LmFsZ28udHM6OkNsaWNrQ3Jvbi5vcHRJbigpIC0+IHZvaWQ6Cm9wdEluOgogICAgLy8gc21hcnRfY29udHJhY3RzL2NsaWNrX2Nyb24vY29udHJhY3QuYWxnby50czo0NAogICAgLy8gdGhpcy5jbGlja0NvdW50KFR4bi5zZW5kZXIpLnZhbHVlID0gVWludDY0KDApOwogICAgdHhuIFNlbmRlcgogICAgLy8gc21hcnRfY29udHJhY3RzL2NsaWNrX2Nyb24vY29udHJhY3QuYWxnby50czozNQogICAgLy8gY2xpY2tDb3VudCA9IExvY2FsU3RhdGU8dWludDY0Pih7IGtleTogJ2MnIH0pOwogICAgYnl0ZWNfMCAvLyAiYyIKICAgIC8vIHNtYXJ0X2NvbnRyYWN0cy9jbGlja19jcm9uL2NvbnRyYWN0LmFsZ28udHM6NDQKICAgIC8vIHRoaXMuY2xpY2tDb3VudChUeG4uc2VuZGVyKS52YWx1ZSA9IFVpbnQ2NCgwKTsKICAgIGludGNfMCAvLyAwCiAgICBhcHBfbG9jYWxfcHV0CiAgICByZXRzdWIKCgovLyBzbWFydF9jb250cmFjdHMvY2xpY2tfY3Jvbi9jb250cmFjdC5hbGdvLnRzOjpDbGlja0Nyb24uc2V0Q3JvbkFjY291bnQoYWNjb3VudDogYnl0ZXMpIC0+IHZvaWQ6CnNldENyb25BY2NvdW50OgogICAgLy8gc21hcnRfY29udHJhY3RzL2NsaWNrX2Nyb24vY29udHJhY3QuYWxnby50czo0Ny00OAogICAgLy8gQGFiaW1ldGhvZCgpCiAgICAvLyBwdWJsaWMgc2V0Q3JvbkFjY291bnQoYWNjb3VudDogQWNjb3VudCk6IHZvaWQgewogICAgcHJvdG8gMSAwCiAgICAvLyBzbWFydF9jb250cmFjdHMvY2xpY2tfY3Jvbi9jb250cmFjdC5hbGdvLnRzOjQ5CiAgICAvLyBhc3NlcnQoVHhuLnNlbmRlciA9PT0gdGhpcy5hZG1pbi52YWx1ZSwgJ09ubHkgYWRtaW4gY2FuIHNldCBjcm9uIGFjY291bnQnKTsKICAgIHR4biBTZW5kZXIKICAgIC8vIHNtYXJ0X2NvbnRyYWN0cy9jbGlja19jcm9uL2NvbnRyYWN0LmFsZ28udHM6MzMKICAgIC8vIGFkbWluID0gR2xvYmFsU3RhdGU8QWNjb3VudD4oeyBrZXk6ICdhJyB9KTsKICAgIGludGNfMCAvLyAwCiAgICBieXRlY18xIC8vICJhIgogICAgYXBwX2dsb2JhbF9nZXRfZXgKICAgIGFzc2VydCAvLyBjaGVjayBHbG9iYWxTdGF0ZSBleGlzdHMKICAgIC8vIHNtYXJ0X2NvbnRyYWN0cy9jbGlja19jcm9uL2NvbnRyYWN0LmFsZ28udHM6NDkKICAgIC8vIGFzc2VydChUeG4uc2VuZGVyID09PSB0aGlzLmFkbWluLnZhbHVlLCAnT25seSBhZG1pbiBjYW4gc2V0IGNyb24gYWNjb3VudCcpOwogICAgPT0KICAgIGFzc2VydCAvLyBPbmx5IGFkbWluIGNhbiBzZXQgY3JvbiBhY2NvdW50CiAgICAvLyBzbWFydF9jb250cmFjdHMvY2xpY2tfY3Jvbi9jb250cmFjdC5hbGdvLnRzOjM0CiAgICAvLyBjcm9uQWNjb3VudCA9IEdsb2JhbFN0YXRlPEFjY291bnQ+KHsga2V5OiAnYycgfSk7CiAgICBieXRlY18wIC8vICJjIgogICAgLy8gc21hcnRfY29udHJhY3RzL2NsaWNrX2Nyb24vY29udHJhY3QuYWxnby50czo1MAogICAgLy8gdGhpcy5jcm9uQWNjb3VudC52YWx1ZSA9IGFjY291bnQ7CiAgICBmcmFtZV9kaWcgLTEKICAgIGFwcF9nbG9iYWxfcHV0CiAgICByZXRzdWIKCgovLyBzbWFydF9jb250cmFjdHMvY2xpY2tfY3Jvbi9jb250cmFjdC5hbGdvLnRzOjpDbGlja0Nyb24ucmVjb3JkQ2xpY2soKSAtPiB2b2lkOgpyZWNvcmRDbGljazoKICAgIC8vIHNtYXJ0X2NvbnRyYWN0cy9jbGlja19jcm9uL2NvbnRyYWN0LmFsZ28udHM6NTMtNTQKICAgIC8vIEBhYmltZXRob2QoKQogICAgLy8gcHVibGljIHJlY29yZENsaWNrKCk6IHZvaWQgewogICAgcHJvdG8gMCAwCiAgICAvLyBzbWFydF9jb250cmFjdHMvY2xpY2tfY3Jvbi9jb250cmFjdC5hbGdvLnRzOjM0CiAgICAvLyBjcm9uQWNjb3VudCA9IEdsb2JhbFN0YXRlPEFjY291bnQ+KHsga2V5OiAnYycgfSk7CiAgICBpbnRjXzAgLy8gMAogICAgYnl0ZWNfMCAvLyAiYyIKICAgIC8vIHNtYXJ0X2NvbnRyYWN0cy9jbGlja19jcm9uL2NvbnRyYWN0LmFsZ28udHM6NTUKICAgIC8vIGFzc2VydCh0aGlzLmNyb25BY2NvdW50Lmhhc1ZhbHVlLCAnQ3JvbiBhY2NvdW50IG5vdCBzZXQnKTsKICAgIGFwcF9nbG9iYWxfZ2V0X2V4CiAgICBidXJ5IDEKICAgIGFzc2VydCAvLyBDcm9uIGFjY291bnQgbm90IHNldAogICAgLy8gc21hcnRfY29udHJhY3RzL2NsaWNrX2Nyb24vY29udHJhY3QuYWxnby50czo1NgogICAgLy8gY29uc3QgY3VycmVudENvdW50ID0gdGhpcy5jbGlja0NvdW50KFR4bi5zZW5kZXIpLnZhbHVlIHx8IFVpbnQ2NCgwKTsKICAgIHR4biBTZW5kZXIKICAgIGludGNfMCAvLyAwCiAgICAvLyBzbWFydF9jb250cmFjdHMvY2xpY2tfY3Jvbi9jb250cmFjdC5hbGdvLnRzOjM1CiAgICAvLyBjbGlja0NvdW50ID0gTG9jYWxTdGF0ZTx1aW50NjQ+KHsga2V5OiAnYycgfSk7CiAgICBieXRlY18wIC8vICJjIgogICAgLy8gc21hcnRfY29udHJhY3RzL2NsaWNrX2Nyb24vY29udHJhY3QuYWxnby50czo1NgogICAgLy8gY29uc3QgY3VycmVudENvdW50ID0gdGhpcy5jbGlja0NvdW50KFR4bi5zZW5kZXIpLnZhbHVlIHx8IFVpbnQ2NCgwKTsKICAgIGFwcF9sb2NhbF9nZXRfZXgKICAgIHN3YXAKICAgIGR1cAogICAgdW5jb3ZlciAyCiAgICBhc3NlcnQgLy8gY2hlY2sgTG9jYWxTdGF0ZSBleGlzdHMKICAgIGJ6IHJlY29yZENsaWNrX3Rlcm5hcnlfZmFsc2VAMgogICAgZnJhbWVfZGlnIDAKCnJlY29yZENsaWNrX3Rlcm5hcnlfbWVyZ2VAMzoKICAgIC8vIHNtYXJ0X2NvbnRyYWN0cy9jbGlja19jcm9uL2NvbnRyYWN0LmFsZ28udHM6NTcKICAgIC8vIHRoaXMuY2xpY2tDb3VudChUeG4uc2VuZGVyKS52YWx1ZSA9IGN1cnJlbnRDb3VudCArIFVpbnQ2NCgxKTsKICAgIHR4biBTZW5kZXIKICAgIHN3YXAKICAgIGludGNfMSAvLyAxCiAgICArCiAgICAvLyBzbWFydF9jb250cmFjdHMvY2xpY2tfY3Jvbi9jb250cmFjdC5hbGdvLnRzOjM1CiAgICAvLyBjbGlja0NvdW50ID0gTG9jYWxTdGF0ZTx1aW50NjQ+KHsga2V5OiAnYycgfSk7CiAgICBieXRlY18wIC8vICJjIgogICAgLy8gc21hcnRfY29udHJhY3RzL2NsaWNrX2Nyb24vY29udHJhY3QuYWxnby50czo1NwogICAgLy8gdGhpcy5jbGlja0NvdW50KFR4bi5zZW5kZXIpLnZhbHVlID0gY3VycmVudENvdW50ICsgVWludDY0KDEpOwogICAgc3dhcAogICAgYXBwX2xvY2FsX3B1dAogICAgLy8gc21hcnRfY29udHJhY3RzL2NsaWNrX2Nyb24vY29udHJhY3QuYWxnby50czo2MC02NwogICAgLy8gaXR4bgogICAgLy8gICAucGF5bWVudCh7CiAgICAvLyAgICAgc2VuZGVyOiB0aGlzLmNyb25BY2NvdW50LnZhbHVlLCAvLyBUcmFuc2FjdGlvbiBjb21lcyBmcm9tIHRoZSBjcm9uIGFjY291bnQKICAgIC8vICAgICByZWNlaXZlcjogdGhpcy5jcm9uQWNjb3VudC52YWx1ZSwgLy8gRHVtbXkgdHJhbnNhY3Rpb24gdG8gaXRzZWxmIGZvciBub3cKICAgIC8vICAgICBhbW91bnQ6IDAsCiAgICAvLyAgICAgZmVlOiAwLCAvLyBCb2IncyBvdXRlciB0cmFuc2FjdGlvbiBjb3ZlcnMgZmVlcwogICAgLy8gICB9KQogICAgLy8gICAuc3VibWl0KCk7CiAgICBpdHhuX2JlZ2luCiAgICAvLyBzbWFydF9jb250cmFjdHMvY2xpY2tfY3Jvbi9jb250cmFjdC5hbGdvLnRzOjM0CiAgICAvLyBjcm9uQWNjb3VudCA9IEdsb2JhbFN0YXRlPEFjY291bnQ+KHsga2V5OiAnYycgfSk7CiAgICBpbnRjXzAgLy8gMAogICAgYnl0ZWNfMCAvLyAiYyIKICAgIGFwcF9nbG9iYWxfZ2V0X2V4CiAgICBhc3NlcnQgLy8gY2hlY2sgR2xvYmFsU3RhdGUgZXhpc3RzCiAgICBpbnRjXzAgLy8gMAogICAgYnl0ZWNfMCAvLyAiYyIKICAgIGFwcF9nbG9iYWxfZ2V0X2V4CiAgICBhc3NlcnQgLy8gY2hlY2sgR2xvYmFsU3RhdGUgZXhpc3RzCiAgICAvLyBzbWFydF9jb250cmFjdHMvY2xpY2tfY3Jvbi9jb250cmFjdC5hbGdvLnRzOjY0CiAgICAvLyBhbW91bnQ6IDAsCiAgICBpbnRjXzAgLy8gMAogICAgaXR4bl9maWVsZCBBbW91bnQKICAgIGl0eG5fZmllbGQgUmVjZWl2ZXIKICAgIGl0eG5fZmllbGQgU2VuZGVyCiAgICAvLyBzbWFydF9jb250cmFjdHMvY2xpY2tfY3Jvbi9jb250cmFjdC5hbGdvLnRzOjYwLTY2CiAgICAvLyBpdHhuCiAgICAvLyAgIC5wYXltZW50KHsKICAgIC8vICAgICBzZW5kZXI6IHRoaXMuY3JvbkFjY291bnQudmFsdWUsIC8vIFRyYW5zYWN0aW9uIGNvbWVzIGZyb20gdGhlIGNyb24gYWNjb3VudAogICAgLy8gICAgIHJlY2VpdmVyOiB0aGlzLmNyb25BY2NvdW50LnZhbHVlLCAvLyBEdW1teSB0cmFuc2FjdGlvbiB0byBpdHNlbGYgZm9yIG5vdwogICAgLy8gICAgIGFtb3VudDogMCwKICAgIC8vICAgICBmZWU6IDAsIC8vIEJvYidzIG91dGVyIHRyYW5zYWN0aW9uIGNvdmVycyBmZWVzCiAgICAvLyAgIH0pCiAgICBpbnRjXzEgLy8gMQogICAgaXR4bl9maWVsZCBUeXBlRW51bQogICAgLy8gc21hcnRfY29udHJhY3RzL2NsaWNrX2Nyb24vY29udHJhY3QuYWxnby50czo2NQogICAgLy8gZmVlOiAwLCAvLyBCb2IncyBvdXRlciB0cmFuc2FjdGlvbiBjb3ZlcnMgZmVlcwogICAgaW50Y18wIC8vIDAKICAgIGl0eG5fZmllbGQgRmVlCiAgICAvLyBzbWFydF9jb250cmFjdHMvY2xpY2tfY3Jvbi9jb250cmFjdC5hbGdvLnRzOjYwLTY3CiAgICAvLyBpdHhuCiAgICAvLyAgIC5wYXltZW50KHsKICAgIC8vICAgICBzZW5kZXI6IHRoaXMuY3JvbkFjY291bnQudmFsdWUsIC8vIFRyYW5zYWN0aW9uIGNvbWVzIGZyb20gdGhlIGNyb24gYWNjb3VudAogICAgLy8gICAgIHJlY2VpdmVyOiB0aGlzLmNyb25BY2NvdW50LnZhbHVlLCAvLyBEdW1teSB0cmFuc2FjdGlvbiB0byBpdHNlbGYgZm9yIG5vdwogICAgLy8gICAgIGFtb3VudDogMCwKICAgIC8vICAgICBmZWU6IDAsIC8vIEJvYidzIG91dGVyIHRyYW5zYWN0aW9uIGNvdmVycyBmZWVzCiAgICAvLyAgIH0pCiAgICAvLyAgIC5zdWJtaXQoKTsKICAgIGl0eG5fc3VibWl0CiAgICByZXRzdWIKCnJlY29yZENsaWNrX3Rlcm5hcnlfZmFsc2VAMjoKICAgIC8vIHNtYXJ0X2NvbnRyYWN0cy9jbGlja19jcm9uL2NvbnRyYWN0LmFsZ28udHM6NTYKICAgIC8vIGNvbnN0IGN1cnJlbnRDb3VudCA9IHRoaXMuY2xpY2tDb3VudChUeG4uc2VuZGVyKS52YWx1ZSB8fCBVaW50NjQoMCk7CiAgICBpbnRjXzAgLy8gMAogICAgYiByZWNvcmRDbGlja190ZXJuYXJ5X21lcmdlQDMKCgovLyBzbWFydF9jb250cmFjdHMvY2xpY2tfY3Jvbi9jb250cmFjdC5hbGdvLnRzOjpDbGlja0Nyb24uZ2V0Q2xpY2tDb3VudCh1c2VyOiBieXRlcykgLT4gdWludDY0OgpnZXRDbGlja0NvdW50OgogICAgLy8gc21hcnRfY29udHJhY3RzL2NsaWNrX2Nyb24vY29udHJhY3QuYWxnby50czo3MC03MQogICAgLy8gQGFiaW1ldGhvZCgpCiAgICAvLyBwdWJsaWMgZ2V0Q2xpY2tDb3VudCh1c2VyOiBBY2NvdW50KTogdWludDY0IHsKICAgIHByb3RvIDEgMQogICAgLy8gc21hcnRfY29udHJhY3RzL2NsaWNrX2Nyb24vY29udHJhY3QuYWxnby50czo3MgogICAgLy8gcmV0dXJuIHRoaXMuY2xpY2tDb3VudCh1c2VyKS52YWx1ZSB8fCBVaW50NjQoMCk7CiAgICBmcmFtZV9kaWcgLTEKICAgIGludGNfMCAvLyAwCiAgICAvLyBzbWFydF9jb250cmFjdHMvY2xpY2tfY3Jvbi9jb250cmFjdC5hbGdvLnRzOjM1CiAgICAvLyBjbGlja0NvdW50ID0gTG9jYWxTdGF0ZTx1aW50NjQ+KHsga2V5OiAnYycgfSk7CiAgICBieXRlY18wIC8vICJjIgogICAgLy8gc21hcnRfY29udHJhY3RzL2NsaWNrX2Nyb24vY29udHJhY3QuYWxnby50czo3MgogICAgLy8gcmV0dXJuIHRoaXMuY2xpY2tDb3VudCh1c2VyKS52YWx1ZSB8fCBVaW50NjQoMCk7CiAgICBhcHBfbG9jYWxfZ2V0X2V4CiAgICBzd2FwCiAgICBkdXAKICAgIHVuY292ZXIgMgogICAgYXNzZXJ0IC8vIGNoZWNrIExvY2FsU3RhdGUgZXhpc3RzCiAgICBieiBnZXRDbGlja0NvdW50X3Rlcm5hcnlfZmFsc2VAMgogICAgZnJhbWVfZGlnIDAKCmdldENsaWNrQ291bnRfdGVybmFyeV9tZXJnZUAzOgogICAgLy8gc21hcnRfY29udHJhY3RzL2NsaWNrX2Nyb24vY29udHJhY3QuYWxnby50czo3MgogICAgLy8gcmV0dXJuIHRoaXMuY2xpY2tDb3VudCh1c2VyKS52YWx1ZSB8fCBVaW50NjQoMCk7CiAgICBzd2FwCiAgICByZXRzdWIKCmdldENsaWNrQ291bnRfdGVybmFyeV9mYWxzZUAyOgogICAgLy8gc21hcnRfY29udHJhY3RzL2NsaWNrX2Nyb24vY29udHJhY3QuYWxnby50czo3MgogICAgLy8gcmV0dXJuIHRoaXMuY2xpY2tDb3VudCh1c2VyKS52YWx1ZSB8fCBVaW50NjQoMCk7CiAgICBpbnRjXzAgLy8gMAogICAgYiBnZXRDbGlja0NvdW50X3Rlcm5hcnlfbWVyZ2VAMwo=","clear":"I3ByYWdtYSB2ZXJzaW9uIDEwCiNwcmFnbWEgdHlwZXRyYWNrIGZhbHNlCgovLyBAYWxnb3JhbmRmb3VuZGF0aW9uL2FsZ29yYW5kLXR5cGVzY3JpcHQvYmFzZS1jb250cmFjdC5kLnRzOjpCYXNlQ29udHJhY3QuY2xlYXJTdGF0ZVByb2dyYW0oKSAtPiB1aW50NjQ6Cm1haW46CiAgICBwdXNoaW50IDEgLy8gMQogICAgcmV0dXJuCg=="},"byteCode":{"approval":"CiACAAEmAgFjAWExG0EAhYIFBNpT/v4EKTFNlQToqMLFBP1ixm0EniD8JjYaAI4FAEkAPAAqAB4AAiJDMRkURDEYRDYaARfAHIgArhaABBUffHVMULAjQzEZFEQxGESIAFwjQzEZFEQxGEQ2GgEXwByIADojQzEZIxJEMRhEiAAnI0MxGRREMRhENhoBF8AciAANI0MxGUD/oDEYFEQjQ4oBACmL/2eJMQAoImaJigEAMQAiKWVEEkQoi/9niYoAACIoZUUBRDEAIihjTElPAkRBACKLADEATCMIKExmsSIoZUQiKGVEIrIIsgeyACOyECKyAbOJIkL/3IoBAYv/IihjTElPAkRBAASLAEyJIkL/+g==","clear":"CoEBQw=="},"compilerInfo":{"compiler":"puya","compilerVersion":{"major":4,"minor":5,"patch":3}},"events":[],"templateVariables":{}} as unknown as Arc56Contract
+export const APP_SPEC: Arc56Contract = {"name":"ClickCron","structs":{},"methods":[{"name":"createApplication","args":[],"returns":{"type":"void"},"actions":{"create":["NoOp"],"call":[]},"readonly":false,"events":[],"recommendations":{}},{"name":"optIn","args":[],"returns":{"type":"void"},"actions":{"create":[],"call":["OptIn"]},"readonly":false,"events":[],"recommendations":{}},{"name":"recordClick","args":[],"returns":{"type":"void"},"actions":{"create":[],"call":["NoOp"]},"readonly":false,"events":[],"recommendations":{}},{"name":"getClickCount","args":[{"type":"account","name":"user"}],"returns":{"type":"uint64"},"actions":{"create":[],"call":["NoOp"]},"readonly":false,"events":[],"recommendations":{}}],"arcs":[22,28],"networks":{},"state":{"schema":{"global":{"ints":0,"bytes":0},"local":{"ints":1,"bytes":0}},"keys":{"global":{},"local":{"clickCount":{"keyType":"AVMString","valueType":"AVMUint64","key":"bA=="}},"box":{}},"maps":{"global":{},"local":{},"box":{}}},"bareActions":{"create":[],"call":[]},"sourceInfo":{"approval":{"sourceInfo":[{"pc":[54,82,107],"errorMessage":"OnCompletion is not NoOp"},{"pc":[95],"errorMessage":"OnCompletion is not OptIn"},{"pc":[130],"errorMessage":"Only the user can record a click"},{"pc":[111],"errorMessage":"can only call when creating"},{"pc":[57,85,98],"errorMessage":"can only call when not creating"},{"pc":[138,169],"errorMessage":"check LocalState exists"}],"pcOffsetMethod":"none"},"clear":{"sourceInfo":[],"pcOffsetMethod":"none"}},"source":{"approval":"I3ByYWdtYSB2ZXJzaW9uIDEwCiNwcmFnbWEgdHlwZXRyYWNrIGZhbHNlCgovLyBAYWxnb3JhbmRmb3VuZGF0aW9uL2FsZ29yYW5kLXR5cGVzY3JpcHQvYXJjNC9pbmRleC5kLnRzOjpDb250cmFjdC5hcHByb3ZhbFByb2dyYW0oKSAtPiB1aW50NjQ6Cm1haW46CiAgICBpbnRjYmxvY2sgMCAxCiAgICBieXRlY2Jsb2NrICJsIgogICAgLy8gc21hcnRfY29udHJhY3RzL2NsaWNrcl9sb2dpYy9jb250cmFjdC5hbGdvLnRzOjQKICAgIC8vIGV4cG9ydCBjbGFzcyBDbGlja0Nyb24gZXh0ZW5kcyBDb250cmFjdCB7CiAgICB0eG4gTnVtQXBwQXJncwogICAgYnogbWFpbl9hZnRlcl9pZl9lbHNlQDEwCiAgICBwdXNoYnl0ZXNzIDB4Yjg0NDdiMzYgMHgyOTMxNGQ5NSAweGZkNjJjNjZkIDB4OWUyMGZjMjYgLy8gbWV0aG9kICJjcmVhdGVBcHBsaWNhdGlvbigpdm9pZCIsIG1ldGhvZCAib3B0SW4oKXZvaWQiLCBtZXRob2QgInJlY29yZENsaWNrKCl2b2lkIiwgbWV0aG9kICJnZXRDbGlja0NvdW50KGFjY291bnQpdWludDY0IgogICAgdHhuYSBBcHBsaWNhdGlvbkFyZ3MgMAogICAgbWF0Y2ggbWFpbl9jcmVhdGVBcHBsaWNhdGlvbl9yb3V0ZUAzIG1haW5fb3B0SW5fcm91dGVANCBtYWluX3JlY29yZENsaWNrX3JvdXRlQDUgbWFpbl9nZXRDbGlja0NvdW50X3JvdXRlQDYKCm1haW5fYWZ0ZXJfaWZfZWxzZUAxMDoKICAgIC8vIHNtYXJ0X2NvbnRyYWN0cy9jbGlja3JfbG9naWMvY29udHJhY3QuYWxnby50czo0CiAgICAvLyBleHBvcnQgY2xhc3MgQ2xpY2tDcm9uIGV4dGVuZHMgQ29udHJhY3QgewogICAgaW50Y18wIC8vIDAKICAgIHJldHVybgoKbWFpbl9nZXRDbGlja0NvdW50X3JvdXRlQDY6CiAgICAvLyBzbWFydF9jb250cmFjdHMvY2xpY2tyX2xvZ2ljL2NvbnRyYWN0LmFsZ28udHM6MzUKICAgIC8vIEBhYmltZXRob2QoKQogICAgdHhuIE9uQ29tcGxldGlvbgogICAgIQogICAgYXNzZXJ0IC8vIE9uQ29tcGxldGlvbiBpcyBub3QgTm9PcAogICAgdHhuIEFwcGxpY2F0aW9uSUQKICAgIGFzc2VydCAvLyBjYW4gb25seSBjYWxsIHdoZW4gbm90IGNyZWF0aW5nCiAgICAvLyBzbWFydF9jb250cmFjdHMvY2xpY2tyX2xvZ2ljL2NvbnRyYWN0LmFsZ28udHM6NAogICAgLy8gZXhwb3J0IGNsYXNzIENsaWNrQ3JvbiBleHRlbmRzIENvbnRyYWN0IHsKICAgIHR4bmEgQXBwbGljYXRpb25BcmdzIDEKICAgIGJ0b2kKICAgIHR4bmFzIEFjY291bnRzCiAgICAvLyBzbWFydF9jb250cmFjdHMvY2xpY2tyX2xvZ2ljL2NvbnRyYWN0LmFsZ28udHM6MzUKICAgIC8vIEBhYmltZXRob2QoKQogICAgY2FsbHN1YiBnZXRDbGlja0NvdW50CiAgICBpdG9iCiAgICBwdXNoYnl0ZXMgMHgxNTFmN2M3NQogICAgc3dhcAogICAgY29uY2F0CiAgICBsb2cKICAgIGludGNfMSAvLyAxCiAgICByZXR1cm4KCm1haW5fcmVjb3JkQ2xpY2tfcm91dGVANToKICAgIC8vIHNtYXJ0X2NvbnRyYWN0cy9jbGlja3JfbG9naWMvY29udHJhY3QuYWxnby50czoyMQogICAgLy8gQGFiaW1ldGhvZCgpCiAgICB0eG4gT25Db21wbGV0aW9uCiAgICAhCiAgICBhc3NlcnQgLy8gT25Db21wbGV0aW9uIGlzIG5vdCBOb09wCiAgICB0eG4gQXBwbGljYXRpb25JRAogICAgYXNzZXJ0IC8vIGNhbiBvbmx5IGNhbGwgd2hlbiBub3QgY3JlYXRpbmcKICAgIGNhbGxzdWIgcmVjb3JkQ2xpY2sKICAgIGludGNfMSAvLyAxCiAgICByZXR1cm4KCm1haW5fb3B0SW5fcm91dGVANDoKICAgIC8vIHNtYXJ0X2NvbnRyYWN0cy9jbGlja3JfbG9naWMvY29udHJhY3QuYWxnby50czoxNQogICAgLy8gQGFiaW1ldGhvZCh7IGFsbG93QWN0aW9uczogJ09wdEluJyB9KQogICAgdHhuIE9uQ29tcGxldGlvbgogICAgaW50Y18xIC8vIE9wdEluCiAgICA9PQogICAgYXNzZXJ0IC8vIE9uQ29tcGxldGlvbiBpcyBub3QgT3B0SW4KICAgIHR4biBBcHBsaWNhdGlvbklECiAgICBhc3NlcnQgLy8gY2FuIG9ubHkgY2FsbCB3aGVuIG5vdCBjcmVhdGluZwogICAgY2FsbHN1YiBvcHRJbgogICAgaW50Y18xIC8vIDEKICAgIHJldHVybgoKbWFpbl9jcmVhdGVBcHBsaWNhdGlvbl9yb3V0ZUAzOgogICAgLy8gc21hcnRfY29udHJhY3RzL2NsaWNrcl9sb2dpYy9jb250cmFjdC5hbGdvLnRzOjktMTEKICAgIC8vIEBhYmltZXRob2QoewogICAgLy8gICBvbkNyZWF0ZTogJ3JlcXVpcmUnLAogICAgLy8gfSkKICAgIHR4biBPbkNvbXBsZXRpb24KICAgICEKICAgIGFzc2VydCAvLyBPbkNvbXBsZXRpb24gaXMgbm90IE5vT3AKICAgIHR4biBBcHBsaWNhdGlvbklECiAgICAhCiAgICBhc3NlcnQgLy8gY2FuIG9ubHkgY2FsbCB3aGVuIGNyZWF0aW5nCiAgICBpbnRjXzEgLy8gMQogICAgcmV0dXJuCgoKLy8gc21hcnRfY29udHJhY3RzL2NsaWNrcl9sb2dpYy9jb250cmFjdC5hbGdvLnRzOjpDbGlja0Nyb24ub3B0SW4oKSAtPiB2b2lkOgpvcHRJbjoKICAgIC8vIHNtYXJ0X2NvbnRyYWN0cy9jbGlja3JfbG9naWMvY29udHJhY3QuYWxnby50czoxNwogICAgLy8gdGhpcy5jbGlja0NvdW50KFR4bi5zZW5kZXIpLnZhbHVlID0gVWludDY0KDApIC8vIEluaXRpYWxpemUgdGhlIGNsaWNrIGNvdW50IHRvIDAKICAgIHR4biBTZW5kZXIKICAgIC8vIHNtYXJ0X2NvbnRyYWN0cy9jbGlja3JfbG9naWMvY29udHJhY3QuYWxnby50czo2CiAgICAvLyBjbGlja0NvdW50ID0gTG9jYWxTdGF0ZTx1aW50NjQ+KHsga2V5OiAnbCcgfSkKICAgIGJ5dGVjXzAgLy8gImwiCiAgICAvLyBzbWFydF9jb250cmFjdHMvY2xpY2tyX2xvZ2ljL2NvbnRyYWN0LmFsZ28udHM6MTcKICAgIC8vIHRoaXMuY2xpY2tDb3VudChUeG4uc2VuZGVyKS52YWx1ZSA9IFVpbnQ2NCgwKSAvLyBJbml0aWFsaXplIHRoZSBjbGljayBjb3VudCB0byAwCiAgICBpbnRjXzAgLy8gMAogICAgYXBwX2xvY2FsX3B1dAogICAgcmV0c3ViCgoKLy8gc21hcnRfY29udHJhY3RzL2NsaWNrcl9sb2dpYy9jb250cmFjdC5hbGdvLnRzOjpDbGlja0Nyb24ucmVjb3JkQ2xpY2soKSAtPiB2b2lkOgpyZWNvcmRDbGljazoKICAgIC8vIHNtYXJ0X2NvbnRyYWN0cy9jbGlja3JfbG9naWMvY29udHJhY3QuYWxnby50czoyMS0yMgogICAgLy8gQGFiaW1ldGhvZCgpCiAgICAvLyBwdWJsaWMgcmVjb3JkQ2xpY2soKTogdm9pZCB7CiAgICBwcm90byAwIDAKICAgIC8vIHNtYXJ0X2NvbnRyYWN0cy9jbGlja3JfbG9naWMvY29udHJhY3QuYWxnby50czoyNAogICAgLy8gY29uc3QgdXNlciA9IFR4bi5zZW5kZXIKICAgIHR4biBTZW5kZXIKICAgIGR1cG4gMgogICAgLy8gc21hcnRfY29udHJhY3RzL2NsaWNrcl9sb2dpYy9jb250cmFjdC5hbGdvLnRzOjI3CiAgICAvLyBhc3NlcnQoVHhuLnNlbmRlciA9PT0gdXNlciwgJ09ubHkgdGhlIHVzZXIgY2FuIHJlY29yZCBhIGNsaWNrJykKICAgIGRpZyAxCiAgICA9PQogICAgYXNzZXJ0IC8vIE9ubHkgdGhlIHVzZXIgY2FuIHJlY29yZCBhIGNsaWNrCiAgICAvLyBzbWFydF9jb250cmFjdHMvY2xpY2tyX2xvZ2ljL2NvbnRyYWN0LmFsZ28udHM6MzAKICAgIC8vIGNvbnN0IGN1cnJlbnRDb3VudCA9IHRoaXMuY2xpY2tDb3VudCh1c2VyKS52YWx1ZSB8fCBVaW50NjQoMCkKICAgIGludGNfMCAvLyAwCiAgICAvLyBzbWFydF9jb250cmFjdHMvY2xpY2tyX2xvZ2ljL2NvbnRyYWN0LmFsZ28udHM6NgogICAgLy8gY2xpY2tDb3VudCA9IExvY2FsU3RhdGU8dWludDY0Pih7IGtleTogJ2wnIH0pCiAgICBieXRlY18wIC8vICJsIgogICAgLy8gc21hcnRfY29udHJhY3RzL2NsaWNrcl9sb2dpYy9jb250cmFjdC5hbGdvLnRzOjMwCiAgICAvLyBjb25zdCBjdXJyZW50Q291bnQgPSB0aGlzLmNsaWNrQ291bnQodXNlcikudmFsdWUgfHwgVWludDY0KDApCiAgICBhcHBfbG9jYWxfZ2V0X2V4CiAgICBzd2FwCiAgICBkdXAKICAgIHVuY292ZXIgMgogICAgYXNzZXJ0IC8vIGNoZWNrIExvY2FsU3RhdGUgZXhpc3RzCiAgICBieiByZWNvcmRDbGlja190ZXJuYXJ5X2ZhbHNlQDIKICAgIGZyYW1lX2RpZyAxCgpyZWNvcmRDbGlja190ZXJuYXJ5X21lcmdlQDM6CiAgICAvLyBzbWFydF9jb250cmFjdHMvY2xpY2tyX2xvZ2ljL2NvbnRyYWN0LmFsZ28udHM6MzEKICAgIC8vIHRoaXMuY2xpY2tDb3VudCh1c2VyKS52YWx1ZSA9IGN1cnJlbnRDb3VudCArIFVpbnQ2NCgxKQogICAgaW50Y18xIC8vIDEKICAgICsKICAgIGZyYW1lX2RpZyAwCiAgICAvLyBzbWFydF9jb250cmFjdHMvY2xpY2tyX2xvZ2ljL2NvbnRyYWN0LmFsZ28udHM6NgogICAgLy8gY2xpY2tDb3VudCA9IExvY2FsU3RhdGU8dWludDY0Pih7IGtleTogJ2wnIH0pCiAgICBieXRlY18wIC8vICJsIgogICAgLy8gc21hcnRfY29udHJhY3RzL2NsaWNrcl9sb2dpYy9jb250cmFjdC5hbGdvLnRzOjMxCiAgICAvLyB0aGlzLmNsaWNrQ291bnQodXNlcikudmFsdWUgPSBjdXJyZW50Q291bnQgKyBVaW50NjQoMSkKICAgIHVuY292ZXIgMgogICAgYXBwX2xvY2FsX3B1dAogICAgcmV0c3ViCgpyZWNvcmRDbGlja190ZXJuYXJ5X2ZhbHNlQDI6CiAgICAvLyBzbWFydF9jb250cmFjdHMvY2xpY2tyX2xvZ2ljL2NvbnRyYWN0LmFsZ28udHM6MzAKICAgIC8vIGNvbnN0IGN1cnJlbnRDb3VudCA9IHRoaXMuY2xpY2tDb3VudCh1c2VyKS52YWx1ZSB8fCBVaW50NjQoMCkKICAgIGludGNfMCAvLyAwCiAgICBiIHJlY29yZENsaWNrX3Rlcm5hcnlfbWVyZ2VAMwoKCi8vIHNtYXJ0X2NvbnRyYWN0cy9jbGlja3JfbG9naWMvY29udHJhY3QuYWxnby50czo6Q2xpY2tDcm9uLmdldENsaWNrQ291bnQodXNlcjogYnl0ZXMpIC0+IHVpbnQ2NDoKZ2V0Q2xpY2tDb3VudDoKICAgIC8vIHNtYXJ0X2NvbnRyYWN0cy9jbGlja3JfbG9naWMvY29udHJhY3QuYWxnby50czozNS0zNgogICAgLy8gQGFiaW1ldGhvZCgpCiAgICAvLyBwdWJsaWMgZ2V0Q2xpY2tDb3VudCh1c2VyOiBBY2NvdW50KTogdWludDY0IHsKICAgIHByb3RvIDEgMQogICAgLy8gc21hcnRfY29udHJhY3RzL2NsaWNrcl9sb2dpYy9jb250cmFjdC5hbGdvLnRzOjM3CiAgICAvLyByZXR1cm4gdGhpcy5jbGlja0NvdW50KHVzZXIpLnZhbHVlIHx8IFVpbnQ2NCgwKQogICAgZnJhbWVfZGlnIC0xCiAgICBpbnRjXzAgLy8gMAogICAgLy8gc21hcnRfY29udHJhY3RzL2NsaWNrcl9sb2dpYy9jb250cmFjdC5hbGdvLnRzOjYKICAgIC8vIGNsaWNrQ291bnQgPSBMb2NhbFN0YXRlPHVpbnQ2ND4oeyBrZXk6ICdsJyB9KQogICAgYnl0ZWNfMCAvLyAibCIKICAgIC8vIHNtYXJ0X2NvbnRyYWN0cy9jbGlja3JfbG9naWMvY29udHJhY3QuYWxnby50czozNwogICAgLy8gcmV0dXJuIHRoaXMuY2xpY2tDb3VudCh1c2VyKS52YWx1ZSB8fCBVaW50NjQoMCkKICAgIGFwcF9sb2NhbF9nZXRfZXgKICAgIHN3YXAKICAgIGR1cAogICAgdW5jb3ZlciAyCiAgICBhc3NlcnQgLy8gY2hlY2sgTG9jYWxTdGF0ZSBleGlzdHMKICAgIGJ6IGdldENsaWNrQ291bnRfdGVybmFyeV9mYWxzZUAyCiAgICBmcmFtZV9kaWcgMAoKZ2V0Q2xpY2tDb3VudF90ZXJuYXJ5X21lcmdlQDM6CiAgICAvLyBzbWFydF9jb250cmFjdHMvY2xpY2tyX2xvZ2ljL2NvbnRyYWN0LmFsZ28udHM6MzcKICAgIC8vIHJldHVybiB0aGlzLmNsaWNrQ291bnQodXNlcikudmFsdWUgfHwgVWludDY0KDApCiAgICBzd2FwCiAgICByZXRzdWIKCmdldENsaWNrQ291bnRfdGVybmFyeV9mYWxzZUAyOgogICAgLy8gc21hcnRfY29udHJhY3RzL2NsaWNrcl9sb2dpYy9jb250cmFjdC5hbGdvLnRzOjM3CiAgICAvLyByZXR1cm4gdGhpcy5jbGlja0NvdW50KHVzZXIpLnZhbHVlIHx8IFVpbnQ2NCgwKQogICAgaW50Y18wIC8vIDAKICAgIGIgZ2V0Q2xpY2tDb3VudF90ZXJuYXJ5X21lcmdlQDMK","clear":"I3ByYWdtYSB2ZXJzaW9uIDEwCiNwcmFnbWEgdHlwZXRyYWNrIGZhbHNlCgovLyBAYWxnb3JhbmRmb3VuZGF0aW9uL2FsZ29yYW5kLXR5cGVzY3JpcHQvYmFzZS1jb250cmFjdC5kLnRzOjpCYXNlQ29udHJhY3QuY2xlYXJTdGF0ZVByb2dyYW0oKSAtPiB1aW50NjQ6Cm1haW46CiAgICBwdXNoaW50IDEgLy8gMQogICAgcmV0dXJuCg=="},"byteCode":{"approval":"CiACAAEmAQFsMRtBACOCBAS4RHs2BCkxTZUE/WLGbQSeIPwmNhoAjgQANwAqAB4AAiJDMRkURDEYRDYaARfAHIgAWhaABBUffHVMULAjQzEZFEQxGESIAB8jQzEZIxJEMRhEiAAMI0MxGRREMRgURCNDMQAoImaJigAAMQBHAksBEkQiKGNMSU8CREEAC4sBIwiLAChPAmaJIkL/84oBAYv/IihjTElPAkRBAASLAEyJIkL/+g==","clear":"CoEBQw=="},"compilerInfo":{"compiler":"puya","compilerVersion":{"major":4,"minor":5,"patch":3}},"events":[],"templateVariables":{}} as unknown as Arc56Contract
 
 /**
  * A state record containing binary data
@@ -71,13 +71,8 @@ export type ClickCronArgs = {
    * The object representation of the arguments for each method
    */
   obj: {
-    'createApplication(account)void': {
-      admin: Uint8Array | string
-    }
+    'createApplication()void': Record<string, never>
     'optIn()void': Record<string, never>
-    'setCronAccount(account)void': {
-      account: Uint8Array | string
-    }
     'recordClick()void': Record<string, never>
     'getClickCount(account)uint64': {
       user: Uint8Array | string
@@ -87,9 +82,8 @@ export type ClickCronArgs = {
    * The tuple representation of the arguments for each method
    */
   tuple: {
-    'createApplication(account)void': [admin: Uint8Array | string]
+    'createApplication()void': []
     'optIn()void': []
-    'setCronAccount(account)void': [account: Uint8Array | string]
     'recordClick()void': []
     'getClickCount(account)uint64': [user: Uint8Array | string]
   }
@@ -99,9 +93,8 @@ export type ClickCronArgs = {
  * The return type for each method
  */
 export type ClickCronReturns = {
-  'createApplication(account)void': void
+  'createApplication()void': void
   'optIn()void': void
-  'setCronAccount(account)void': void
   'recordClick()void': void
   'getClickCount(account)uint64': bigint
 }
@@ -114,20 +107,15 @@ export type ClickCronTypes = {
    * Maps method signatures / names to their argument and return types.
    */
   methods:
-    & Record<'createApplication(account)void' | 'createApplication', {
-      argsObj: ClickCronArgs['obj']['createApplication(account)void']
-      argsTuple: ClickCronArgs['tuple']['createApplication(account)void']
-      returns: ClickCronReturns['createApplication(account)void']
+    & Record<'createApplication()void' | 'createApplication', {
+      argsObj: ClickCronArgs['obj']['createApplication()void']
+      argsTuple: ClickCronArgs['tuple']['createApplication()void']
+      returns: ClickCronReturns['createApplication()void']
     }>
     & Record<'optIn()void' | 'optIn', {
       argsObj: ClickCronArgs['obj']['optIn()void']
       argsTuple: ClickCronArgs['tuple']['optIn()void']
       returns: ClickCronReturns['optIn()void']
-    }>
-    & Record<'setCronAccount(account)void' | 'setCronAccount', {
-      argsObj: ClickCronArgs['obj']['setCronAccount(account)void']
-      argsTuple: ClickCronArgs['tuple']['setCronAccount(account)void']
-      returns: ClickCronReturns['setCronAccount(account)void']
     }>
     & Record<'recordClick()void' | 'recordClick', {
       argsObj: ClickCronArgs['obj']['recordClick()void']
@@ -143,13 +131,6 @@ export type ClickCronTypes = {
    * Defines the shape of the state of the application.
    */
   state: {
-    global: {
-      keys: {
-        admin: BinaryState
-        cronAccount: BinaryState
-      }
-      maps: {}
-    }
     local: {
       keys: {
         clickCount: bigint
@@ -187,11 +168,6 @@ export type MethodArgs<TSignature extends ClickCronSignatures> = ClickCronTypes[
 export type MethodReturn<TSignature extends ClickCronSignatures> = ClickCronTypes['methods'][TSignature]['returns']
 
 /**
- * Defines the shape of the keyed global state of the application.
- */
-export type GlobalKeysState = ClickCronTypes['state']['global']['keys']
-
-/**
  * Defines the shape of the keyed local state of the application.
  */
 export type LocalKeysState = ClickCronTypes['state']['local']['keys']
@@ -201,7 +177,8 @@ export type LocalKeysState = ClickCronTypes['state']['local']['keys']
  * Defines supported create method params for this smart contract
  */
 export type ClickCronCreateCallParams =
-  | Expand<AppClientBareCallParams & {method?: never} & {onComplete?: OnApplicationComplete.NoOpOC} & CreateSchema>
+  | Expand<CallParams<ClickCronArgs['obj']['createApplication()void'] | ClickCronArgs['tuple']['createApplication()void']> & {method: 'createApplication'} & {onComplete?: OnApplicationComplete.NoOpOC} & CreateSchema>
+  | Expand<CallParams<ClickCronArgs['obj']['createApplication()void'] | ClickCronArgs['tuple']['createApplication()void']> & {method: 'createApplication()void'} & {onComplete?: OnApplicationComplete.NoOpOC} & CreateSchema>
 /**
  * Defines arguments required for the deploy method.
  */
@@ -217,6 +194,36 @@ export type ClickCronDeployParams = Expand<Omit<AppFactoryDeployParams, 'createP
  * Exposes methods for constructing `AppClient` params objects for ABI calls to the ClickCron smart contract
  */
 export abstract class ClickCronParamsFactory {
+  /**
+   * Gets available create ABI call param factories
+   */
+  static get create() {
+    return {
+      _resolveByMethod<TParams extends ClickCronCreateCallParams & {method: string}>(params: TParams) {
+        switch(params.method) {
+          case 'createApplication':
+          case 'createApplication()void':
+            return ClickCronParamsFactory.create.createApplication(params)
+        }
+        throw new Error(`Unknown ' + verb + ' method`)
+      },
+
+      /**
+       * Constructs create ABI call params for the ClickCron smart contract using the createApplication()void ABI method
+       *
+       * @param params Parameters for the call
+       * @returns An `AppClientMethodCallParams` object for the call
+       */
+      createApplication(params: CallParams<ClickCronArgs['obj']['createApplication()void'] | ClickCronArgs['tuple']['createApplication()void']> & AppClientCompilationParams & {onComplete?: OnApplicationComplete.NoOpOC}): AppClientMethodCallParams & AppClientCompilationParams & {onComplete?: OnApplicationComplete.NoOpOC} {
+        return {
+          ...params,
+          method: 'createApplication()void' as const,
+          args: Array.isArray(params.args) ? params.args : [],
+        }
+      },
+    }
+  }
+
   /**
    * Gets available optIn ABI call param factories
    */
@@ -238,32 +245,6 @@ export abstract class ClickCronParamsFactory {
     }
   }
 
-  /**
-   * Constructs a no op call for the createApplication(account)void ABI method
-   *
-   * @param params Parameters for the call
-   * @returns An `AppClientMethodCallParams` object for the call
-   */
-  static createApplication(params: CallParams<ClickCronArgs['obj']['createApplication(account)void'] | ClickCronArgs['tuple']['createApplication(account)void']> & CallOnComplete): AppClientMethodCallParams & CallOnComplete {
-    return {
-      ...params,
-      method: 'createApplication(account)void' as const,
-      args: Array.isArray(params.args) ? params.args : [params.args.admin],
-    }
-  }
-  /**
-   * Constructs a no op call for the setCronAccount(account)void ABI method
-   *
-   * @param params Parameters for the call
-   * @returns An `AppClientMethodCallParams` object for the call
-   */
-  static setCronAccount(params: CallParams<ClickCronArgs['obj']['setCronAccount(account)void'] | ClickCronArgs['tuple']['setCronAccount(account)void']> & CallOnComplete): AppClientMethodCallParams & CallOnComplete {
-    return {
-      ...params,
-      method: 'setCronAccount(account)void' as const,
-      args: Array.isArray(params.args) ? params.args : [params.args.account],
-    }
-  }
   /**
    * Constructs a no op call for the recordClick()void ABI method
    *
@@ -364,6 +345,7 @@ export class ClickCronFactory {
   public async deploy(params: ClickCronDeployParams = {}) {
     const result = await this.appFactory.deploy({
       ...params,
+      createParams: params.createParams?.method ? ClickCronParamsFactory.create._resolveByMethod(params.createParams) : params.createParams ? params.createParams as (ClickCronCreateCallParams & { args: Uint8Array[] }) : undefined,
     })
     return { result: result.result, appClient: new ClickCronClient(result.appClient) }
   }
@@ -377,13 +359,13 @@ export class ClickCronFactory {
      */
     create: {
       /**
-       * Creates a new instance of the ClickCron smart contract using a bare call.
+       * Creates a new instance of the ClickCron smart contract using the createApplication()void ABI method.
        *
-       * @param params The params for the bare (raw) call
-       * @returns The params for a create call
+       * @param params The params for the smart contract call
+       * @returns The create params
        */
-      bare: (params?: Expand<AppClientBareCallParams & AppClientCompilationParams & CreateSchema & {onComplete?: OnApplicationComplete.NoOpOC}>) => {
-        return this.appFactory.params.bare.create(params)
+      createApplication: (params: CallParams<ClickCronArgs['obj']['createApplication()void'] | ClickCronArgs['tuple']['createApplication()void']> & AppClientCompilationParams & CreateSchema & {onComplete?: OnApplicationComplete.NoOpOC} = {args: []}) => {
+        return this.appFactory.params.create(ClickCronParamsFactory.create.createApplication(params))
       },
     },
 
@@ -398,13 +380,13 @@ export class ClickCronFactory {
      */
     create: {
       /**
-       * Creates a new instance of the ClickCron smart contract using a bare call.
+       * Creates a new instance of the ClickCron smart contract using the createApplication()void ABI method.
        *
-       * @param params The params for the bare (raw) call
-       * @returns The transaction for a create call
+       * @param params The params for the smart contract call
+       * @returns The create transaction
        */
-      bare: (params?: Expand<AppClientBareCallParams & AppClientCompilationParams & CreateSchema & {onComplete?: OnApplicationComplete.NoOpOC}>) => {
-        return this.appFactory.createTransaction.bare.create(params)
+      createApplication: (params: CallParams<ClickCronArgs['obj']['createApplication()void'] | ClickCronArgs['tuple']['createApplication()void']> & AppClientCompilationParams & CreateSchema & {onComplete?: OnApplicationComplete.NoOpOC} = {args: []}) => {
+        return this.appFactory.createTransaction.create(ClickCronParamsFactory.create.createApplication(params))
       },
     },
 
@@ -419,14 +401,14 @@ export class ClickCronFactory {
      */
     create: {
       /**
-       * Creates a new instance of the ClickCron smart contract using a bare call.
+       * Creates a new instance of the ClickCron smart contract using an ABI method call using the createApplication()void ABI method.
        *
-       * @param params The params for the bare (raw) call
+       * @param params The params for the smart contract call
        * @returns The create result
        */
-      bare: async (params?: Expand<AppClientBareCallParams & AppClientCompilationParams & CreateSchema & SendParams & {onComplete?: OnApplicationComplete.NoOpOC}>) => {
-        const result = await this.appFactory.send.bare.create(params)
-        return { result: result.result, appClient: new ClickCronClient(result.appClient) }
+      createApplication: async (params: CallParams<ClickCronArgs['obj']['createApplication()void'] | ClickCronArgs['tuple']['createApplication()void']> & AppClientCompilationParams & CreateSchema & SendParams & {onComplete?: OnApplicationComplete.NoOpOC} = {args: []}) => {
+        const result = await this.appFactory.send.create(ClickCronParamsFactory.create.createApplication(params))
+        return { result: { ...result.result, return: result.result.return as unknown as (undefined | ClickCronReturns['createApplication()void']) }, appClient: new ClickCronClient(result.appClient) }
       },
     },
 
@@ -547,26 +529,6 @@ export class ClickCronClient {
     },
 
     /**
-     * Makes a call to the ClickCron smart contract using the `createApplication(account)void` ABI method.
-     *
-     * @param params The params for the smart contract call
-     * @returns The call params
-     */
-    createApplication: (params: CallParams<ClickCronArgs['obj']['createApplication(account)void'] | ClickCronArgs['tuple']['createApplication(account)void']> & {onComplete?: OnApplicationComplete.NoOpOC}) => {
-      return this.appClient.params.call(ClickCronParamsFactory.createApplication(params))
-    },
-
-    /**
-     * Makes a call to the ClickCron smart contract using the `setCronAccount(account)void` ABI method.
-     *
-     * @param params The params for the smart contract call
-     * @returns The call params
-     */
-    setCronAccount: (params: CallParams<ClickCronArgs['obj']['setCronAccount(account)void'] | ClickCronArgs['tuple']['setCronAccount(account)void']> & {onComplete?: OnApplicationComplete.NoOpOC}) => {
-      return this.appClient.params.call(ClickCronParamsFactory.setCronAccount(params))
-    },
-
-    /**
      * Makes a call to the ClickCron smart contract using the `recordClick()void` ABI method.
      *
      * @param params The params for the smart contract call
@@ -616,26 +578,6 @@ export class ClickCronClient {
      */
     clearState: (params?: Expand<AppClientBareCallParams>) => {
       return this.appClient.createTransaction.bare.clearState(params)
-    },
-
-    /**
-     * Makes a call to the ClickCron smart contract using the `createApplication(account)void` ABI method.
-     *
-     * @param params The params for the smart contract call
-     * @returns The call transaction
-     */
-    createApplication: (params: CallParams<ClickCronArgs['obj']['createApplication(account)void'] | ClickCronArgs['tuple']['createApplication(account)void']> & {onComplete?: OnApplicationComplete.NoOpOC}) => {
-      return this.appClient.createTransaction.call(ClickCronParamsFactory.createApplication(params))
-    },
-
-    /**
-     * Makes a call to the ClickCron smart contract using the `setCronAccount(account)void` ABI method.
-     *
-     * @param params The params for the smart contract call
-     * @returns The call transaction
-     */
-    setCronAccount: (params: CallParams<ClickCronArgs['obj']['setCronAccount(account)void'] | ClickCronArgs['tuple']['setCronAccount(account)void']> & {onComplete?: OnApplicationComplete.NoOpOC}) => {
-      return this.appClient.createTransaction.call(ClickCronParamsFactory.setCronAccount(params))
     },
 
     /**
@@ -692,28 +634,6 @@ export class ClickCronClient {
     },
 
     /**
-     * Makes a call to the ClickCron smart contract using the `createApplication(account)void` ABI method.
-     *
-     * @param params The params for the smart contract call
-     * @returns The call result
-     */
-    createApplication: async (params: CallParams<ClickCronArgs['obj']['createApplication(account)void'] | ClickCronArgs['tuple']['createApplication(account)void']> & SendParams & {onComplete?: OnApplicationComplete.NoOpOC}) => {
-      const result = await this.appClient.send.call(ClickCronParamsFactory.createApplication(params))
-      return {...result, return: result.return as unknown as (undefined | ClickCronReturns['createApplication(account)void'])}
-    },
-
-    /**
-     * Makes a call to the ClickCron smart contract using the `setCronAccount(account)void` ABI method.
-     *
-     * @param params The params for the smart contract call
-     * @returns The call result
-     */
-    setCronAccount: async (params: CallParams<ClickCronArgs['obj']['setCronAccount(account)void'] | ClickCronArgs['tuple']['setCronAccount(account)void']> & SendParams & {onComplete?: OnApplicationComplete.NoOpOC}) => {
-      const result = await this.appClient.send.call(ClickCronParamsFactory.setCronAccount(params))
-      return {...result, return: result.return as unknown as (undefined | ClickCronReturns['setCronAccount(account)void'])}
-    },
-
-    /**
      * Makes a call to the ClickCron smart contract using the `recordClick()void` ABI method.
      *
      * @param params The params for the smart contract call
@@ -752,29 +672,6 @@ export class ClickCronClient {
    */
   state = {
     /**
-     * Methods to access global state for the current ClickCron app
-     */
-    global: {
-      /**
-       * Get all current keyed values from global state
-       */
-      getAll: async (): Promise<Partial<Expand<GlobalKeysState>>> => {
-        const result = await this.appClient.state.global.getAll()
-        return {
-          admin: new BinaryStateValue(result.admin),
-          cronAccount: new BinaryStateValue(result.cronAccount),
-        }
-      },
-      /**
-       * Get the current value of the admin key in global state
-       */
-      admin: async (): Promise<BinaryState> => { return new BinaryStateValue((await this.appClient.state.global.getValue("admin")) as Uint8Array | undefined) },
-      /**
-       * Get the current value of the cronAccount key in global state
-       */
-      cronAccount: async (): Promise<BinaryState> => { return new BinaryStateValue((await this.appClient.state.global.getValue("cronAccount")) as Uint8Array | undefined) },
-    },
-    /**
      * Methods to access local state for the current ClickCron app
      */
     local: (address: string | Address) => {
@@ -803,22 +700,6 @@ export class ClickCronClient {
     let promiseChain:Promise<unknown> = Promise.resolve()
     const resultMappers: Array<undefined | ((x: ABIReturn | undefined) => any)> = []
     return {
-      /**
-       * Add a createApplication(account)void method call against the ClickCron contract
-       */
-      createApplication(params: CallParams<ClickCronArgs['obj']['createApplication(account)void'] | ClickCronArgs['tuple']['createApplication(account)void']> & {onComplete?: OnApplicationComplete.NoOpOC}) {
-        promiseChain = promiseChain.then(async () => composer.addAppCallMethodCall(await client.params.createApplication(params)))
-        resultMappers.push(undefined)
-        return this
-      },
-      /**
-       * Add a setCronAccount(account)void method call against the ClickCron contract
-       */
-      setCronAccount(params: CallParams<ClickCronArgs['obj']['setCronAccount(account)void'] | ClickCronArgs['tuple']['setCronAccount(account)void']> & {onComplete?: OnApplicationComplete.NoOpOC}) {
-        promiseChain = promiseChain.then(async () => composer.addAppCallMethodCall(await client.params.setCronAccount(params)))
-        resultMappers.push(undefined)
-        return this
-      },
       /**
        * Add a recordClick()void method call against the ClickCron contract
        */
@@ -879,24 +760,6 @@ export class ClickCronClient {
   }
 }
 export type ClickCronComposer<TReturns extends [...any[]] = []> = {
-  /**
-   * Calls the createApplication(account)void ABI method.
-   *
-   * @param args The arguments for the contract call
-   * @param params Any additional parameters for the call
-   * @returns The typed transaction composer so you can fluently chain multiple calls or call execute to execute all queued up transactions
-   */
-  createApplication(params?: CallParams<ClickCronArgs['obj']['createApplication(account)void'] | ClickCronArgs['tuple']['createApplication(account)void']>): ClickCronComposer<[...TReturns, ClickCronReturns['createApplication(account)void'] | undefined]>
-
-  /**
-   * Calls the setCronAccount(account)void ABI method.
-   *
-   * @param args The arguments for the contract call
-   * @param params Any additional parameters for the call
-   * @returns The typed transaction composer so you can fluently chain multiple calls or call execute to execute all queued up transactions
-   */
-  setCronAccount(params?: CallParams<ClickCronArgs['obj']['setCronAccount(account)void'] | ClickCronArgs['tuple']['setCronAccount(account)void']>): ClickCronComposer<[...TReturns, ClickCronReturns['setCronAccount(account)void'] | undefined]>
-
   /**
    * Calls the recordClick()void ABI method.
    *

@@ -6,6 +6,7 @@ import { ClickCronFactory } from '../artifacts/click_cron/ClickCronClient'
 test('Click Cron > records clicks and creates delegated transactions', async () => {
   console.log('\n=== Starting Click Cron Test ===\n')
 
+  /* [ARCHIVED TEST FTM] */
   // 1. Set up the test environment
   const fixture = await algorandFixture()
   await fixture.newScope()
