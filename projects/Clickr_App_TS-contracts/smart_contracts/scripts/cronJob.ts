@@ -8,11 +8,11 @@ async function cronJob() {
 
   // 2. Generate a random cron account
   const cronAccount = await algorand.account.random()
-  console.log(`Generated new cron account: ${cronAccount.addr.toString()}`)
+  console.log(`\nGenerated new cron account: ${cronAccount.addr.toString()}`)
 
   // 3. Get the LocalNet dispenser account
   const dispenserAccount = await algorand.account.localNetDispenser()
-  console.log(`Using LocalNet dispenser account: ${dispenserAccount.addr.toString()}`)
+  console.log(`\nUsing LocalNet dispenser account: ${dispenserAccount.addr.toString()}`)
 
   // 4. Fund the cron account with 5 Algos from the dispenser (for now, this will be paid by clicker via SC itxn in future)
   await algorand.send.payment({
@@ -21,10 +21,10 @@ async function cronJob() {
     amount: AlgoAmount.Algos(5),
     note: 'Funding cron account',
   })
-  console.log(`Funded cron account with 5 Algos`)
+  console.log(`\nFunded cron account with 5 Algos`)
 
   // 5. Define the application ID
-  const appID = BigInt(1001) 
+  const appID = BigInt(1001)
 
   // 6. Get accounts that have opted into the application
   async function getAccountsWithLocalState(appID: bigint) {
@@ -37,7 +37,7 @@ async function cronJob() {
 
       // Extract the account addresses
       const accounts = response.accounts.map((account) => account.address)
-      console.log(`Found ${accounts.length} accounts with local state for app ${appID}`)
+      console.log(`\nFound ${accounts.length} accounts with local state for app ${appID}`)
       return accounts
     } catch (error) {
       console.error('Error getting accounts with local state:', error)
@@ -47,11 +47,11 @@ async function cronJob() {
 
   // 7. Then in your main function:
   const users = await getAccountsWithLocalState(appID)
-  console.log(`Found ${users.length} users who have opted into the app`)
+  console.log(`\nFound ${users.length} users who have opted into the app`)
 
   // 8. For each user, retrieve their local state from the app
   for (const user of users) {
-    console.log(`Processing local state for user: ${user}`)
+    console.log(`\nProcessing local state for user: ${user}`)
 
     const userLocalState = await algorand.app.getLocalState(appID, user)
 
@@ -69,15 +69,17 @@ async function cronJob() {
 
       // 10. Check if there are pending actions to be processed
       if (clickCount > 0) {
-        console.log(`User ${user} has ${clickCount} clicks to process`)
+        console.log(`\nUser ${user} has ${clickCount} clicks to process`)
 
-        // 11. Send a transaction for each click
-        await algorand.send.payment({
-          sender: cronAccount,
-          receiver: cronAccount, // Send to itself 
-          amount: AlgoAmount.MicroAlgos(0), // Zero amount to simulate action
-          note: `Triggered by app ${appID} - Click Action for User ${user}`,
-        })
+        for (let i = 0; i < clickCount; i++) {
+          // 11. Send a transaction for each click
+          await algorand.send.payment({
+            sender: cronAccount,
+            receiver: cronAccount, // Send to itself
+            amount: AlgoAmount.MicroAlgos(0), // Zero amount to simulate action
+            note: `Triggered by app ${appID} - Click ${i + 1} for User ${user}`, // Unique note
+          })
+        }
 
         // // 12. Mark the action as processed by updating the smart contract
         // await algorand.send.appCall({
@@ -89,11 +91,11 @@ async function cronJob() {
         //   ],
         // })
 
-        console.log(`Processed click for user ${user}`)
+        console.log(`\nProcessed click for user ${user}`)
       }
     }
   }
 }
 
-// Execute the cron job every minute 
+// Execute the cron job every minute
 cronJob().catch(console.error)
