@@ -3,7 +3,7 @@
   "sources": [
     "/Users/sarajane/Documents/AlgoKitProjects/Clickr/Clickr_App_TS/projects/Clickr_App_TS-contracts/smart_contracts/clickr_logic/contract.algo.ts"
   ],
-  "mappings": ";;;;;;;;;AAGA;;AAAA;;;AAAA;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;;;AAAA;;;;;;;;;;;;AAAA;;AAmCG;;AAAA;AAAA;AAAA;;AAAA;AAnCH;;;AAAA;AAAA;;AAmCG;;;AAAA;;AALA;;AAAA;AAAA;AAAA;;AAAA;AA9BH;;;AAAA;AAAA;;AA8BG;;;AAAA;AAAA;;;;;;AAAA;AAAA;AAAA;AAAA;;AAdA;;AAAA;AAAA;AAAA;;AAAA;AAAA;;;AAAA;;AANA;;AAAA;AAAA;AAAA;AAAA;;AAAA;AAAA;;;AAAA;;AANA;;AAAA;AAAA;AAAA;;AAAA;AAAA;AAAA;;AAQqB;;AAViB;AAUM;AAA3C;;AAIF;;;AAGmB;;AAAX;;AAGC;;AAAA;AAAP;AAG2C;AAvBN;AAuBM;AAAA;AAAA;AAAA;;AAAA;AAAtB;;;;;AAC+B;AAAtB;AAA9B;;AAxBqC;AAwBrC;;AAAA;;AAD2D;;;;AAK7D;;;AAE+B;;AAAA;AA9BQ;AA8BR;AAAA;AAAA;AAAA;;AAAA;AAAtB;;;;;AAAP;AAAA;AAA6C;;;;AAG/C;;;AAME;;AAvCqC;AAuCA;AAArC;",
+  "mappings": ";;;;;;;;;;;;;;;;;;AAGA;;AAAA;;;AAAA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;;;AAAA;;;;;;;;;;;;;;;;;;AAAA;;AAyEG;;AAAA;AAAA;AAAA;;AAAA;AAzEH;;;AAAA;AAAA;;AAyEG;;;AAAA;;AAhBA;;AAAA;AAAA;AAAA;;AAAA;AAzDH;;;AAAA;AAAA;;AAyDG;;;AAAA;;AALA;;AAAA;AAAA;AAAA;;AAAA;AApDH;;;AAAA;AAAA;;AAoDG;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;AANA;;AAAA;AAAA;AAAA;;AAAA;AA9CH;;;AAAA;AAAA;;AA8CG;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;AANA;;AAAA;AAAA;AAAA;;AAAA;AAxCH;;;AAAA;AAAA;;AAwCG;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;AAhBA;;AAAA;AAAA;AAAA;;AAAA;AAAA;;;AAAA;;AARA;;AAAA;AAAA;AAAA;AAAA;;AAAA;AAAA;;;AAAA;;AANA;;AAAA;AAAA;AAAA;;AAAA;AAAA;AAAA;;AAQqB;;AAhBiB;AAgBM;AAA3C;AACoB;;AAdiB;AAcM;;AAA3C;AAC2B;;AAZiB;AAYM;AAAlD;;AAIF;;;AAGmB;;AAAX;;AAGC;;AAAA;AAAP;AAE6B;AAAA;AA3BQ;AA2BR;AAAA;AAA7B;AAG2C;AAjCN;AAiCM;AAAA;AAAA;AAAA;;AAAA;AAAtB;;;;;AAC+B;AAAtB;AAA9B;;AAlCqC;AAkCrC;;AAAA;;AAD2D;;;;AAK7D;;;AAE+B;;AAAA;AAxCQ;AAwCR;AAAA;AAAA;AAAA;;AAAA;AAAtB;;;;;AAAP;AAAA;AAA6C;;;;AAI/C;;;AAEsC;;AAAA;AAxCQ;AAwCR;AAAA;AAAA;AAAA;;AAAA;AAA7B;;;;;AAAP;AAAA;AAAoD;;;;AAItD;;;AAE+B;;AAAA;AAjDQ;AAiDR;AAAA;AAAA;AAAA;;AAAA;AAAtB;;;;;AAAP;AAAA;AAA6C;;;;AAG/C;;;;;;AAK8C;;AAAA;AA5DP;AA4DO;AAAA;AAAA;AAAA;;AAAA;AAAtB;;;;;;;AAC6B;;AAAA;AAvDP;AAuDO;AAAA;AAAA;AAAA;;AAAA;;AAAA;AAA7B;;;;;AAElB;;AAAA;AAAJ;;;AACE;;AA1D0C;AA0D1C;;AAAA;AAIF;;AApEqC;AAoEA;AAArC;;AAPmE;;;;AADP;;;;;;AAW9D;;;AAEgC;;AAAA;AAtEO;AAsEP;AAAA;AAA9B;AAGsB;;AAAA;AAzEe;AAyEf;AAAA;AAAS;AAA/B;AAAA;;AAzEqC;AAyErC;;AAAA;",
   "op_pc_offset": 0,
   "pc_events": {
     "1": {
@@ -14,9 +14,9 @@
       "op": "intcblock 0 1"
     },
     "5": {
-      "op": "bytecblock \"l\""
+      "op": "bytecblock \"l\" \"h\" \"c\" 0x151f7c75"
     },
-    "9": {
+    "18": {
       "op": "txn NumAppArgs",
       "defined_out": [
         "tmp%0#1"
@@ -25,16 +25,19 @@
         "tmp%0#1"
       ]
     },
-    "11": {
-      "op": "bz main_after_if_else@11",
+    "20": {
+      "op": "bz main_after_if_else@14",
       "stack_out": []
     },
-    "14": {
-      "op": "pushbytess 0xb8447b36 0x29314d95 0xfd62c66d 0x9e20fc26 0x593338da // method \"createApplication()void\", method \"optIn()void\", method \"recordClick()void\", method \"getClickCount(account)uint64\", method \"clickProcessed(account)void\"",
+    "23": {
+      "op": "pushbytess 0xb8447b36 0x29314d95 0xfd62c66d 0x9e20fc26 0x21667e86 0xfbaf678f 0x593338da 0x59fbdace // method \"createApplication()void\", method \"optIn()void\", method \"recordClick()void\", method \"getClickCount(account)uint64\", method \"getHighestClickCount(account)uint64\", method \"getHeartCount(account)uint64\", method \"clickProcessed(account)void\", method \"decrementHeart(account)void\"",
       "defined_out": [
         "Method(clickProcessed(account)void)",
         "Method(createApplication()void)",
+        "Method(decrementHeart(account)void)",
         "Method(getClickCount(account)uint64)",
+        "Method(getHeartCount(account)uint64)",
+        "Method(getHighestClickCount(account)uint64)",
         "Method(optIn()void)",
         "Method(recordClick()void)"
       ],
@@ -43,15 +46,21 @@
         "Method(optIn()void)",
         "Method(recordClick()void)",
         "Method(getClickCount(account)uint64)",
-        "Method(clickProcessed(account)void)"
+        "Method(getHighestClickCount(account)uint64)",
+        "Method(getHeartCount(account)uint64)",
+        "Method(clickProcessed(account)void)",
+        "Method(decrementHeart(account)void)"
       ]
     },
-    "41": {
+    "65": {
       "op": "txna ApplicationArgs 0",
       "defined_out": [
         "Method(clickProcessed(account)void)",
         "Method(createApplication()void)",
+        "Method(decrementHeart(account)void)",
         "Method(getClickCount(account)uint64)",
+        "Method(getHeartCount(account)uint64)",
+        "Method(getHighestClickCount(account)uint64)",
         "Method(optIn()void)",
         "Method(recordClick()void)",
         "tmp%2#0"
@@ -61,16 +70,19 @@
         "Method(optIn()void)",
         "Method(recordClick()void)",
         "Method(getClickCount(account)uint64)",
+        "Method(getHighestClickCount(account)uint64)",
+        "Method(getHeartCount(account)uint64)",
         "Method(clickProcessed(account)void)",
+        "Method(decrementHeart(account)void)",
         "tmp%2#0"
       ]
     },
-    "44": {
-      "op": "match main_createApplication_route@3 main_optIn_route@4 main_recordClick_route@5 main_getClickCount_route@6 main_clickProcessed_route@7",
+    "68": {
+      "op": "match main_createApplication_route@3 main_optIn_route@4 main_recordClick_route@5 main_getClickCount_route@6 main_getHighestClickCount_route@7 main_getHeartCount_route@8 main_clickProcessed_route@9 main_decrementHeart_route@10",
       "stack_out": []
     },
-    "56": {
-      "block": "main_after_if_else@11",
+    "86": {
+      "block": "main_after_if_else@14",
       "stack_in": [],
       "op": "intc_0 // 0",
       "defined_out": [
@@ -80,12 +92,309 @@
         "tmp%0#0"
       ]
     },
-    "57": {
+    "87": {
       "op": "return",
       "stack_out": []
     },
-    "58": {
-      "block": "main_clickProcessed_route@7",
+    "88": {
+      "block": "main_decrementHeart_route@10",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%42#0"
+      ],
+      "stack_out": [
+        "tmp%42#0"
+      ]
+    },
+    "90": {
+      "op": "!",
+      "defined_out": [
+        "tmp%43#0"
+      ],
+      "stack_out": [
+        "tmp%43#0"
+      ]
+    },
+    "91": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "92": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%44#0"
+      ],
+      "stack_out": [
+        "tmp%44#0"
+      ]
+    },
+    "94": {
+      "error": "can only call when not creating",
+      "op": "assert // can only call when not creating",
+      "stack_out": []
+    },
+    "95": {
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "reinterpret_bytes[1]%4#0"
+      ],
+      "stack_out": [
+        "reinterpret_bytes[1]%4#0"
+      ]
+    },
+    "98": {
+      "op": "btoi",
+      "defined_out": [
+        "tmp%46#0"
+      ],
+      "stack_out": [
+        "tmp%46#0"
+      ]
+    },
+    "99": {
+      "op": "txnas Accounts",
+      "defined_out": [
+        "tmp%47#0"
+      ],
+      "stack_out": [
+        "tmp%47#0"
+      ]
+    },
+    "101": {
+      "callsub": "smart_contracts/clickr_logic/contract.algo.ts::clickrLogic.decrementHeart",
+      "op": "callsub decrementHeart",
+      "stack_out": []
+    },
+    "104": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "105": {
+      "op": "return",
+      "stack_out": []
+    },
+    "106": {
+      "block": "main_clickProcessed_route@9",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%36#0"
+      ],
+      "stack_out": [
+        "tmp%36#0"
+      ]
+    },
+    "108": {
+      "op": "!",
+      "defined_out": [
+        "tmp%37#0"
+      ],
+      "stack_out": [
+        "tmp%37#0"
+      ]
+    },
+    "109": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "110": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%38#0"
+      ],
+      "stack_out": [
+        "tmp%38#0"
+      ]
+    },
+    "112": {
+      "error": "can only call when not creating",
+      "op": "assert // can only call when not creating",
+      "stack_out": []
+    },
+    "113": {
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "reinterpret_bytes[1]%3#0"
+      ],
+      "stack_out": [
+        "reinterpret_bytes[1]%3#0"
+      ]
+    },
+    "116": {
+      "op": "btoi",
+      "defined_out": [
+        "tmp%40#0"
+      ],
+      "stack_out": [
+        "tmp%40#0"
+      ]
+    },
+    "117": {
+      "op": "txnas Accounts",
+      "defined_out": [
+        "tmp%41#0"
+      ],
+      "stack_out": [
+        "tmp%41#0"
+      ]
+    },
+    "119": {
+      "callsub": "smart_contracts/clickr_logic/contract.algo.ts::clickrLogic.clickProcessed",
+      "op": "callsub clickProcessed",
+      "stack_out": []
+    },
+    "122": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "123": {
+      "op": "return",
+      "stack_out": []
+    },
+    "124": {
+      "block": "main_getHeartCount_route@8",
+      "stack_in": [],
+      "op": "txn OnCompletion",
+      "defined_out": [
+        "tmp%29#0"
+      ],
+      "stack_out": [
+        "tmp%29#0"
+      ]
+    },
+    "126": {
+      "op": "!",
+      "defined_out": [
+        "tmp%30#0"
+      ],
+      "stack_out": [
+        "tmp%30#0"
+      ]
+    },
+    "127": {
+      "error": "OnCompletion is not NoOp",
+      "op": "assert // OnCompletion is not NoOp",
+      "stack_out": []
+    },
+    "128": {
+      "op": "txn ApplicationID",
+      "defined_out": [
+        "tmp%31#0"
+      ],
+      "stack_out": [
+        "tmp%31#0"
+      ]
+    },
+    "130": {
+      "error": "can only call when not creating",
+      "op": "assert // can only call when not creating",
+      "stack_out": []
+    },
+    "131": {
+      "op": "txna ApplicationArgs 1",
+      "defined_out": [
+        "reinterpret_bytes[1]%2#0"
+      ],
+      "stack_out": [
+        "reinterpret_bytes[1]%2#0"
+      ]
+    },
+    "134": {
+      "op": "btoi",
+      "defined_out": [
+        "tmp%33#0"
+      ],
+      "stack_out": [
+        "tmp%33#0"
+      ]
+    },
+    "135": {
+      "op": "txnas Accounts",
+      "defined_out": [
+        "tmp%34#0"
+      ],
+      "stack_out": [
+        "tmp%34#0"
+      ]
+    },
+    "137": {
+      "callsub": "smart_contracts/clickr_logic/contract.algo.ts::clickrLogic.getHeartCount",
+      "op": "callsub getHeartCount",
+      "defined_out": [
+        "to_encode%2#0"
+      ],
+      "stack_out": [
+        "to_encode%2#0"
+      ]
+    },
+    "140": {
+      "op": "itob",
+      "defined_out": [
+        "val_as_bytes%2#0"
+      ],
+      "stack_out": [
+        "val_as_bytes%2#0"
+      ]
+    },
+    "141": {
+      "op": "bytec_3 // 0x151f7c75",
+      "defined_out": [
+        "0x151f7c75",
+        "val_as_bytes%2#0"
+      ],
+      "stack_out": [
+        "val_as_bytes%2#0",
+        "0x151f7c75"
+      ]
+    },
+    "142": {
+      "op": "swap",
+      "stack_out": [
+        "0x151f7c75",
+        "val_as_bytes%2#0"
+      ]
+    },
+    "143": {
+      "op": "concat",
+      "defined_out": [
+        "tmp%35#0"
+      ],
+      "stack_out": [
+        "tmp%35#0"
+      ]
+    },
+    "144": {
+      "op": "log",
+      "stack_out": []
+    },
+    "145": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "tmp%0#0"
+      ]
+    },
+    "146": {
+      "op": "return",
+      "stack_out": []
+    },
+    "147": {
+      "block": "main_getHighestClickCount_route@7",
       "stack_in": [],
       "op": "txn OnCompletion",
       "defined_out": [
@@ -95,7 +404,7 @@
         "tmp%22#0"
       ]
     },
-    "60": {
+    "149": {
       "op": "!",
       "defined_out": [
         "tmp%23#0"
@@ -104,12 +413,12 @@
         "tmp%23#0"
       ]
     },
-    "61": {
+    "150": {
       "error": "OnCompletion is not NoOp",
       "op": "assert // OnCompletion is not NoOp",
       "stack_out": []
     },
-    "62": {
+    "151": {
       "op": "txn ApplicationID",
       "defined_out": [
         "tmp%24#0"
@@ -118,12 +427,12 @@
         "tmp%24#0"
       ]
     },
-    "64": {
+    "153": {
       "error": "can only call when not creating",
       "op": "assert // can only call when not creating",
       "stack_out": []
     },
-    "65": {
+    "154": {
       "op": "txna ApplicationArgs 1",
       "defined_out": [
         "reinterpret_bytes[1]%1#0"
@@ -132,7 +441,7 @@
         "reinterpret_bytes[1]%1#0"
       ]
     },
-    "68": {
+    "157": {
       "op": "btoi",
       "defined_out": [
         "tmp%26#0"
@@ -141,7 +450,7 @@
         "tmp%26#0"
       ]
     },
-    "69": {
+    "158": {
       "op": "txnas Accounts",
       "defined_out": [
         "tmp%27#0"
@@ -150,12 +459,57 @@
         "tmp%27#0"
       ]
     },
-    "71": {
-      "callsub": "smart_contracts/clickr_logic/contract.algo.ts::clickrLogic.clickProcessed",
-      "op": "callsub clickProcessed",
+    "160": {
+      "callsub": "smart_contracts/clickr_logic/contract.algo.ts::clickrLogic.getHighestClickCount",
+      "op": "callsub getHighestClickCount",
+      "defined_out": [
+        "to_encode%1#0"
+      ],
+      "stack_out": [
+        "to_encode%1#0"
+      ]
+    },
+    "163": {
+      "op": "itob",
+      "defined_out": [
+        "val_as_bytes%1#0"
+      ],
+      "stack_out": [
+        "val_as_bytes%1#0"
+      ]
+    },
+    "164": {
+      "op": "bytec_3 // 0x151f7c75",
+      "defined_out": [
+        "0x151f7c75",
+        "val_as_bytes%1#0"
+      ],
+      "stack_out": [
+        "val_as_bytes%1#0",
+        "0x151f7c75"
+      ]
+    },
+    "165": {
+      "op": "swap",
+      "stack_out": [
+        "0x151f7c75",
+        "val_as_bytes%1#0"
+      ]
+    },
+    "166": {
+      "op": "concat",
+      "defined_out": [
+        "tmp%28#0"
+      ],
+      "stack_out": [
+        "tmp%28#0"
+      ]
+    },
+    "167": {
+      "op": "log",
       "stack_out": []
     },
-    "74": {
+    "168": {
       "op": "intc_1 // 1",
       "defined_out": [
         "tmp%0#0"
@@ -164,11 +518,11 @@
         "tmp%0#0"
       ]
     },
-    "75": {
+    "169": {
       "op": "return",
       "stack_out": []
     },
-    "76": {
+    "170": {
       "block": "main_getClickCount_route@6",
       "stack_in": [],
       "op": "txn OnCompletion",
@@ -179,7 +533,7 @@
         "tmp%15#0"
       ]
     },
-    "78": {
+    "172": {
       "op": "!",
       "defined_out": [
         "tmp%16#0"
@@ -188,12 +542,12 @@
         "tmp%16#0"
       ]
     },
-    "79": {
+    "173": {
       "error": "OnCompletion is not NoOp",
       "op": "assert // OnCompletion is not NoOp",
       "stack_out": []
     },
-    "80": {
+    "174": {
       "op": "txn ApplicationID",
       "defined_out": [
         "tmp%17#0"
@@ -202,12 +556,12 @@
         "tmp%17#0"
       ]
     },
-    "82": {
+    "176": {
       "error": "can only call when not creating",
       "op": "assert // can only call when not creating",
       "stack_out": []
     },
-    "83": {
+    "177": {
       "op": "txna ApplicationArgs 1",
       "defined_out": [
         "reinterpret_bytes[1]%0#0"
@@ -216,7 +570,7 @@
         "reinterpret_bytes[1]%0#0"
       ]
     },
-    "86": {
+    "180": {
       "op": "btoi",
       "defined_out": [
         "tmp%19#0"
@@ -225,7 +579,7 @@
         "tmp%19#0"
       ]
     },
-    "87": {
+    "181": {
       "op": "txnas Accounts",
       "defined_out": [
         "tmp%20#0"
@@ -234,7 +588,7 @@
         "tmp%20#0"
       ]
     },
-    "89": {
+    "183": {
       "callsub": "smart_contracts/clickr_logic/contract.algo.ts::clickrLogic.getClickCount",
       "op": "callsub getClickCount",
       "defined_out": [
@@ -244,7 +598,7 @@
         "to_encode%0#0"
       ]
     },
-    "92": {
+    "186": {
       "op": "itob",
       "defined_out": [
         "val_as_bytes%0#0"
@@ -253,8 +607,8 @@
         "val_as_bytes%0#0"
       ]
     },
-    "93": {
-      "op": "pushbytes 0x151f7c75",
+    "187": {
+      "op": "bytec_3 // 0x151f7c75",
       "defined_out": [
         "0x151f7c75",
         "val_as_bytes%0#0"
@@ -264,14 +618,14 @@
         "0x151f7c75"
       ]
     },
-    "99": {
+    "188": {
       "op": "swap",
       "stack_out": [
         "0x151f7c75",
         "val_as_bytes%0#0"
       ]
     },
-    "100": {
+    "189": {
       "op": "concat",
       "defined_out": [
         "tmp%21#0"
@@ -280,11 +634,11 @@
         "tmp%21#0"
       ]
     },
-    "101": {
+    "190": {
       "op": "log",
       "stack_out": []
     },
-    "102": {
+    "191": {
       "op": "intc_1 // 1",
       "defined_out": [
         "tmp%0#0"
@@ -293,11 +647,11 @@
         "tmp%0#0"
       ]
     },
-    "103": {
+    "192": {
       "op": "return",
       "stack_out": []
     },
-    "104": {
+    "193": {
       "block": "main_recordClick_route@5",
       "stack_in": [],
       "op": "txn OnCompletion",
@@ -308,7 +662,7 @@
         "tmp%11#0"
       ]
     },
-    "106": {
+    "195": {
       "op": "!",
       "defined_out": [
         "tmp%12#0"
@@ -317,12 +671,12 @@
         "tmp%12#0"
       ]
     },
-    "107": {
+    "196": {
       "error": "OnCompletion is not NoOp",
       "op": "assert // OnCompletion is not NoOp",
       "stack_out": []
     },
-    "108": {
+    "197": {
       "op": "txn ApplicationID",
       "defined_out": [
         "tmp%13#0"
@@ -331,16 +685,16 @@
         "tmp%13#0"
       ]
     },
-    "110": {
+    "199": {
       "error": "can only call when not creating",
       "op": "assert // can only call when not creating",
       "stack_out": []
     },
-    "111": {
+    "200": {
       "callsub": "smart_contracts/clickr_logic/contract.algo.ts::clickrLogic.recordClick",
       "op": "callsub recordClick"
     },
-    "114": {
+    "203": {
       "op": "intc_1 // 1",
       "defined_out": [
         "tmp%0#0"
@@ -349,11 +703,11 @@
         "tmp%0#0"
       ]
     },
-    "115": {
+    "204": {
       "op": "return",
       "stack_out": []
     },
-    "116": {
+    "205": {
       "block": "main_optIn_route@4",
       "stack_in": [],
       "op": "txn OnCompletion",
@@ -364,7 +718,7 @@
         "tmp%7#0"
       ]
     },
-    "118": {
+    "207": {
       "op": "intc_1 // OptIn",
       "defined_out": [
         "OptIn",
@@ -375,7 +729,7 @@
         "OptIn"
       ]
     },
-    "119": {
+    "208": {
       "op": "==",
       "defined_out": [
         "tmp%8#0"
@@ -384,12 +738,12 @@
         "tmp%8#0"
       ]
     },
-    "120": {
+    "209": {
       "error": "OnCompletion is not OptIn",
       "op": "assert // OnCompletion is not OptIn",
       "stack_out": []
     },
-    "121": {
+    "210": {
       "op": "txn ApplicationID",
       "defined_out": [
         "tmp%9#0"
@@ -398,16 +752,16 @@
         "tmp%9#0"
       ]
     },
-    "123": {
+    "212": {
       "error": "can only call when not creating",
       "op": "assert // can only call when not creating",
       "stack_out": []
     },
-    "124": {
+    "213": {
       "callsub": "smart_contracts/clickr_logic/contract.algo.ts::clickrLogic.optIn",
       "op": "callsub optIn"
     },
-    "127": {
+    "216": {
       "op": "intc_1 // 1",
       "defined_out": [
         "tmp%0#0"
@@ -416,11 +770,11 @@
         "tmp%0#0"
       ]
     },
-    "128": {
+    "217": {
       "op": "return",
       "stack_out": []
     },
-    "129": {
+    "218": {
       "block": "main_createApplication_route@3",
       "stack_in": [],
       "op": "txn OnCompletion",
@@ -431,7 +785,7 @@
         "tmp%3#0"
       ]
     },
-    "131": {
+    "220": {
       "op": "!",
       "defined_out": [
         "tmp%4#0"
@@ -440,12 +794,12 @@
         "tmp%4#0"
       ]
     },
-    "132": {
+    "221": {
       "error": "OnCompletion is not NoOp",
       "op": "assert // OnCompletion is not NoOp",
       "stack_out": []
     },
-    "133": {
+    "222": {
       "op": "txn ApplicationID",
       "defined_out": [
         "tmp%5#0"
@@ -454,7 +808,7 @@
         "tmp%5#0"
       ]
     },
-    "135": {
+    "224": {
       "op": "!",
       "defined_out": [
         "tmp%6#0"
@@ -463,12 +817,12 @@
         "tmp%6#0"
       ]
     },
-    "136": {
+    "225": {
       "error": "can only call when creating",
       "op": "assert // can only call when creating",
       "stack_out": []
     },
-    "137": {
+    "226": {
       "op": "intc_1 // 1",
       "defined_out": [
         "tmp%0#0"
@@ -477,11 +831,11 @@
         "tmp%0#0"
       ]
     },
-    "138": {
+    "227": {
       "op": "return",
       "stack_out": []
     },
-    "139": {
+    "228": {
       "subroutine": "smart_contracts/clickr_logic/contract.algo.ts::clickrLogic.optIn",
       "params": {},
       "block": "optIn",
@@ -494,7 +848,7 @@
         "tmp%0#0"
       ]
     },
-    "141": {
+    "230": {
       "op": "bytec_0 // \"l\"",
       "defined_out": [
         "\"l\"",
@@ -505,7 +859,7 @@
         "\"l\""
       ]
     },
-    "142": {
+    "231": {
       "op": "intc_0 // 0",
       "defined_out": [
         "\"l\"",
@@ -518,25 +872,94 @@
         "0"
       ]
     },
-    "143": {
+    "232": {
       "op": "app_local_put",
       "stack_out": []
     },
-    "144": {
+    "233": {
+      "op": "txn Sender",
+      "defined_out": [
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%1#0"
+      ]
+    },
+    "235": {
+      "op": "bytec_1 // \"h\"",
+      "defined_out": [
+        "\"h\"",
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%1#0",
+        "\"h\""
+      ]
+    },
+    "236": {
+      "op": "pushint 5 // 5",
+      "defined_out": [
+        "\"h\"",
+        "5",
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "tmp%1#0",
+        "\"h\"",
+        "5"
+      ]
+    },
+    "238": {
+      "op": "app_local_put",
+      "stack_out": []
+    },
+    "239": {
+      "op": "txn Sender",
+      "defined_out": [
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%2#0"
+      ]
+    },
+    "241": {
+      "op": "bytec_2 // \"c\"",
+      "defined_out": [
+        "\"c\"",
+        "tmp%2#0"
+      ],
+      "stack_out": [
+        "tmp%2#0",
+        "\"c\""
+      ]
+    },
+    "242": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "tmp%2#0",
+        "\"c\"",
+        "0"
+      ]
+    },
+    "243": {
+      "op": "app_local_put",
+      "stack_out": []
+    },
+    "244": {
       "retsub": true,
       "op": "retsub"
     },
-    "145": {
+    "245": {
       "subroutine": "smart_contracts/clickr_logic/contract.algo.ts::clickrLogic.recordClick",
       "params": {},
       "block": "recordClick",
       "stack_in": [],
       "op": "proto 0 0"
     },
-    "148": {
+    "248": {
       "op": "txn Sender"
     },
-    "150": {
+    "250": {
       "op": "dupn 2",
       "defined_out": [
         "tmp%0#0",
@@ -548,7 +971,7 @@
         "tmp%0#0"
       ]
     },
-    "152": {
+    "252": {
       "op": "dig 1",
       "defined_out": [
         "tmp%0#0",
@@ -562,7 +985,7 @@
         "user#0 (copy)"
       ]
     },
-    "154": {
+    "254": {
       "op": "==",
       "defined_out": [
         "tmp%1#0",
@@ -574,7 +997,7 @@
         "tmp%1#0"
       ]
     },
-    "155": {
+    "255": {
       "error": "Only the user can record a click",
       "op": "assert // Only the user can record a click",
       "stack_out": [
@@ -582,7 +1005,71 @@
         "user#0"
       ]
     },
-    "156": {
+    "256": {
+      "op": "dup",
+      "stack_out": [
+        "user#0",
+        "user#0",
+        "user#0 (copy)"
+      ]
+    },
+    "257": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "user#0",
+        "user#0",
+        "user#0 (copy)",
+        "0"
+      ]
+    },
+    "258": {
+      "op": "bytec_1 // \"h\"",
+      "defined_out": [
+        "\"h\"",
+        "0",
+        "user#0",
+        "user#0 (copy)"
+      ],
+      "stack_out": [
+        "user#0",
+        "user#0",
+        "user#0 (copy)",
+        "0",
+        "\"h\""
+      ]
+    },
+    "259": {
+      "op": "app_local_get_ex",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0",
+        "user#0"
+      ],
+      "stack_out": [
+        "user#0",
+        "user#0",
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "260": {
+      "error": "check LocalState exists",
+      "op": "assert // check LocalState exists",
+      "stack_out": [
+        "user#0",
+        "user#0",
+        "maybe_value%0#0"
+      ]
+    },
+    "261": {
+      "error": "Only if user hearts are above 0 record click",
+      "op": "assert // Only if user hearts are above 0 record click",
+      "stack_out": [
+        "user#0",
+        "user#0"
+      ]
+    },
+    "262": {
       "op": "intc_0 // 0",
       "stack_out": [
         "user#0",
@@ -590,7 +1077,7 @@
         "0"
       ]
     },
-    "157": {
+    "263": {
       "op": "bytec_0 // \"l\"",
       "defined_out": [
         "\"l\"",
@@ -604,84 +1091,84 @@
         "\"l\""
       ]
     },
-    "158": {
+    "264": {
       "op": "app_local_get_ex",
       "defined_out": [
-        "maybe_exists%0#0",
-        "maybe_value%0#0",
+        "maybe_exists%1#0",
+        "maybe_value%1#0",
         "user#0"
       ],
       "stack_out": [
         "user#0",
-        "maybe_value%0#0",
-        "maybe_exists%0#0"
+        "maybe_value%1#0",
+        "maybe_exists%1#0"
       ]
     },
-    "159": {
+    "265": {
       "op": "swap",
       "stack_out": [
         "user#0",
-        "maybe_exists%0#0",
-        "maybe_value%0#0"
+        "maybe_exists%1#0",
+        "maybe_value%1#0"
       ]
     },
-    "160": {
+    "266": {
       "op": "dup",
       "stack_out": [
         "user#0",
-        "maybe_exists%0#0",
-        "maybe_value%0#0",
-        "maybe_value%0#0 (copy)"
+        "maybe_exists%1#0",
+        "maybe_value%1#0",
+        "maybe_value%1#0 (copy)"
       ]
     },
-    "161": {
+    "267": {
       "op": "uncover 2",
       "defined_out": [
-        "maybe_exists%0#0",
-        "maybe_value%0#0",
+        "maybe_exists%1#0",
+        "maybe_value%1#0",
         "user#0"
       ],
       "stack_out": [
         "user#0",
-        "maybe_value%0#0",
-        "maybe_value%0#0",
-        "maybe_exists%0#0"
+        "maybe_value%1#0",
+        "maybe_value%1#0",
+        "maybe_exists%1#0"
       ]
     },
-    "163": {
+    "269": {
       "error": "check LocalState exists",
       "op": "assert // check LocalState exists",
       "stack_out": [
         "user#0",
-        "maybe_value%0#0",
-        "maybe_value%0#0"
+        "maybe_value%1#0",
+        "maybe_value%1#0"
       ]
     },
-    "164": {
+    "270": {
       "op": "bz recordClick_ternary_false@2",
       "stack_out": [
         "user#0",
-        "maybe_value%0#0"
+        "maybe_value%1#0"
       ]
     },
-    "167": {
+    "273": {
       "op": "frame_dig 1",
       "defined_out": [
         "currentCount#0",
-        "maybe_value%0#0",
+        "maybe_value%1#0",
         "user#0"
       ],
       "stack_out": [
         "user#0",
-        "maybe_value%0#0",
+        "maybe_value%1#0",
         "currentCount#0"
       ]
     },
-    "169": {
+    "275": {
       "block": "recordClick_ternary_merge@3",
       "stack_in": [
         "user#0",
-        "maybe_value%0#0",
+        "maybe_value%1#0",
         "currentCount#0"
       ],
       "op": "intc_1 // 1",
@@ -691,23 +1178,23 @@
       ],
       "stack_out": [
         "user#0",
-        "maybe_value%0#0",
+        "maybe_value%1#0",
         "currentCount#0",
         "1"
       ]
     },
-    "170": {
+    "276": {
       "op": "+",
       "defined_out": [
         "new_state_value%0#0"
       ],
       "stack_out": [
         "user#0",
-        "maybe_value%0#0",
+        "maybe_value%1#0",
         "new_state_value%0#0"
       ]
     },
-    "171": {
+    "277": {
       "op": "frame_dig 0",
       "defined_out": [
         "new_state_value%0#0",
@@ -715,12 +1202,12 @@
       ],
       "stack_out": [
         "user#0",
-        "maybe_value%0#0",
+        "maybe_value%1#0",
         "new_state_value%0#0",
         "user#0"
       ]
     },
-    "173": {
+    "279": {
       "op": "bytec_0 // \"l\"",
       "defined_out": [
         "\"l\"",
@@ -729,38 +1216,38 @@
       ],
       "stack_out": [
         "user#0",
-        "maybe_value%0#0",
+        "maybe_value%1#0",
         "new_state_value%0#0",
         "user#0",
         "\"l\""
       ]
     },
-    "174": {
+    "280": {
       "op": "uncover 2",
       "stack_out": [
         "user#0",
-        "maybe_value%0#0",
+        "maybe_value%1#0",
         "user#0",
         "\"l\"",
         "new_state_value%0#0"
       ]
     },
-    "176": {
+    "282": {
       "op": "app_local_put",
       "stack_out": [
         "user#0",
-        "maybe_value%0#0"
+        "maybe_value%1#0"
       ]
     },
-    "177": {
+    "283": {
       "retsub": true,
       "op": "retsub"
     },
-    "178": {
+    "284": {
       "block": "recordClick_ternary_false@2",
       "stack_in": [
         "user#0",
-        "maybe_value%0#0"
+        "maybe_value%1#0"
       ],
       "op": "intc_0 // 0",
       "defined_out": [
@@ -768,14 +1255,14 @@
       ],
       "stack_out": [
         "user#0",
-        "maybe_value%0#0",
+        "maybe_value%1#0",
         "currentCount#0"
       ]
     },
-    "179": {
+    "285": {
       "op": "b recordClick_ternary_merge@3"
     },
-    "182": {
+    "288": {
       "subroutine": "smart_contracts/clickr_logic/contract.algo.ts::clickrLogic.getClickCount",
       "params": {
         "user#0": "bytes"
@@ -784,7 +1271,7 @@
       "stack_in": [],
       "op": "proto 1 1"
     },
-    "185": {
+    "291": {
       "op": "frame_dig -1",
       "defined_out": [
         "user#0 (copy)"
@@ -793,7 +1280,7 @@
         "user#0 (copy)"
       ]
     },
-    "187": {
+    "293": {
       "op": "intc_0 // 0",
       "defined_out": [
         "0",
@@ -804,7 +1291,7 @@
         "0"
       ]
     },
-    "188": {
+    "294": {
       "op": "bytec_0 // \"l\"",
       "defined_out": [
         "\"l\"",
@@ -817,7 +1304,7 @@
         "\"l\""
       ]
     },
-    "189": {
+    "295": {
       "op": "app_local_get_ex",
       "defined_out": [
         "maybe_exists%0#0",
@@ -828,14 +1315,14 @@
         "maybe_exists%0#0"
       ]
     },
-    "190": {
+    "296": {
       "op": "swap",
       "stack_out": [
         "maybe_exists%0#0",
         "maybe_value%0#0"
       ]
     },
-    "191": {
+    "297": {
       "op": "dup",
       "stack_out": [
         "maybe_exists%0#0",
@@ -843,7 +1330,7 @@
         "maybe_value%0#0 (copy)"
       ]
     },
-    "192": {
+    "298": {
       "op": "uncover 2",
       "defined_out": [
         "maybe_exists%0#0",
@@ -855,7 +1342,7 @@
         "maybe_exists%0#0"
       ]
     },
-    "194": {
+    "300": {
       "error": "check LocalState exists",
       "op": "assert // check LocalState exists",
       "stack_out": [
@@ -863,13 +1350,13 @@
         "maybe_value%0#0"
       ]
     },
-    "195": {
+    "301": {
       "op": "bz getClickCount_ternary_false@2",
       "stack_out": [
         "maybe_value%0#0"
       ]
     },
-    "198": {
+    "304": {
       "op": "frame_dig 0",
       "defined_out": [
         "maybe_value%0#0",
@@ -880,7 +1367,7 @@
         "ternary_result%0#1"
       ]
     },
-    "200": {
+    "306": {
       "block": "getClickCount_ternary_merge@3",
       "stack_in": [
         "maybe_value%0#0",
@@ -891,11 +1378,11 @@
         "ternary_result%0#1"
       ]
     },
-    "201": {
+    "307": {
       "retsub": true,
       "op": "retsub"
     },
-    "202": {
+    "308": {
       "block": "getClickCount_ternary_false@2",
       "stack_in": [
         "maybe_value%0#0"
@@ -909,19 +1396,19 @@
         "ternary_result%0#1"
       ]
     },
-    "203": {
+    "309": {
       "op": "b getClickCount_ternary_merge@3"
     },
-    "206": {
-      "subroutine": "smart_contracts/clickr_logic/contract.algo.ts::clickrLogic.clickProcessed",
+    "312": {
+      "subroutine": "smart_contracts/clickr_logic/contract.algo.ts::clickrLogic.getHighestClickCount",
       "params": {
         "user#0": "bytes"
       },
-      "block": "clickProcessed",
+      "block": "getHighestClickCount",
       "stack_in": [],
-      "op": "proto 1 0"
+      "op": "proto 1 1"
     },
-    "209": {
+    "315": {
       "op": "frame_dig -1",
       "defined_out": [
         "user#0 (copy)"
@@ -930,18 +1417,672 @@
         "user#0 (copy)"
       ]
     },
-    "211": {
+    "317": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "0",
+        "user#0 (copy)"
+      ],
+      "stack_out": [
+        "user#0 (copy)",
+        "0"
+      ]
+    },
+    "318": {
+      "op": "bytec_2 // \"c\"",
+      "defined_out": [
+        "\"c\"",
+        "0",
+        "user#0 (copy)"
+      ],
+      "stack_out": [
+        "user#0 (copy)",
+        "0",
+        "\"c\""
+      ]
+    },
+    "319": {
+      "op": "app_local_get_ex",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "320": {
+      "op": "swap",
+      "stack_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0"
+      ]
+    },
+    "321": {
+      "op": "dup",
+      "stack_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0",
+        "maybe_value%0#0 (copy)"
+      ]
+    },
+    "322": {
+      "op": "uncover 2",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "324": {
+      "error": "check LocalState exists",
+      "op": "assert // check LocalState exists",
+      "stack_out": [
+        "maybe_value%0#0",
+        "maybe_value%0#0"
+      ]
+    },
+    "325": {
+      "op": "bz getHighestClickCount_ternary_false@2",
+      "stack_out": [
+        "maybe_value%0#0"
+      ]
+    },
+    "328": {
+      "op": "frame_dig 0",
+      "defined_out": [
+        "maybe_value%0#0",
+        "ternary_result%0#1"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "ternary_result%0#1"
+      ]
+    },
+    "330": {
+      "block": "getHighestClickCount_ternary_merge@3",
+      "stack_in": [
+        "maybe_value%0#0",
+        "ternary_result%0#1"
+      ],
+      "op": "swap",
+      "defined_out": [
+        "ternary_result%0#1"
+      ]
+    },
+    "331": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "332": {
+      "block": "getHighestClickCount_ternary_false@2",
+      "stack_in": [
+        "maybe_value%0#0"
+      ],
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "ternary_result%0#1"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "ternary_result%0#1"
+      ]
+    },
+    "333": {
+      "op": "b getHighestClickCount_ternary_merge@3"
+    },
+    "336": {
+      "subroutine": "smart_contracts/clickr_logic/contract.algo.ts::clickrLogic.getHeartCount",
+      "params": {
+        "user#0": "bytes"
+      },
+      "block": "getHeartCount",
+      "stack_in": [],
+      "op": "proto 1 1"
+    },
+    "339": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "user#0 (copy)"
+      ],
+      "stack_out": [
+        "user#0 (copy)"
+      ]
+    },
+    "341": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "0",
+        "user#0 (copy)"
+      ],
+      "stack_out": [
+        "user#0 (copy)",
+        "0"
+      ]
+    },
+    "342": {
+      "op": "bytec_1 // \"h\"",
+      "defined_out": [
+        "\"h\"",
+        "0",
+        "user#0 (copy)"
+      ],
+      "stack_out": [
+        "user#0 (copy)",
+        "0",
+        "\"h\""
+      ]
+    },
+    "343": {
+      "op": "app_local_get_ex",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "344": {
+      "op": "swap",
+      "stack_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0"
+      ]
+    },
+    "345": {
+      "op": "dup",
+      "stack_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0",
+        "maybe_value%0#0 (copy)"
+      ]
+    },
+    "346": {
+      "op": "uncover 2",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "348": {
+      "error": "check LocalState exists",
+      "op": "assert // check LocalState exists",
+      "stack_out": [
+        "maybe_value%0#0",
+        "maybe_value%0#0"
+      ]
+    },
+    "349": {
+      "op": "bz getHeartCount_ternary_false@2",
+      "stack_out": [
+        "maybe_value%0#0"
+      ]
+    },
+    "352": {
+      "op": "frame_dig 0",
+      "defined_out": [
+        "maybe_value%0#0",
+        "ternary_result%0#1"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "ternary_result%0#1"
+      ]
+    },
+    "354": {
+      "block": "getHeartCount_ternary_merge@3",
+      "stack_in": [
+        "maybe_value%0#0",
+        "ternary_result%0#1"
+      ],
+      "op": "swap",
+      "defined_out": [
+        "ternary_result%0#1"
+      ]
+    },
+    "355": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "356": {
+      "block": "getHeartCount_ternary_false@2",
+      "stack_in": [
+        "maybe_value%0#0"
+      ],
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "ternary_result%0#1"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "ternary_result%0#1"
+      ]
+    },
+    "357": {
+      "op": "b getHeartCount_ternary_merge@3"
+    },
+    "360": {
+      "subroutine": "smart_contracts/clickr_logic/contract.algo.ts::clickrLogic.clickProcessed",
+      "params": {
+        "user#0": "bytes"
+      },
+      "block": "clickProcessed",
+      "stack_in": [],
+      "op": "proto 1 0"
+    },
+    "363": {
+      "op": "pushbytes \"\"",
+      "stack_out": [
+        "currentClicks#0"
+      ]
+    },
+    "365": {
+      "op": "dup",
+      "stack_out": [
+        "currentClicks#0",
+        "maybe_value%1#0"
+      ]
+    },
+    "366": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "user#0 (copy)"
+      ],
+      "stack_out": [
+        "currentClicks#0",
+        "maybe_value%1#0",
+        "user#0 (copy)"
+      ]
+    },
+    "368": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "0",
+        "user#0 (copy)"
+      ],
+      "stack_out": [
+        "currentClicks#0",
+        "maybe_value%1#0",
+        "user#0 (copy)",
+        "0"
+      ]
+    },
+    "369": {
+      "op": "bytec_0 // \"l\"",
+      "defined_out": [
+        "\"l\"",
+        "0",
+        "user#0 (copy)"
+      ],
+      "stack_out": [
+        "currentClicks#0",
+        "maybe_value%1#0",
+        "user#0 (copy)",
+        "0",
+        "\"l\""
+      ]
+    },
+    "370": {
+      "op": "app_local_get_ex",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0"
+      ],
+      "stack_out": [
+        "currentClicks#0",
+        "maybe_value%1#0",
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "371": {
+      "op": "swap",
+      "stack_out": [
+        "currentClicks#0",
+        "maybe_value%1#0",
+        "maybe_exists%0#0",
+        "maybe_value%0#0"
+      ]
+    },
+    "372": {
+      "op": "dup",
+      "stack_out": [
+        "currentClicks#0",
+        "maybe_value%1#0",
+        "maybe_exists%0#0",
+        "maybe_value%0#0",
+        "maybe_value%0#0 (copy)"
+      ]
+    },
+    "373": {
+      "op": "uncover 2",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0"
+      ],
+      "stack_out": [
+        "currentClicks#0",
+        "maybe_value%1#0",
+        "maybe_value%0#0",
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "375": {
+      "error": "check LocalState exists",
+      "op": "assert // check LocalState exists",
+      "stack_out": [
+        "currentClicks#0",
+        "maybe_value%1#0",
+        "maybe_value%0#0",
+        "maybe_value%0#0"
+      ]
+    },
+    "376": {
+      "op": "bz clickProcessed_ternary_false@2",
+      "stack_out": [
+        "currentClicks#0",
+        "maybe_value%1#0",
+        "maybe_value%0#0"
+      ]
+    },
+    "379": {
+      "op": "frame_dig 2",
+      "defined_out": [
+        "currentClicks#0",
+        "maybe_value%0#0"
+      ],
+      "stack_out": [
+        "currentClicks#0",
+        "maybe_value%1#0",
+        "maybe_value%0#0",
+        "currentClicks#0"
+      ]
+    },
+    "381": {
+      "op": "frame_bury 0",
+      "defined_out": [
+        "currentClicks#0",
+        "maybe_value%0#0"
+      ],
+      "stack_out": [
+        "currentClicks#0",
+        "maybe_value%1#0",
+        "maybe_value%0#0"
+      ]
+    },
+    "383": {
+      "block": "clickProcessed_ternary_merge@3",
+      "stack_in": [
+        "currentClicks#0",
+        "maybe_value%1#0",
+        "maybe_value%0#0"
+      ],
+      "op": "frame_dig -1",
+      "defined_out": [
+        "user#0 (copy)"
+      ],
+      "stack_out": [
+        "currentClicks#0",
+        "maybe_value%1#0",
+        "maybe_value%0#0",
+        "user#0 (copy)"
+      ]
+    },
+    "385": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "0",
+        "user#0 (copy)"
+      ],
+      "stack_out": [
+        "currentClicks#0",
+        "maybe_value%1#0",
+        "maybe_value%0#0",
+        "user#0 (copy)",
+        "0"
+      ]
+    },
+    "386": {
+      "op": "bytec_2 // \"c\"",
+      "defined_out": [
+        "\"c\"",
+        "0",
+        "user#0 (copy)"
+      ],
+      "stack_out": [
+        "currentClicks#0",
+        "maybe_value%1#0",
+        "maybe_value%0#0",
+        "user#0 (copy)",
+        "0",
+        "\"c\""
+      ]
+    },
+    "387": {
+      "op": "app_local_get_ex",
+      "defined_out": [
+        "maybe_exists%1#0",
+        "maybe_value%1#0"
+      ],
+      "stack_out": [
+        "currentClicks#0",
+        "maybe_value%1#0",
+        "maybe_value%0#0",
+        "maybe_value%1#0",
+        "maybe_exists%1#0"
+      ]
+    },
+    "388": {
+      "op": "swap",
+      "stack_out": [
+        "currentClicks#0",
+        "maybe_value%1#0",
+        "maybe_value%0#0",
+        "maybe_exists%1#0",
+        "maybe_value%1#0"
+      ]
+    },
+    "389": {
+      "op": "dup",
+      "stack_out": [
+        "currentClicks#0",
+        "maybe_value%1#0",
+        "maybe_value%0#0",
+        "maybe_exists%1#0",
+        "maybe_value%1#0",
+        "maybe_value%1#0 (copy)"
+      ]
+    },
+    "390": {
+      "op": "cover 2",
+      "stack_out": [
+        "currentClicks#0",
+        "maybe_value%1#0",
+        "maybe_value%0#0",
+        "maybe_value%1#0",
+        "maybe_exists%1#0",
+        "maybe_value%1#0"
+      ]
+    },
+    "392": {
+      "op": "frame_bury 1",
+      "defined_out": [
+        "maybe_exists%1#0",
+        "maybe_value%1#0"
+      ],
+      "stack_out": [
+        "currentClicks#0",
+        "maybe_value%1#0",
+        "maybe_value%0#0",
+        "maybe_value%1#0",
+        "maybe_exists%1#0"
+      ]
+    },
+    "394": {
+      "error": "check LocalState exists",
+      "op": "assert // check LocalState exists",
+      "stack_out": [
+        "currentClicks#0",
+        "maybe_value%1#0",
+        "maybe_value%0#0",
+        "maybe_value%1#0"
+      ]
+    },
+    "395": {
+      "op": "bz clickProcessed_ternary_false@5",
+      "stack_out": [
+        "currentClicks#0",
+        "maybe_value%1#0",
+        "maybe_value%0#0"
+      ]
+    },
+    "398": {
+      "op": "frame_dig 1",
+      "defined_out": [
+        "highestClicks#0",
+        "maybe_value%1#0"
+      ],
+      "stack_out": [
+        "currentClicks#0",
+        "maybe_value%1#0",
+        "maybe_value%0#0",
+        "highestClicks#0"
+      ]
+    },
+    "400": {
+      "block": "clickProcessed_ternary_merge@6",
+      "stack_in": [
+        "currentClicks#0",
+        "maybe_value%1#0",
+        "maybe_value%0#0",
+        "highestClicks#0"
+      ],
+      "op": "frame_dig 0",
+      "defined_out": [
+        "currentClicks#0"
+      ],
+      "stack_out": [
+        "currentClicks#0",
+        "maybe_value%1#0",
+        "maybe_value%0#0",
+        "highestClicks#0",
+        "currentClicks#0"
+      ]
+    },
+    "402": {
+      "op": "<",
+      "defined_out": [
+        "currentClicks#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "currentClicks#0",
+        "maybe_value%1#0",
+        "maybe_value%0#0",
+        "tmp%0#0"
+      ]
+    },
+    "403": {
+      "op": "bz clickProcessed_after_if_else@8",
+      "stack_out": [
+        "currentClicks#0",
+        "maybe_value%1#0",
+        "maybe_value%0#0"
+      ]
+    },
+    "406": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "currentClicks#0",
+        "user#0 (copy)"
+      ],
+      "stack_out": [
+        "currentClicks#0",
+        "maybe_value%1#0",
+        "maybe_value%0#0",
+        "user#0 (copy)"
+      ]
+    },
+    "408": {
+      "op": "bytec_2 // \"c\"",
+      "defined_out": [
+        "\"c\"",
+        "currentClicks#0",
+        "user#0 (copy)"
+      ],
+      "stack_out": [
+        "currentClicks#0",
+        "maybe_value%1#0",
+        "maybe_value%0#0",
+        "user#0 (copy)",
+        "\"c\""
+      ]
+    },
+    "409": {
+      "op": "frame_dig 0",
+      "stack_out": [
+        "currentClicks#0",
+        "maybe_value%1#0",
+        "maybe_value%0#0",
+        "user#0 (copy)",
+        "\"c\"",
+        "currentClicks#0"
+      ]
+    },
+    "411": {
+      "op": "app_local_put",
+      "stack_out": [
+        "currentClicks#0",
+        "maybe_value%1#0",
+        "maybe_value%0#0"
+      ]
+    },
+    "412": {
+      "block": "clickProcessed_after_if_else@8",
+      "stack_in": [
+        "currentClicks#0",
+        "maybe_value%1#0",
+        "maybe_value%0#0"
+      ],
+      "op": "frame_dig -1",
+      "defined_out": [
+        "user#0 (copy)"
+      ],
+      "stack_out": [
+        "currentClicks#0",
+        "maybe_value%1#0",
+        "maybe_value%0#0",
+        "user#0 (copy)"
+      ]
+    },
+    "414": {
       "op": "bytec_0 // \"l\"",
       "defined_out": [
         "\"l\"",
         "user#0 (copy)"
       ],
       "stack_out": [
+        "currentClicks#0",
+        "maybe_value%1#0",
+        "maybe_value%0#0",
         "user#0 (copy)",
         "\"l\""
       ]
     },
-    "212": {
+    "415": {
       "op": "intc_0 // 0",
       "defined_out": [
         "\"l\"",
@@ -949,16 +2090,231 @@
         "user#0 (copy)"
       ],
       "stack_out": [
+        "currentClicks#0",
+        "maybe_value%1#0",
+        "maybe_value%0#0",
         "user#0 (copy)",
         "\"l\"",
         "0"
       ]
     },
-    "213": {
+    "416": {
+      "op": "app_local_put",
+      "stack_out": [
+        "currentClicks#0",
+        "maybe_value%1#0",
+        "maybe_value%0#0"
+      ]
+    },
+    "417": {
+      "retsub": true,
+      "op": "retsub"
+    },
+    "418": {
+      "block": "clickProcessed_ternary_false@5",
+      "stack_in": [
+        "currentClicks#0",
+        "maybe_value%1#0",
+        "maybe_value%0#0"
+      ],
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "highestClicks#0"
+      ],
+      "stack_out": [
+        "currentClicks#0",
+        "maybe_value%1#0",
+        "maybe_value%0#0",
+        "highestClicks#0"
+      ]
+    },
+    "419": {
+      "op": "b clickProcessed_ternary_merge@6"
+    },
+    "422": {
+      "block": "clickProcessed_ternary_false@2",
+      "stack_in": [
+        "currentClicks#0",
+        "maybe_value%1#0",
+        "maybe_value%0#0"
+      ],
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "currentClicks#0"
+      ],
+      "stack_out": [
+        "currentClicks#0",
+        "maybe_value%1#0",
+        "maybe_value%0#0",
+        "currentClicks#0"
+      ]
+    },
+    "423": {
+      "op": "frame_bury 0",
+      "defined_out": [
+        "currentClicks#0"
+      ],
+      "stack_out": [
+        "currentClicks#0",
+        "maybe_value%1#0",
+        "maybe_value%0#0"
+      ]
+    },
+    "425": {
+      "op": "b clickProcessed_ternary_merge@3"
+    },
+    "428": {
+      "subroutine": "smart_contracts/clickr_logic/contract.algo.ts::clickrLogic.decrementHeart",
+      "params": {
+        "user#0": "bytes"
+      },
+      "block": "decrementHeart",
+      "stack_in": [],
+      "op": "proto 1 0"
+    },
+    "431": {
+      "op": "frame_dig -1",
+      "defined_out": [
+        "user#0 (copy)"
+      ],
+      "stack_out": [
+        "user#0 (copy)"
+      ]
+    },
+    "433": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "0",
+        "user#0 (copy)"
+      ],
+      "stack_out": [
+        "user#0 (copy)",
+        "0"
+      ]
+    },
+    "434": {
+      "op": "bytec_1 // \"h\"",
+      "defined_out": [
+        "\"h\"",
+        "0",
+        "user#0 (copy)"
+      ],
+      "stack_out": [
+        "user#0 (copy)",
+        "0",
+        "\"h\""
+      ]
+    },
+    "435": {
+      "op": "app_local_get_ex",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0"
+      ],
+      "stack_out": [
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "436": {
+      "error": "check LocalState exists",
+      "op": "assert // check LocalState exists",
+      "stack_out": [
+        "maybe_value%0#0"
+      ]
+    },
+    "437": {
+      "error": "To decrement hearts there has to be atleast 1",
+      "op": "assert // To decrement hearts there has to be atleast 1",
+      "stack_out": []
+    },
+    "438": {
+      "op": "frame_dig -1",
+      "stack_out": [
+        "user#0 (copy)"
+      ]
+    },
+    "440": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "user#0 (copy)",
+        "0"
+      ]
+    },
+    "441": {
+      "op": "bytec_1 // \"h\"",
+      "stack_out": [
+        "user#0 (copy)",
+        "0",
+        "\"h\""
+      ]
+    },
+    "442": {
+      "op": "app_local_get_ex",
+      "defined_out": [
+        "maybe_exists%1#0",
+        "maybe_value%1#0"
+      ],
+      "stack_out": [
+        "maybe_value%1#0",
+        "maybe_exists%1#0"
+      ]
+    },
+    "443": {
+      "error": "check LocalState exists",
+      "op": "assert // check LocalState exists",
+      "stack_out": [
+        "maybe_value%1#0"
+      ]
+    },
+    "444": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "1",
+        "maybe_value%1#0"
+      ],
+      "stack_out": [
+        "maybe_value%1#0",
+        "1"
+      ]
+    },
+    "445": {
+      "op": "-",
+      "defined_out": [
+        "new_state_value%0#0"
+      ],
+      "stack_out": [
+        "new_state_value%0#0"
+      ]
+    },
+    "446": {
+      "op": "frame_dig -1",
+      "stack_out": [
+        "new_state_value%0#0",
+        "user#0 (copy)"
+      ]
+    },
+    "448": {
+      "op": "bytec_1 // \"h\"",
+      "stack_out": [
+        "new_state_value%0#0",
+        "user#0 (copy)",
+        "\"h\""
+      ]
+    },
+    "449": {
+      "op": "uncover 2",
+      "stack_out": [
+        "user#0 (copy)",
+        "\"h\"",
+        "new_state_value%0#0"
+      ]
+    },
+    "451": {
       "op": "app_local_put",
       "stack_out": []
     },
-    "214": {
+    "452": {
       "retsub": true,
       "op": "retsub"
     }
