@@ -1,7 +1,7 @@
 import type { Account, uint64 } from '@algorandfoundation/algorand-typescript'
-import { abimethod, assert, Contract, Global, LocalState, Txn, Uint64 } from '@algorandfoundation/algorand-typescript'
+import { abimethod, assert, Contract, LocalState, Txn, Uint64 } from '@algorandfoundation/algorand-typescript'
 
-export class ClickCron extends Contract {
+export class clickrLogic extends Contract {
   // The user click count
   clickCount = LocalState<uint64>({ key: 'l' })
 
@@ -13,7 +13,7 @@ export class ClickCron extends Contract {
   // Opt-in method for users to interact with the contract
   @abimethod({ allowActions: 'OptIn' })
   public optIn(): void {
-    this.clickCount(Txn.sender).value = Uint64(0) 
+    this.clickCount(Txn.sender).value = Uint64(0)
   }
 
   // Record a click for a user
@@ -34,5 +34,14 @@ export class ClickCron extends Contract {
   @abimethod()
   public getClickCount(user: Account): uint64 {
     return this.clickCount(user).value || Uint64(0)
+  }
+
+  @abimethod()
+  public clickProcessed(user: Account): void {
+    // Only allow the cron account (Txn.sender) to mark clicks as processed
+    //assert(Txn.sender === Global.creatorAddress, 'Only the cron account can mark clicks as processed')
+
+    // Reset the user's click count to 0
+    this.clickCount(user).value = Uint64(0)
   }
 }

@@ -1,10 +1,17 @@
 import { AlgorandClient } from '@algorandfoundation/algokit-utils'
 import { AlgoAmount } from '@algorandfoundation/algokit-utils/types/amount'
+import { ClickrLogicClient } from '../artifacts/clickr_logic/clickrLogicClient'
 
 // Run this script on a schedule
 async function cronJob() {
   // 1. Initialize Algorand client from environment or specific network
   const algorand = AlgorandClient.fromEnvironment()
+
+  // Get app client for an existing app
+  const appClient = algorand.client.getTypedAppClientById(ClickrLogicClient, {
+    appId: 1001n,
+    //defaultSender: ,
+  })
 
   // 2. Generate a random cron account
   const cronAccount = await algorand.account.random()
@@ -81,15 +88,13 @@ async function cronJob() {
           })
         }
 
-        // // 12. Mark the action as processed by updating the smart contract
-        // await algorand.send.appCall({
-        //   appId: appID,
-        //   sender: cronAccount,
-        //   args: [
-        //     new Uint8Array(Buffer.from(user)), // Convert user address string to Uint8Array
-        //     new Uint8Array(Buffer.from('mark_processed')), // Convert string to Uint8Array
-        //   ],
-        // })
+        // 12. Mark the action as processed by updating the smart contract
+        await appClient.send.clickProcessed({
+          sender: cronAccount,
+          args: {
+            user: user
+          }
+        });
 
         console.log(`\nProcessed click for user ${user}`)
       }
