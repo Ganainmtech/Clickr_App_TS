@@ -19,8 +19,11 @@ export class clickrLogic extends Contract {
   // The address who holds the highest click count
   highestClickCountAddress = GlobalState<Account>({ key: 'd' })
 
-  // Laste reward time
-  lastRewardTime = GlobalState<uint64>({ key: 'e' })
+  // Last reward time
+  //public lastRewardTime = GlobalState<uint64>({ initialValue: Uint64(0) })
+
+  // Last reward round
+  //public lastRewardRound = GlobalState<uint64>({ initialValue: Uint64(0) })
 
   // The user click count
   userClickCount = LocalState<uint64>({ key: 'a' })
@@ -38,9 +41,10 @@ export class clickrLogic extends Contract {
     onCreate: 'require',
   })
   public createApplication(): void {
+    //this.lastRewardRound.value = Uint64(0)
     this.highestClickCount.value = Uint64(0) // Initialize global highest click count
     this.highestClickCountAddress.value = Global.creatorAddress // initlise with a default address
-    this.lastRewardTime.value = Uint64(0) // Initialize last reward time to 0 initially (can be updated to actual deploy timestamp later)
+    //this.lastRewardTime.value = Uint64(0) // Initialize last reward time to 0 initially (can be updated to actual deploy timestamp later)
   }
 
   // Opt-in method for users to interact with the contract
@@ -133,8 +137,8 @@ export class clickrLogic extends Contract {
    */
   @abimethod()
   public distributeRewards(): void {
-    // Ensure that only the authorized cron address can call this method
-    // assert(Txn.sender === this.authorizedCronAddress.value, "Only authorized cron can call this");
+    // Ensure rewards are distributed only once every 30 sec
+    //assert(Global.latestTimestamp >= this.lastRewardTime.value + 30, 'Too soon to distribute rewards')
 
     // Get the current application address
     const appAddress = Global.currentApplicationAddress
@@ -157,7 +161,7 @@ export class clickrLogic extends Contract {
       })
       .submit()
 
-    // Update the last distribution time (optional, if you still want to track it)
-    // this.lastRewardTime.value = Global.latestTimestamp;
+    // Update the last reward distribution time after the transaction
+    //this.lastRewardTime.value = Global.latestTimestamp
   }
 }
