@@ -1,133 +1,100 @@
-import { AlgorandClient, microAlgo } from '@algorandfoundation/algokit-utils'
+import { AlgorandClient } from '@algorandfoundation/algokit-utils'
 import { AlgoAmount } from '@algorandfoundation/algokit-utils/types/amount'
 import { ClickrLogicClient } from '../artifacts/clickr_logic/clickrLogicClient'
 
-
 async function cronJob() {
-  // 1. Initialize Algorand client from environment or specific network
   const algorand = AlgorandClient.fromEnvironment()
-
-  // Get account from KMD
   const cronAccount = await algorand.account.fromKmd('lora-dev')
-
   console.log(`Using cron account: ${cronAccount.addr}`)
 
-  // Get app client for an existing app
-  const appClient = algorand.client.getTypedAppClientById(ClickrLogicClient, {
-    appId: 1019n,
-  })
-
-
-  // 4. Get the LocalNet dispenser account
+  const appId = 1019n
+  const app = await algorand.app.getById(appId);
+  const appAddress = app.appAddress;
+  const appClient = algorand.client.getTypedAppClientById(ClickrLogicClient, { appId })
   const dispenserAccount = await algorand.account.localNetDispenser()
-  console.log(`\nUsing LocalNet dispenser account: ${dispenserAccount.addr.toString()}`)
+  console.log(`\nUsing LocalNet dispenser account: ${dispenserAccount.addr}`)
 
-  //async function optInCronAccountToApp() {
-    // Opt-in the cron account to the app using appClient.send.optIn.optIn()
-  //  await appClient.send.optIn.optIn({
-    //  sender: cronAccount.addr, // The cron account that needs to opt-in
-    //  signer: cronAccount.signer, // Optional, signer for the cron account
-    //  args: [], // Any required arguments for the optIn (empty if none)
-    //})
-  //}
+  // Check if cronAccount is already opted in
+  const cronLocalState = await algorand.app.getLocalState(appId, cronAccount.addr)
+  if (!cronLocalState) {
+    try {
+      await appClient.send.optIn.optIn({
+        sender: cronAccount.addr,
+        signer: cronAccount.signer,
+        args: [],
+      })
+      console.log(`Cron account ${cronAccount.addr} successfully opted in!`)
+    } catch (error) {
+      console.error(`Opt-in failed:`, error)
+    }
+  }
 
-    //console.log(`Cron account ${cronAccount.addr} has successfully opted-in!`)
-
-   //Call opt-in function before further operations
-  //await optInCronAccountToApp()
-
-  // 6. Fund the smart contract account with 5 Algos from the dispenser
+  // Fund app with 3 Algos if needed
   await algorand.send.payment({
     sender: dispenserAccount,
-    receiver: 'E36TMDCHVSYAAI5HHNPGGHYFUJYK4MW2SKRORFZQBB46ITJYQ7L72GBWUU',
+    receiver: appAddress,
     amount: AlgoAmount.Algos(3),
     note: 'Funding app account',
   })
-  console.log(`\nFunded app account with 5 Algos`)
+  console.log(`\nFunded app account with 3 Algos`)
 
-  // 7. Get accounts that have opted into the application
+  // Get accounts with local state
   async function getAccountsWithLocalState(appID: bigint) {
     try {
-      // Use the indexer to search for accounts that have opted into this app
-      const response = await algorand.client.indexer
-        .searchAccounts()
-        .applicationID(appID) // Filter by application ID
-        .do()
-
-      // Extract the account addresses
-      const accounts = response.accounts.map((account) => account.address)
-      console.log(`\nFound ${accounts.length} accounts with local state for app ${appID}`)
-      return accounts
+      const response = await algorand.client.indexer.searchAccounts().applicationID(appID).do()
+      return response.accounts.map((account: { address: string }) => account.address)
     } catch (error) {
       console.error('Error getting accounts with local state:', error)
       return []
     }
   }
 
-  // 8. Then in your main function:
-  const users = await getAccountsWithLocalState(1019n)
+  const users = await getAccountsWithLocalState(appId)
   console.log(`\nFound ${users.length} users who have opted into the app`)
 
-  // 9. For each user, retrieve their local state from the app
   for (const user of users) {
     console.log(`\nProcessing local state for user: ${user}`)
+    const userLocalState = await algorand.app.getLocalState(appId, user)
 
-    const userLocalState = await algorand.app.getLocalState(1019n, user)
-
-    // 10. Process each user's local state
     if (userLocalState) {
-      // Local state is returned as a decoded object with various representations of the value
       const clickCountValue = userLocalState['l']
+      let clickCount = clickCountValue ? Number(clickCountValue.value) : 0
 
-      let clickCount = 0
-      if (clickCountValue) {
-        if (typeof clickCountValue.value === 'bigint' || typeof clickCountValue.value === 'number') {
-          clickCount = Number(clickCountValue.value)
-        }
-      }
-
-      // 11. Check if there are pending actions to be processed
       if (clickCount > 0) {
         console.log(`\nUser ${user} has ${clickCount} clicks to process`)
 
         for (let i = 0; i < clickCount; i++) {
-          // 12. Send a transaction for each click
           await algorand.send.payment({
             sender: cronAccount,
-            receiver: cronAccount, // Send to itself
-            amount: AlgoAmount.MicroAlgos(0), // Zero amount to simulate action
-            note: `Triggered by app 1019n - Click ${i + 1} for User ${user}`, // Unique note
+            receiver: cronAccount,
+            amount: AlgoAmount.MicroAlgos(0),
+            note: `Triggered by app ${appId} - Click ${i + 1} for User ${user}`,
           })
         }
 
-        // 13. Mark the action as processed by updating the smart contract
         await appClient.send.clickProcessed({
           sender: cronAccount,
-          args: {
-            user: user,
-          },
+          signer: cronAccount.signer,
+          args: { user },
         })
-
-        console.log(`\nProcessed click for user ${user}`)
+        console.log(`\nProcessed clicks for user ${user}`)
       }
     }
   }
 
-  // 14. Timing check for the `distributeRewards` method (5-minute window)
   console.log(`\nCalling distributeRewards...`)
-
-  // Call the distributeRewards method
-  const rewardTxnResult = await appClient.send.distributeRewards({
-    sender: cronAccount.addr,
-    signer: cronAccount.signer,
-    args: {},
-    coverAppCallInnerTransactionFees: true,
-    maxFee: AlgoAmount.MicroAlgos(10000),
-  })
-
-  // The result should contain the transaction details
-  const signedTxn = rewardTxnResult.transaction
-  console.log(`Transaction confirmed: ${signedTxn.txID}`)
+  try {
+    const rewardTxnResult = await appClient.send.distributeRewards({
+      sender: cronAccount.addr,
+      signer: cronAccount.signer,
+      args: {},
+      coverAppCallInnerTransactionFees: true,
+      maxFee: AlgoAmount.MicroAlgos(10000),
+    })
+    console.log(`Transaction confirmed: ${rewardTxnResult.transaction.txID()}`);
+    } catch (error) {
+    console.error(`Error distributing rewards:`, error)
+  }
 
   console.log(`\nReward distribution complete!`)
 }
