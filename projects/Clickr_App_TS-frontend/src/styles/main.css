@@ -1,3 +1,33 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Custom styles */
+body {
+  font-family: 'cyber', sans-serif;
+  background: linear-gradient(135deg, #00ffff, #ff00ff);
+}
+
+.neon-btn {
+  background-color: #2d2d2d;
+  color: #fff;
+  border: 2px solid #ff00ff;
+  box-shadow:
+    0 0 5px #ff00ff,
+    0 0 10px #ff00ff,
+    0 0 20px #ff00ff;
+  transition: all 0.3s ease;
+}
+
+.neon-btn:hover {
+  background-color: #ff00ff;
+  color: #000;
+  transform: scale(1.1);
+}
+
+.neon-text {
+  text-shadow:
+    0 0 5px #00ffff,
+    0 0 10px #ff00ff,
+    0 0 20px #ff00ff;
+}

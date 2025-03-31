@@ -1,9 +1,8 @@
-// src/components/Home.tsx
 import { useWallet } from '@txnlab/use-wallet-react'
 import React, { useState } from 'react'
+import AppCalls from './components/AppCalls'
 import ConnectWallet from './components/ConnectWallet'
 import Transact from './components/Transact'
-import AppCalls from './components/AppCalls'
 
 interface HomeProps {}
 
@@ -26,17 +25,13 @@ const Home: React.FC<HomeProps> = () => {
   }
 
   return (
-    <div className="hero min-h-screen bg-teal-400">
-      <div className="hero-content text-center rounded-lg p-6 max-w-md bg-white mx-auto">
+    <div className="hero min-h-screen bg-gradient-to-r from-blue-900 to-pink-900 text-white">
+      <div className="hero-content text-center rounded-lg p-6 max-w-md mx-auto">
         <div className="max-w-md">
-          <h1 className="text-4xl">
-            Welcome to <div className="font-bold">AlgoKit 🙂</div>
-          </h1>
-          <p className="py-6">
-            This starter has been generated using official AlgoKit React template. Refer to the resource below for next steps.
-          </p>
+          <h1 className="text-4xl font-bold neon-text">Welcome to Clickr 🚀</h1>
+          <p className="py-6 text-xl">Ready to click and climb the leaderboard? Let's go!</p>
 
-          <div className="grid">
+          <div className="grid space-y-4">
             <a
               data-test-id="getting-started"
               className="btn btn-primary m-2"
@@ -47,21 +42,18 @@ const Home: React.FC<HomeProps> = () => {
             </a>
 
             <div className="divider" />
-            <button data-test-id="connect-wallet" className="btn m-2" onClick={toggleWalletModal}>
-              Wallet Connection
+
+            <button data-test-id="connect-wallet" className="btn m-2 neon-btn" onClick={toggleWalletModal}>
+              Connect Wallet
             </button>
 
-            {activeAddress && (
-              <button data-test-id="transactions-demo" className="btn m-2" onClick={toggleDemoModal}>
-                Transactions Demo
-              </button>
-            )}
+            <button data-test-id="transactions-demo" className="btn m-2 neon-btn" onClick={toggleDemoModal}>
+              Start Clicking
+            </button>
 
-            {activeAddress && (
-              <button data-test-id="appcalls-demo" className="btn m-2" onClick={toggleAppCallsModal}>
-                Contract Interactions Demo
-              </button>
-            )}
+            <button data-test-id="appcalls-demo" className="btn m-2 neon-btn" onClick={toggleAppCallsModal}>
+              View Leaderboard
+            </button>
           </div>
 
           <ConnectWallet openModal={openWalletModal} closeModal={toggleWalletModal} />
