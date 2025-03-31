@@ -48,7 +48,7 @@
     "tslib": "^2.6.2"
   },
   "scripts": {
-    "generate:app-clients": "algokit project link --all",
+    "generate:app-clients": "if [ \"$RENDER\" = \"true\" ]; then /opt/render/.local/bin/algokit project link --all; else algokit project link --all; fi",
     "dev": "npm run generate:app-clients && vite",
     "build": "npm run generate:app-clients && tsc && vite build",
     "test": "jest --coverage --passWithNoTests",
