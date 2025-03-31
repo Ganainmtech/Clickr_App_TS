@@ -1,10 +1,10 @@
+import { AlgorandClient } from '@algorandfoundation/algokit-utils'
+import { OnSchemaBreak, OnUpdate } from '@algorandfoundation/algokit-utils/types/app'
 import { useWallet } from '@txnlab/use-wallet-react'
 import { useSnackbar } from 'notistack'
 import { useState } from 'react'
-import { ClickrLogicFactory } from '../contracts/ClickrLogic'
-import { OnSchemaBreak, OnUpdate } from '@algorandfoundation/algokit-utils/types/app'
+import { ClickrLogicFactory } from '../contracts/clickrLogic'
 import { getAlgodConfigFromViteEnvironment, getIndexerConfigFromViteEnvironment } from '../utils/network/getAlgoClientConfigs'
-import { AlgorandClient } from '@algorandfoundation/algokit-utils'
 
 interface AppCallsInterface {
   openModal: boolean
@@ -54,18 +54,18 @@ const AppCalls = ({ openModal, setModalState }: AppCallsInterface) => {
 
     const { appClient } = deployResult
 
-    const response = await appClient.send.hello({ args: { name: contractInput } }).catch((e: Error) => {
-      enqueueSnackbar(`Error calling the contract: ${e.message}`, { variant: 'error' })
-      setLoading(false)
-      return undefined
-    })
+    //const response = await appClient.send.hello({ args: { name: contractInput } }).catch((e: Error) => {
+    //  enqueueSnackbar(`Error calling the contract: ${e.message}`, { variant: 'error' })
+    //  setLoading(false)
+    //  return undefined
+    //})
 
-    if (!response) {
-      return
-    }
+    //if (!response) {
+    //  return
+    //}
 
-    enqueueSnackbar(`Response from the contract: ${response.return}`, { variant: 'success' })
-    setLoading(false)
+    //enqueueSnackbar(`Response from the contract: ${response.return}`, { variant: 'success' })
+    //setLoading(false)
   }
 
   return (
