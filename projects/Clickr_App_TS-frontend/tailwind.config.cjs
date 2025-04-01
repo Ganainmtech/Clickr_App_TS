@@ -15,6 +15,9 @@ module.exports = {
       boxShadow: {
         neon: '0 0 10px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff',
       },
+      textShadow: {
+        neon: '0 0 5px #ffffff, 0 0 10px #ffffff, 0 0 15px #ff00ff, 0 0 20px #ff00ff, 0 0 30px #ff00ff, 0 0 40px #ff00ff',
+      },
     },
   },
   daisyui: {

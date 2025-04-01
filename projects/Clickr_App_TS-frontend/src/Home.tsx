@@ -1,67 +1,57 @@
 import { useWallet } from '@txnlab/use-wallet-react'
 import React, { useState } from 'react'
+import { Link, Route, BrowserRouter as Router, Routes } from 'react-router-dom'
 import AppCalls from './components/AppCalls'
+import ClickrGame from './components/ClickrGame'
 import ConnectWallet from './components/ConnectWallet'
 import Transact from './components/Transact'
 
-interface HomeProps {}
-
-const Home: React.FC<HomeProps> = () => {
-  const [openWalletModal, setOpenWalletModal] = useState<boolean>(false)
-  const [openDemoModal, setOpenDemoModal] = useState<boolean>(false)
-  const [appCallsDemoModal, setAppCallsDemoModal] = useState<boolean>(false)
+const Home: React.FC = () => {
+  const [openWalletModal, setOpenWalletModal] = useState(false)
+  const [openDemoModal, setOpenDemoModal] = useState(false)
+  const [appCallsDemoModal, setAppCallsDemoModal] = useState(false)
   const { activeAddress } = useWallet()
 
-  const toggleWalletModal = () => {
-    setOpenWalletModal(!openWalletModal)
-  }
-
-  const toggleDemoModal = () => {
-    setOpenDemoModal(!openDemoModal)
-  }
-
-  const toggleAppCallsModal = () => {
-    setAppCallsDemoModal(!appCallsDemoModal)
-  }
-
   return (
-    <div className="hero min-h-screen bg-gradient-to-r from-blue-900 to-pink-900 text-white">
-      <div className="hero-content text-center rounded-lg p-6 max-w-md mx-auto">
-        <div className="max-w-md">
-          <h1 className="text-4xl font-bold neon-text">Welcome to Clickr 🚀</h1>
-          <p className="py-6 text-xl">Ready to click and climb the leaderboard? Let's go!</p>
+    <Router>
+      <Routes>
+        {/* Home Page */}
+        <Route
+          path="/"
+          element={
+            <div className="hero min-h-screen bg-gradient-to-r from-blue-900 to-pink-900 text-white">
+              <div className="hero-content text-center rounded-lg p-6 max-w-md mx-auto">
+                <div className="max-w-md">
+                  <h1 className="text-4xl font-bold neon-text">Welcome to Clickr 🚀</h1>
+                  <p className="py-6 text-xl">Ready to click and climb the leaderboard? Let's go!</p>
 
-          <div className="grid space-y-4">
-            <a
-              data-test-id="getting-started"
-              className="btn btn-primary m-2"
-              target="_blank"
-              href="https://github.com/algorandfoundation/algokit-cli"
-            >
-              Getting started
-            </a>
+                  <div className="grid space-y-4">
+                    <button className="btn m-2 neon-btn" onClick={() => setOpenWalletModal(true)}>
+                      Connect Wallet
+                    </button>
 
-            <div className="divider" />
+                    <Link to="/game" className="btn m-2 neon-btn">
+                      Play Game
+                    </Link>
 
-            <button data-test-id="connect-wallet" className="btn m-2 neon-btn" onClick={toggleWalletModal}>
-              Connect Wallet
-            </button>
+                    <button className="btn m-2 neon-btn" onClick={() => setAppCallsDemoModal(true)}>
+                      View Leaderboard
+                    </button>
+                  </div>
 
-            <button data-test-id="transactions-demo" className="btn m-2 neon-btn" onClick={toggleDemoModal}>
-              Start Clicking
-            </button>
+                  <ConnectWallet openModal={openWalletModal} closeModal={() => setOpenWalletModal(false)} />
+                  <Transact openModal={openDemoModal} setModalState={setOpenDemoModal} />
+                  <AppCalls openModal={appCallsDemoModal} setModalState={setAppCallsDemoModal} />
+                </div>
+              </div>
+            </div>
+          }
+        />
 
-            <button data-test-id="appcalls-demo" className="btn m-2 neon-btn" onClick={toggleAppCallsModal}>
-              View Leaderboard
-            </button>
-          </div>
-
-          <ConnectWallet openModal={openWalletModal} closeModal={toggleWalletModal} />
-          <Transact openModal={openDemoModal} setModalState={setOpenDemoModal} />
-          <AppCalls openModal={appCallsDemoModal} setModalState={setAppCallsDemoModal} />
-        </div>
-      </div>
-    </div>
+        {/* Clickr Game Page */}
+        <Route path="/game" element={<ClickrGame />} />
+      </Routes>
+    </Router>
   )
 }
 

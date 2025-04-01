@@ -31,3 +31,39 @@ body {
     0 0 10px #ff00ff,
     0 0 20px #ff00ff;
 }
+
+/* Smooth target movement */
+#click-target {
+  transition:
+    top 0.3s ease,
+    left 0.3s ease;
+}
+
+/* Game Over Flash Effect */
+.bg-red-700 {
+  animation: flash 0.2s ease;
+}
+
+@keyframes flash {
+  0% {
+    background-color: #ff0000;
+  }
+  100% {
+    background-color: black;
+  }
+}
+
+polyline {
+  filter: drop-shadow(0 0 15px rgba(0, 255, 255, 1)); /* Stronger neon glow */
+}
+
+.shadow-neon {
+  box-shadow:
+    0 0 10px rgba(255, 0, 255, 0.8),
+    0 0 20px rgba(255, 0, 255, 0.6);
+}
+
+.bg-glass {
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(10px);
+}

@@ -1,97 +1,50 @@
-import { AlgorandClient } from '@algorandfoundation/algokit-utils'
-import { OnSchemaBreak, OnUpdate } from '@algorandfoundation/algokit-utils/types/app'
-import { useWallet } from '@txnlab/use-wallet-react'
-import { useSnackbar } from 'notistack'
-import { useState } from 'react'
-import { ClickrLogicFactory } from '../contracts/clickrLogic'
-import { getAlgodConfigFromViteEnvironment, getIndexerConfigFromViteEnvironment } from '../utils/network/getAlgoClientConfigs'
+import React from 'react'
 
-interface AppCallsInterface {
+interface AppCallsProps {
   openModal: boolean
-  setModalState: (value: boolean) => void
+  setModalState: React.Dispatch<React.SetStateAction<boolean>>
 }
 
-const AppCalls = ({ openModal, setModalState }: AppCallsInterface) => {
-  const [loading, setLoading] = useState<boolean>(false)
-  const [contractInput, setContractInput] = useState<string>('')
-  const { enqueueSnackbar } = useSnackbar()
-  const { transactionSigner, activeAddress } = useWallet()
-
-  const algodConfig = getAlgodConfigFromViteEnvironment()
-  const indexerConfig = getIndexerConfigFromViteEnvironment()
-  const algorand = AlgorandClient.fromConfig({
-    algodConfig,
-    indexerConfig,
-  })
-  algorand.setDefaultSigner(transactionSigner)
-
-  const sendAppCall = async () => {
-    setLoading(true)
-
-    // Please note, in typical production scenarios,
-    // you wouldn't want to use deploy directly from your frontend.
-    // Instead, you would deploy your contract on your backend and reference it by id.
-    // Given the simplicity of the starter contract, we are deploying it on the frontend
-    // for demonstration purposes.
-    const factory = new ClickrLogicFactory({
-      defaultSender: activeAddress ?? undefined,
-      algorand,
-    })
-    const deployResult = await factory
-      .deploy({
-        onSchemaBreak: OnSchemaBreak.AppendApp,
-        onUpdate: OnUpdate.AppendApp,
-      })
-      .catch((e: Error) => {
-        enqueueSnackbar(`Error deploying the contract: ${e.message}`, { variant: 'error' })
-        setLoading(false)
-        return undefined
-      })
-
-    if (!deployResult) {
-      return
-    }
-
-    const { appClient } = deployResult
-
-    //const response = await appClient.send.hello({ args: { name: contractInput } }).catch((e: Error) => {
-    //  enqueueSnackbar(`Error calling the contract: ${e.message}`, { variant: 'error' })
-    //  setLoading(false)
-    //  return undefined
-    //})
-
-    //if (!response) {
-    //  return
-    //}
-
-    //enqueueSnackbar(`Response from the contract: ${response.return}`, { variant: 'success' })
-    //setLoading(false)
-  }
+const AppCalls: React.FC<AppCallsProps> = ({ openModal, setModalState }) => {
+  const leaderboardData = [
+    { rank: 1, username: 'Player1', score: 120 },
+    { rank: 2, username: 'Player2', score: 115 },
+    { rank: 3, username: 'Player3', score: 110 },
+    { rank: 4, username: 'Player4', score: 100 },
+    { rank: 5, username: 'Player5', score: 95 },
+  ] // Sample leaderboard data
 
   return (
-    <dialog id="appcalls_modal" className={`modal ${openModal ? 'modal-open' : ''} bg-slate-200`}>
-      <form method="dialog" className="modal-box">
-        <h3 className="font-bold text-lg">Say hello to your Algorand smart contract</h3>
-        <br />
-        <input
-          type="text"
-          placeholder="Provide input to hello function"
-          className="input input-bordered w-full"
-          value={contractInput}
-          onChange={(e) => {
-            setContractInput(e.target.value)
-          }}
-        />
-        <div className="modal-action ">
-          <button className="btn" onClick={() => setModalState(!openModal)}>
-            Close
-          </button>
-          <button className={`btn`} onClick={sendAppCall}>
-            {loading ? <span className="loading loading-spinner" /> : 'Send application call'}
-          </button>
+    <div
+      className={`fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 transition-all ${
+        openModal ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+      }`}
+    >
+      <div className="relative w-full max-w-lg bg-gradient-to-r from-purple-700 to-blue-900 p-6 rounded-lg shadow-2xl transform transition-all scale-100 opacity-100">
+        {/* Modal Close Button */}
+        <button className="absolute top-2 right-2 text-white text-xl" onClick={() => setModalState(false)}>
+          &times;
+        </button>
+
+        <h2 className="text-4xl font-bold text-center text-white neon-text">Leaderboard</h2>
+        <div className="mt-4">
+          <div className="grid grid-cols-3 gap-4 text-lg text-white">
+            <div className="font-semibold">Rank</div>
+            <div className="font-semibold">Username</div>
+            <div className="font-semibold">Score</div>
+          </div>
+
+          {/* Leaderboard Entries */}
+          {leaderboardData.map((player) => (
+            <div key={player.rank} className="grid grid-cols-3 gap-4 mt-3 p-2 rounded-md bg-gray-800 border-2 border-cyber-pink">
+              <div className="text-center text-yellow-500">{player.rank}</div>
+              <div className="text-center">{player.username}</div>
+              <div className="text-center text-cyber-blue">{player.score}</div>
+            </div>
+          ))}
         </div>
-      </form>
-    </dialog>
+      </div>
+    </div>
   )
 }
 
