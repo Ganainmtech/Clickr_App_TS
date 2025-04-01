@@ -1,6 +1,6 @@
 import * as algokit from '@algorandfoundation/algokit-utils'
 import { useWallet } from '@txnlab/use-wallet-react'
-import { Transaction, TransactionSigner } from 'algosdk'
+import algosdk, { Transaction } from 'algosdk'
 import { useEffect, useState } from 'react'
 import algorandLogo from '../assets/algorand-logo-white.png'
 import { ClickrLogicClient } from '../contracts/clickrLogic'
@@ -18,7 +18,7 @@ interface PathPoint {
 }
 
 export function ClickrGame() {
-  const { activeAddress, signTransactions } = useWallet()
+  const { activeAddress, signTransactions, activeAccount } = useWallet()
   const [score, setScore] = useState(0)
   const [hearts, setHearts] = useState(5)
   const [objectPosition, setObjectPosition] = useState({ top: '50%', left: '50%' })
@@ -39,6 +39,18 @@ export function ClickrGame() {
   // Initialize AlgoKit client
   const algorand = algokit.AlgorandClient.fromEnvironment()
 
+  // Register signer when wallet is connected
+  useEffect(() => {
+    if (activeAddress && signTransactions) {
+      const signer = async (txnGroup: Transaction[], indexesToSign: number[]) => {
+        const txnsToSign = txnGroup.map((txn) => algosdk.encodeUnsignedTransaction(txn))
+        const signedTxns = await signTransactions(txnsToSign)
+        return signedTxns.filter((txn): txn is Uint8Array => txn !== null)
+      }
+      algorand.setSigner(activeAddress, signer)
+    }
+  }, [activeAddress, signTransactions])
+
   // Get app details and create client
   const getAppDetails = async (sender: string | null) => {
     if (!sender) {
@@ -48,19 +60,10 @@ export function ClickrGame() {
 
     try {
       // Create app client with the connected wallet address
-      const appClient = algorand.client.getTypedAppClientById(ClickrLogicClient, {
+      return algorand.client.getTypedAppClientById(ClickrLogicClient, {
         appId: BigInt(APP_ID),
         defaultSender: sender,
       })
-
-      // Set up the signer from the connected wallet
-      const walletSigner: TransactionSigner = async (txnGroup: Transaction[]) => {
-        const signedTxns = await signTransactions(txnGroup)
-        return signedTxns.filter((txn): txn is Uint8Array => txn !== null)
-      }
-      algorand.setSigner(sender, walletSigner)
-
-      return appClient
     } catch (error) {
       console.error('Error getting account:', error)
       throw error
@@ -79,7 +82,7 @@ export function ClickrGame() {
     try {
       const algodClient = algokit.getAlgoClient(getAlgodConfigFromViteEnvironment())
       const accountInfo = await algodClient.accountInformation(address).do()
-      const optedIn = accountInfo.appsLocalState?.some((app) => app.id === APP_ID) ?? false
+      const optedIn = accountInfo.appsLocalState?.some((app) => BigInt(app.id) === APP_ID) ?? false
       console.log('Opt-in status:', optedIn)
       setIsOptedIn(optedIn)
       return optedIn
@@ -123,6 +126,7 @@ export function ClickrGame() {
     const appClient = await getAppDetails(sender)
     await appClient.send.optIn.optIn({
       args: [],
+      suppressLog: false,
     })
     console.log('Successfully opted in to app')
   }
@@ -145,10 +149,13 @@ export function ClickrGame() {
     }
   }, [activeAddress])
 
-  // Detect game end to fetch on-chain click count
+  // Detect game end
   useEffect(() => {
     if (gameStarted && hearts <= 0 && isWeb3Mode) {
+      // Only fetch the click count, don't trigger transaction
       fetchOnChainClickCount(activeAddress)
+        .then((count) => setOnChainClickCount(count))
+        .catch(console.error)
     }
   }, [gameStarted, hearts, isWeb3Mode, activeAddress])
 
@@ -182,11 +189,6 @@ export function ClickrGame() {
       setAnimateClick(true)
       setTimeout(() => setAnimateClick(false), 200)
       randomizePosition()
-
-      // Record click on chain if in Web3 mode
-      if (isWeb3Mode && isOptedIn) {
-        recordClickOnChain(activeAddress)
-      }
     } else {
       if (hearts > 0) {
         setHearts((prev) => Math.max(0, prev - 1))
@@ -253,52 +255,38 @@ export function ClickrGame() {
 
   // Handle payment transaction to the smart contract
   const handleTransaction = async () => {
-    if (!activeAddress || !isWeb3Mode) return
+    if (!activeAddress) {
+      console.error('No active account')
+      return
+    }
 
     try {
       setIsProcessingTxn(true)
       setTxnStatus('pending')
 
-      // Get the reward amount in microAlgos (1 ALGO = 1,000,000 microAlgos)
-      const amountInMicroAlgos = Math.floor(getRewardAmount() * 1_000_000)
-
-      // Create transaction request
-      const response = await fetch('/api/payment-transaction', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          senderAddress: activeAddress,
-          receiverAddress: APP_ID.toString(),
-          amount: amountInMicroAlgos,
-        }),
-      })
-
-      if (!response.ok) {
-        throw new Error('Failed to create transaction')
+      // Get app details and create client
+      const appClient = await getAppDetails(activeAddress)
+      if (!appClient) {
+        throw new Error('Failed to get app details')
       }
 
-      const { unsignedTxn } = await response.json()
-
-      // Sign the transaction using the wallet
-      const signedTxns = await signTransactions(unsignedTxn)
-
-      // Send the signed transaction back to the server
-      const submitResponse = await fetch('/api/submit-transaction', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          signedTxn: signedTxns[0],
-        }),
+      const paymentAmount = REWARD_MULTIPLIER * score
+      console.log('Creating payment with:', {
+        sender: activeAddress,
+        appAddress: appClient.appAddress,
+        amount: paymentAmount,
       })
 
-      if (!submitResponse.ok) {
-        throw new Error('Failed to submit transaction')
-      }
+      // Send payment using AlgoKit's payment utility
+      const result = await algorand.send.payment({
+        sender: activeAddress,
+        receiver: appClient.appAddress,
+        amount: algokit.algos(paymentAmount),
+        note: new TextEncoder().encode(`Payment for ${score} clicks`),
+        maxRoundsToWaitForConfirmation: 4,
+      })
 
+      console.log('Payment sent with txIds:', result.txIds[0])
       setTxnStatus('success')
     } catch (error) {
       console.error('Transaction error:', error)
