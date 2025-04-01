@@ -7,7 +7,7 @@ async function cronJob() {
   const cronAccount = await algorand.account.fromKmd('lora-dev')
   console.log(`Using cron account: ${cronAccount.addr}`)
 
-  const appId = 1001n
+  const appId = 1002n
   const app = await algorand.app.getById(appId)
   const appAddress = app.appAddress
   const appClient = algorand.client.getTypedAppClientById(ClickrLogicClient, { appId })

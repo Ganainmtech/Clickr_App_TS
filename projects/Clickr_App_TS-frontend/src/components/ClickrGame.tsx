@@ -1,10 +1,13 @@
+import * as algokit from '@algorandfoundation/algokit-utils'
 import { useWallet } from '@txnlab/use-wallet-react'
+import { Transaction, TransactionSigner } from 'algosdk'
 import { useEffect, useState } from 'react'
 import algorandLogo from '../assets/algorand-logo-white.png'
+import { ClickrLogicClient } from '../contracts/clickrLogic'
+import { getAlgodConfigFromViteEnvironment } from '../utils/network/getAlgoClientConfigs'
 
 // Smart contract configuration
-const APP_ID = '1001'
-const CONTRACT_ADDRESS = 'OKSDOCOXVGMBXQ5TP5YA4VWTZWZJLJP3OMIILPHMHGHURUFE2Q3JP62QNU'
+const APP_ID = 1002n
 const REWARD_MULTIPLIER = 0.006 // Cost per click in ALGO
 
 interface PathPoint {
@@ -14,10 +17,10 @@ interface PathPoint {
   opacity: number
 }
 
-const ClickrGame = () => {
+export function ClickrGame() {
   const { activeAddress, signTransactions } = useWallet()
   const [score, setScore] = useState(0)
-  const [hearts, setHearts] = useState(3)
+  const [hearts, setHearts] = useState(5)
   const [objectPosition, setObjectPosition] = useState({ top: '50%', left: '50%' })
   const [gameStarted, setGameStarted] = useState(false)
   const [countdown, setCountdown] = useState<number | null>(null)
@@ -31,6 +34,38 @@ const ClickrGame = () => {
   const [isOptedIn, setIsOptedIn] = useState(false)
   const [isCheckingOptIn, setIsCheckingOptIn] = useState(false)
   const [isOptingIn, setIsOptingIn] = useState(false)
+  const [onChainClickCount, setOnChainClickCount] = useState<number | null>(null)
+
+  // Initialize AlgoKit client
+  const algorand = algokit.AlgorandClient.fromEnvironment()
+
+  // Get app details and create client
+  const getAppDetails = async (sender: string | null) => {
+    if (!sender) {
+      throw new Error('Sender address is required')
+    }
+    console.log('Getting app details for sender:', sender)
+
+    try {
+      // Create app client with the connected wallet address
+      const appClient = algorand.client.getTypedAppClientById(ClickrLogicClient, {
+        appId: BigInt(APP_ID),
+        defaultSender: sender,
+      })
+
+      // Set up the signer from the connected wallet
+      const walletSigner: TransactionSigner = async (txnGroup: Transaction[]) => {
+        const signedTxns = await signTransactions(txnGroup)
+        return signedTxns.filter((txn): txn is Uint8Array => txn !== null)
+      }
+      algorand.setSigner(sender, walletSigner)
+
+      return appClient
+    } catch (error) {
+      console.error('Error getting account:', error)
+      throw error
+    }
+  }
 
   // Calculate reward amount based on score
   const getRewardAmount = () => {
@@ -38,84 +73,58 @@ const ClickrGame = () => {
   }
 
   // Check if the user is opted into the app
-  const checkOptIn = async () => {
-    if (!activeAddress) return false
-
-    setIsCheckingOptIn(true)
-
+  const checkOptIn = async (address: string | null) => {
+    if (!address) return false
+    console.log('Checking opt-in status for address:', address)
     try {
-      // Fetch account info to check if opted into app
-      const response = await fetch(`/api/account-info?address=${activeAddress}`)
-      if (!response.ok) throw new Error('Failed to fetch account info')
-
-      const accountInfo = await response.json()
-
-      // Check if account is opted into the app
-      const appOptedIn = accountInfo.account?.appsLocalState?.some((app) => BigInt(app.id) === BigInt(APP_ID)) || false
-
-      setIsOptedIn(appOptedIn)
-      return appOptedIn
+      const algodClient = algokit.getAlgoClient(getAlgodConfigFromViteEnvironment())
+      const accountInfo = await algodClient.accountInformation(address).do()
+      const optedIn = accountInfo.appsLocalState?.some((app) => app.id === APP_ID) ?? false
+      console.log('Opt-in status:', optedIn)
+      setIsOptedIn(optedIn)
+      return optedIn
     } catch (error) {
       console.error('Error checking opt-in status:', error)
       return false
-    } finally {
-      setIsCheckingOptIn(false)
     }
   }
 
-  // Opt into the app
-  const optInToApp = async () => {
-    if (!activeAddress) return
-
-    setIsOptingIn(true)
-    setTxnStatus('pending')
-
-    try {
-      // Request opt-in transaction from API
-      const response = await fetch('/api/opt-in-transaction', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          address: activeAddress,
-          appId: APP_ID,
-        }),
-      })
-
-      if (!response.ok) throw new Error('Failed to create opt-in transaction')
-
-      const { unsignedTxn } = await response.json()
-
-      // Sign the transaction
-      const signedTxns = await signTransactions([unsignedTxn])
-
-      // Submit the signed transaction
-      const submitResponse = await fetch('/api/submit-transaction', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          signedTxn: signedTxns[0],
-        }),
-      })
-
-      if (!submitResponse.ok) throw new Error('Failed to submit opt-in transaction')
-
-      setIsOptedIn(true)
-      setTxnStatus('success')
-
-      // Wait a moment and then start the game
-      setTimeout(() => {
-        startWeb3Game()
-      }, 1500)
-    } catch (error) {
-      console.error('Opt-in error:', error)
-      setTxnStatus('error')
-    } finally {
-      setIsOptingIn(false)
+  // Fetch on-chain click count
+  const fetchOnChainClickCount = async (sender: string | null) => {
+    if (!sender) {
+      throw new Error('Sender address is required')
     }
+
+    const appClient = await getAppDetails(sender)
+    const result = await appClient.send.getClickCount({
+      args: { user: sender },
+    })
+    return Number(result.return)
+  }
+
+  // Record a click on the blockchain
+  const recordClickOnChain = async (sender: string | null) => {
+    if (!sender) {
+      throw new Error('Sender address is required')
+    }
+
+    const appClient = await getAppDetails(sender)
+    await appClient.send.recordClick({
+      args: [],
+    })
+  }
+
+  // Opt in to the smart contract
+  const optInToApp = async (sender: string | null) => {
+    if (!sender) {
+      throw new Error('Sender address is required')
+    }
+
+    const appClient = await getAppDetails(sender)
+    await appClient.send.optIn.optIn({
+      args: [],
+    })
+    console.log('Successfully opted in to app')
   }
 
   useEffect(() => {
@@ -132,12 +141,19 @@ const ClickrGame = () => {
   useEffect(() => {
     // Check opt-in status when wallet is connected
     if (activeAddress) {
-      checkOptIn()
+      checkOptIn(activeAddress)
     }
   }, [activeAddress])
 
+  // Detect game end to fetch on-chain click count
+  useEffect(() => {
+    if (gameStarted && hearts <= 0 && isWeb3Mode) {
+      fetchOnChainClickCount(activeAddress)
+    }
+  }, [gameStarted, hearts, isWeb3Mode, activeAddress])
+
   const randomizePosition = () => {
-    const logoSize = 5 
+    const logoSize = 5
     const newTop = Math.random() * 80
     const newLeft = Math.random() * 80
 
@@ -166,6 +182,11 @@ const ClickrGame = () => {
       setAnimateClick(true)
       setTimeout(() => setAnimateClick(false), 200)
       randomizePosition()
+
+      // Record click on chain if in Web3 mode
+      if (isWeb3Mode && isOptedIn) {
+        recordClickOnChain(activeAddress)
+      }
     } else {
       if (hearts > 0) {
         setHearts((prev) => Math.max(0, prev - 1))
@@ -178,10 +199,11 @@ const ClickrGame = () => {
   // Start countdown and then game
   const startGame = () => {
     setScore(0)
-    setHearts(3)
+    setHearts(5)
     setGameStarted(false)
     setCountdown(3)
     setTxnStatus('idle')
+    setOnChainClickCount(null)
 
     let count = 3
     const countdownInterval = setInterval(() => {
@@ -210,7 +232,7 @@ const ClickrGame = () => {
     setTxnStatus('idle')
 
     // Refresh opt-in status
-    const optedIn = await checkOptIn()
+    const optedIn = await checkOptIn(activeAddress)
 
     if (optedIn) {
       // Already opted in, start game immediately
@@ -248,7 +270,7 @@ const ClickrGame = () => {
         },
         body: JSON.stringify({
           senderAddress: activeAddress,
-          receiverAddress: CONTRACT_ADDRESS,
+          receiverAddress: APP_ID.toString(),
           amount: amountInMicroAlgos,
         }),
       })
@@ -260,7 +282,7 @@ const ClickrGame = () => {
       const { unsignedTxn } = await response.json()
 
       // Sign the transaction using the wallet
-      const signedTxns = await signTransactions([unsignedTxn])
+      const signedTxns = await signTransactions(unsignedTxn)
 
       // Send the signed transaction back to the server
       const submitResponse = await fetch('/api/submit-transaction', {
@@ -347,8 +369,8 @@ const ClickrGame = () => {
           <p className="mt-4 mb-6">You need to opt into the Clickr app before playing in Web3 Mode.</p>
 
           {txnStatus === 'idle' && (
-            <button className="btn neon-btn w-64" onClick={optInToApp} disabled={isOptingIn}>
-              Opt In to App
+            <button className="btn btn-primary" onClick={() => optInToApp(activeAddress)} disabled={isOptingIn || !activeAddress}>
+              {isOptingIn ? 'Opting in...' : 'Opt in to App'}
             </button>
           )}
 
@@ -361,7 +383,7 @@ const ClickrGame = () => {
           {txnStatus === 'error' && (
             <div className="text-red-400 my-4">
               <p>Opt-in transaction failed. Please try again.</p>
-              <button className="btn neon-btn mt-4" onClick={optInToApp} disabled={isOptingIn}>
+              <button className="btn neon-btn mt-4" onClick={() => optInToApp(activeAddress)} disabled={isOptingIn || !activeAddress}>
                 Retry Opt-in
               </button>
             </div>
@@ -401,6 +423,12 @@ const ClickrGame = () => {
               <p className="text-lg font-bold">
                 Send Amount to Reward Pool: <span className="text-green-400">{getRewardAmount().toFixed(3)} ALGO</span>
               </p>
+
+              {onChainClickCount !== null && (
+                <p className="text-sm mt-2">
+                  On-chain Clicks Recorded: <span className="text-blue-400">{onChainClickCount}</span>
+                </p>
+              )}
 
               {txnStatus === 'idle' && (
                 <button className="btn neon-btn mt-6 w-full" onClick={handleTransaction} disabled={isProcessingTxn}>

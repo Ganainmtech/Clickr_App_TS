@@ -1,7 +1,7 @@
 {
   "name": "smart_contracts",
   "version": "1.0.0",
-  "description": "Smart contract deployer",
+  "description": "Smart contract deployer with API server",
   "main": "smart_contracts/index.ts",
   "scripts": {
     "build": "algokit compile ts smart_contracts --output-source-map --out-dir artifacts && algokit generate client smart_contracts/artifacts --output {app_spec_dir}/{contract_name}Client.ts",
@@ -13,29 +13,38 @@
     "format": "prettier --write .",
     "test": "vitest run --coverage",
     "test:watch": "vitest watch",
-    "check-types": "tsc --noEmit"
+    "check-types": "tsc --noEmit",
+    "start:server": "ts-node-dev --transpile-only -r dotenv/config server.ts",
+    "start:server:prod": "ts-node -r dotenv/config server.ts",
+    "start": "ts-node server.ts",
+    "dev": "ts-node server.ts"
   },
   "engines": {
     "node": ">=22.0",
     "npm": ">=9.0"
   },
   "dependencies": {
-    "@algorandfoundation/algorand-typescript": "^1.0.0-beta.25"
+    "@algorandfoundation/algorand-typescript": "^1.0.0-beta.25",
+    "@algorandfoundation/algokit-utils": "^9.0.0",
+    "algosdk": "^3.0.0",
+    "body-parser": "^1.20.2",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.18.2"
   },
   "devDependencies": {
     "@algorandfoundation/algokit-client-generator": "^5.0.0",
-    "@algorandfoundation/algokit-utils": "^9.0.0",
     "@algorandfoundation/algokit-utils-debug": "^1.0.4",
     "@algorandfoundation/algorand-typescript-testing": "^1.0.0-beta.30",
     "@algorandfoundation/puya-ts": "^1.0.0-beta.50",
     "@eslint/js": "^9.18.0",
     "@rollup/plugin-typescript": "^12.1.2",
     "@tsconfig/node22": "^22.0.0",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^4.17.21",
     "@types/node": "^22.13.14",
     "@vitest/coverage-v8": "^2.1.8",
-    "algosdk": "^3.0.0",
     "better-npm-audit": "^3.11.0",
-    "dotenv": "^16.4.7",
     "eslint": "^9.18.0",
     "prettier": "^3.4.2",
     "ts-node": "^10.9.2",
