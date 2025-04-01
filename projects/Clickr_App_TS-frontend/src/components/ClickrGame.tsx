@@ -34,7 +34,8 @@ export function ClickrGame() {
   const [isOptedIn, setIsOptedIn] = useState(false)
   const [isCheckingOptIn, setIsCheckingOptIn] = useState(false)
   const [isOptingIn, setIsOptingIn] = useState(false)
-  const [onChainClickCount, setOnChainClickCount] = useState<number | null>(null)
+  // Commenting out on-chain click count state
+  // const [onChainClickCount, setOnChainClickCount] = useState<number | null>(null)
 
   // Initialize AlgoKit client
   const algorand = algokit.AlgorandClient.fromEnvironment()
@@ -152,10 +153,10 @@ export function ClickrGame() {
   // Detect game end
   useEffect(() => {
     if (gameStarted && hearts <= 0 && isWeb3Mode) {
-      // Only fetch the click count, don't trigger transaction
-      fetchOnChainClickCount(activeAddress)
-        .then((count) => setOnChainClickCount(count))
-        .catch(console.error)
+      // Commenting out on-chain click count fetch
+      // fetchOnChainClickCount(activeAddress)
+      //   .then((count) => setOnChainClickCount(count))
+      //   .catch(console.error)
     }
   }, [gameStarted, hearts, isWeb3Mode, activeAddress])
 
@@ -200,13 +201,18 @@ export function ClickrGame() {
 
   // Start countdown and then game
   const startGame = () => {
+    // Reset game state
     setScore(0)
     setHearts(5)
     setGameStarted(false)
-    setCountdown(3)
-    setTxnStatus('idle')
-    setOnChainClickCount(null)
+    setPath([])
 
+    // Reset transaction state
+    setIsProcessingTxn(false)
+    setTxnStatus('idle')
+
+    // Start countdown
+    setCountdown(3)
     let count = 3
     const countdownInterval = setInterval(() => {
       setCountdown((prev) => (prev !== null ? prev - 1 : null))
@@ -277,13 +283,17 @@ export function ClickrGame() {
         amount: paymentAmount,
       })
 
+      // Create a unique note for each transaction to ensure it's not reused
+      const uniqueNote = new TextEncoder().encode(`Payment for ${score} clicks at ${Date.now()}`)
+
       // Send payment using AlgoKit's payment utility
       const result = await algorand.send.payment({
         sender: activeAddress,
         receiver: appClient.appAddress,
         amount: algokit.algos(paymentAmount),
-        note: new TextEncoder().encode(`Payment for ${score} clicks`),
+        note: uniqueNote,
         maxRoundsToWaitForConfirmation: 4,
+        suppressLog: false, // Show transaction details
       })
 
       console.log('Payment sent with txIds:', result.txIds[0])
@@ -412,10 +422,30 @@ export function ClickrGame() {
                 Send Amount to Reward Pool: <span className="text-green-400">{getRewardAmount().toFixed(3)} ALGO</span>
               </p>
 
+              {/* Commenting out on-chain click count display
               {onChainClickCount !== null && (
                 <p className="text-sm mt-2">
                   On-chain Clicks Recorded: <span className="text-blue-400">{onChainClickCount}</span>
                 </p>
+              )}
+              */}
+
+              {txnStatus === 'success' && (
+                <div className="mt-6 text-green-400">
+                  <p>Transaction successful! Reward sent to pool.</p>
+                  <button className="btn neon-btn mt-4" onClick={startGame}>
+                    Play New Game
+                  </button>
+                </div>
+              )}
+
+              {txnStatus === 'error' && (
+                <div className="mt-6 text-red-400">
+                  <p>Transaction failed. Please try again.</p>
+                  <button className="btn neon-btn mt-4" onClick={handleTransaction} disabled={isProcessingTxn}>
+                    Retry Transaction
+                  </button>
+                </div>
               )}
 
               {txnStatus === 'idle' && (
@@ -429,27 +459,8 @@ export function ClickrGame() {
                   <p>Processing your transaction...</p>
                 </div>
               )}
-
-              {txnStatus === 'success' && (
-                <div className="mt-6 text-green-400">
-                  <p>Transaction successful! Reward sent to pool.</p>
-                </div>
-              )}
-
-              {txnStatus === 'error' && (
-                <div className="mt-6 text-red-400">
-                  <p>Transaction failed. Please try again.</p>
-                  <button className="btn neon-btn mt-4" onClick={handleTransaction} disabled={isProcessingTxn}>
-                    Retry
-                  </button>
-                </div>
-              )}
             </div>
           )}
-
-          <button className={`btn neon-btn ${isWeb3Mode ? 'mt-6' : 'mt-8'} w-full`} onClick={startGame}>
-            Play Again
-          </button>
         </div>
       )}
     </div>
