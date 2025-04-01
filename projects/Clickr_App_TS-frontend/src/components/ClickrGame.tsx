@@ -7,7 +7,7 @@ import { ClickrLogicClient } from '../contracts/clickrLogic'
 import { getAlgodConfigFromViteEnvironment } from '../utils/network/getAlgoClientConfigs'
 
 // Smart contract configuration
-const APP_ID = 1002n
+const APP_ID = 1008n
 const REWARD_MULTIPLIER = 0.006 // Cost per click in ALGO
 
 interface PathPoint {
@@ -18,7 +18,7 @@ interface PathPoint {
 }
 
 export function ClickrGame() {
-  const { activeAddress, signTransactions, activeAccount } = useWallet()
+  const { activeAddress, signTransactions } = useWallet()
   const [score, setScore] = useState(0)
   const [hearts, setHearts] = useState(5)
   const [objectPosition, setObjectPosition] = useState({ top: '50%', left: '50%' })
@@ -34,6 +34,7 @@ export function ClickrGame() {
   const [isOptedIn, setIsOptedIn] = useState(false)
   const [isCheckingOptIn, setIsCheckingOptIn] = useState(false)
   const [isOptingIn, setIsOptingIn] = useState(false)
+  const [optInStatus, setOptInStatus] = useState<'idle' | 'pending' | 'success' | 'error'>('idle')
   // Commenting out on-chain click count state
   // const [onChainClickCount, setOnChainClickCount] = useState<number | null>(null)
 
@@ -124,12 +125,25 @@ export function ClickrGame() {
       throw new Error('Sender address is required')
     }
 
-    const appClient = await getAppDetails(sender)
-    await appClient.send.optIn.optIn({
-      args: [],
-      suppressLog: false,
-    })
-    console.log('Successfully opted in to app')
+    try {
+      setIsOptingIn(true)
+      setOptInStatus('pending')
+      const appClient = await getAppDetails(sender)
+      await appClient.send.optIn.optIn({
+        args: [],
+        suppressLog: false,
+      })
+      console.log('Successfully opted in to app')
+      setOptInStatus('success')
+      setIsOptedIn(true)
+      // Wait a moment to show success message, then start game
+      startWeb3Game()
+    } catch (error) {
+      console.error('Error opting in:', error)
+      setOptInStatus('error')
+    } finally {
+      setIsOptingIn(false)
+    }
   }
 
   useEffect(() => {
@@ -203,7 +217,7 @@ export function ClickrGame() {
   const startGame = () => {
     // Reset game state
     setScore(0)
-    setHearts(5)
+    setHearts(3)
     setGameStarted(false)
     setPath([])
 
@@ -284,7 +298,7 @@ export function ClickrGame() {
       })
 
       // Create a unique note for each transaction to ensure it's not reused
-      const uniqueNote = new TextEncoder().encode(`Payment for ${score} clicks at ${Date.now()}`)
+      const uniqueNote = new TextEncoder().encode(`Payment for ${score} clicks}`)
 
       // Send payment using AlgoKit's payment utility
       const result = await algorand.send.payment({
@@ -366,32 +380,25 @@ export function ClickrGame() {
           <h1 className="text-3xl font-bold neon-text mb-4">Web3 Mode Setup</h1>
           <p className="mt-4 mb-6">You need to opt into the Clickr app before playing in Web3 Mode.</p>
 
-          {txnStatus === 'idle' && (
-            <button className="btn btn-primary" onClick={() => optInToApp(activeAddress)} disabled={isOptingIn || !activeAddress}>
-              {isOptingIn ? 'Opting in...' : 'Opt in to App'}
+          <div className="mt-4">
+            <button className="btn neon-btn w-full" onClick={() => optInToApp(activeAddress)} disabled={isOptingIn}>
+              {isOptingIn ? 'Opting in...' : 'Opt in to Play'}
             </button>
-          )}
-
-          {txnStatus === 'pending' && (
-            <div className="text-yellow-300 my-4">
-              <p>Processing opt-in transaction...</p>
-            </div>
-          )}
-
-          {txnStatus === 'error' && (
-            <div className="text-red-400 my-4">
-              <p>Opt-in transaction failed. Please try again.</p>
-              <button className="btn neon-btn mt-4" onClick={() => optInToApp(activeAddress)} disabled={isOptingIn || !activeAddress}>
-                Retry Opt-in
-              </button>
-            </div>
-          )}
+            {optInStatus === 'success' && (
+              <div className="mt-6 text-green-400">
+                <p className="text-lg font-bold">Successfully opted in! 🎉</p>
+                <p className="text-sm mt-2">Starting game in a moment...</p>
+              </div>
+            )}
+            {optInStatus === 'error' && <p className="text-red-400 text-sm mt-2">Failed to opt in. Please try again.</p>}
+          </div>
 
           <button
             className="btn text-gray-400 mt-6"
             onClick={() => {
               setIsWeb3Mode(false)
               setTxnStatus('idle')
+              setOptInStatus('idle')
             }}
           >
             Go Back
