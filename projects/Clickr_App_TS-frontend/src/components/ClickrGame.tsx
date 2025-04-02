@@ -7,7 +7,7 @@ import { ClickrLogicClient } from '../contracts/clickrLogic'
 import { getAlgodConfigFromViteEnvironment } from '../utils/network/getAlgoClientConfigs'
 
 // Smart contract configuration
-const APP_ID = 1008n
+const APP_ID = 1001n
 const REWARD_MULTIPLIER = 0.006 // Cost per click in ALGO
 
 interface PathPoint {
@@ -15,6 +15,12 @@ interface PathPoint {
   x: number
   y: number
   opacity: number
+}
+
+interface LeaderboardEntry {
+  address: string
+  score: number
+  timestamp: number
 }
 
 export function ClickrGame() {
@@ -27,6 +33,8 @@ export function ClickrGame() {
   const [animateClick, setAnimateClick] = useState(false)
   const [missedClick, setMissedClick] = useState(false)
   const [path, setPath] = useState<PathPoint[]>([])
+  const [showLeaderboard, setShowLeaderboard] = useState(false)
+  const [leaderboardData, setLeaderboardData] = useState<LeaderboardEntry[]>([])
 
   const [isWeb3Mode, setIsWeb3Mode] = useState(false)
   const [isProcessingTxn, setIsProcessingTxn] = useState(false)
@@ -174,6 +182,32 @@ export function ClickrGame() {
     }
   }, [gameStarted, hearts, isWeb3Mode, activeAddress])
 
+  // Load leaderboard data from localStorage on component mount
+  useEffect(() => {
+    const savedData = localStorage.getItem('clickrLeaderboard')
+    if (savedData) {
+      setLeaderboardData(JSON.parse(savedData))
+    }
+  }, [])
+
+  // Update leaderboard when game ends
+  useEffect(() => {
+    if (gameStarted && hearts <= 0 && activeAddress && score > 0) {
+      const newEntry: LeaderboardEntry = {
+        address: activeAddress,
+        score: score,
+        timestamp: Date.now(),
+      }
+
+      const updatedLeaderboard = [...leaderboardData, newEntry]
+        .sort((a, b) => b.score - a.score) // Sort by score descending
+        .slice(0, 5) // Keep only top 5
+
+      setLeaderboardData(updatedLeaderboard)
+      localStorage.setItem('clickrLeaderboard', JSON.stringify(updatedLeaderboard))
+    }
+  }, [gameStarted, hearts, activeAddress, score, leaderboardData])
+
   const randomizePosition = () => {
     const logoSize = 5
     const newTop = Math.random() * 80
@@ -195,20 +229,41 @@ export function ClickrGame() {
     }, 2000)
   }
 
-  // Handle user click
-  const handleClick = (e: React.MouseEvent<HTMLDivElement>) => {
-    if (!gameStarted || countdown !== null) return
+  // Handle click on the game area
+  const handleClick = (e: React.MouseEvent) => {
+    // Don't process clicks if game isn't started or is over
+    if (!gameStarted || hearts <= 0) return
 
-    if ((e.target as HTMLElement).id === 'click-target') {
-      setScore(score + 1)
+    // Check if click is on a navigation element
+    const target = e.target as HTMLElement
+    if (target.closest('nav') || target.closest('a') || target.closest('button')) {
+      return
+    }
+
+    // Get click coordinates relative to the game area
+    const rect = e.currentTarget.getBoundingClientRect()
+    const x = e.clientX - rect.left
+    const y = e.clientY - rect.top
+
+    // Check if click is within the object's bounds
+    const objectRect = document.getElementById('clickable-object')?.getBoundingClientRect()
+    if (!objectRect) return
+
+    const objectX = objectRect.left - rect.left
+    const objectY = objectRect.top - rect.top
+    const objectWidth = objectRect.width
+    const objectHeight = objectRect.height
+
+    if (x >= objectX && x <= objectX + objectWidth && y >= objectY && y <= objectY + objectHeight) {
+      // Clicked the object
+      setScore((prev) => prev + 1)
       setAnimateClick(true)
       setTimeout(() => setAnimateClick(false), 200)
       randomizePosition()
     } else {
-      if (hearts > 0) {
-        setHearts((prev) => Math.max(0, prev - 1))
-      }
+      // Missed the object
       setMissedClick(true)
+      setHearts((prev) => prev - 1)
       setTimeout(() => setMissedClick(false), 200)
     }
   }
@@ -217,7 +272,7 @@ export function ClickrGame() {
   const startGame = () => {
     // Reset game state
     setScore(0)
-    setHearts(3)
+    setHearts(isWeb3Mode ? 5 : 3) // 5 hearts for Web3 mode, 3 for Web2 mode
     setGameStarted(false)
     setPath([])
 
@@ -273,6 +328,15 @@ export function ClickrGame() {
     startGame()
   }
 
+  // Handle game restart
+  const handleRestart = () => {
+    if (isWeb3Mode) {
+      startWeb3Game()
+    } else {
+      selectWeb2Mode()
+    }
+  }
+
   // Handle payment transaction to the smart contract
   const handleTransaction = async () => {
     if (!activeAddress) {
@@ -320,6 +384,43 @@ export function ClickrGame() {
     }
   }
 
+  // Update score display in navigation
+  useEffect(() => {
+    const scoreElement = document.getElementById('game-score')
+    if (scoreElement) {
+      scoreElement.textContent = score.toString()
+    }
+  }, [score])
+
+  // Update hearts display in navigation
+  useEffect(() => {
+    const heartsContainer = document.getElementById('hearts-container')
+    if (heartsContainer) {
+      heartsContainer.innerHTML = Array.from({ length: hearts }, (_, i) => `<span class="text-red-500 text-xl">❤️</span>`).join('')
+    }
+  }, [hearts])
+
+  // Update Web3 mode indicator
+  useEffect(() => {
+    const web3Indicator = document.getElementById('web3-mode-indicator')
+    if (web3Indicator) {
+      web3Indicator.style.display = isWeb3Mode ? 'inline' : 'none'
+    }
+  }, [isWeb3Mode])
+
+  // Setup leaderboard button listener
+  useEffect(() => {
+    const leaderboardButton = document.getElementById('leaderboard-button')
+    if (leaderboardButton) {
+      leaderboardButton.addEventListener('click', () => setShowLeaderboard(true))
+    }
+    return () => {
+      if (leaderboardButton) {
+        leaderboardButton.removeEventListener('click', () => setShowLeaderboard(true))
+      }
+    }
+  }, [])
+
   return (
     <div
       className={`min-h-screen flex flex-col items-center justify-center bg-black text-white relative transition-all ${
@@ -327,20 +428,39 @@ export function ClickrGame() {
       }`}
       onClick={handleClick}
     >
-      {/* Top Right Menu */}
-      <div className="absolute top-4 right-4 flex items-center space-x-6 px-6 py-3 bg-opacity-40 backdrop-blur-lg bg-gray-800 rounded-full shadow-neon border border-cyber-pink">
-        <span className="text-lg font-bold">🏆 {score}</span>
-        <div className="flex items-center space-x-1">
-          {Array.from({ length: hearts }, (_, i) => (
-            <span key={i} className="text-red-500 text-xl">
-              ❤️
-            </span>
-          ))}
+      {/* Leaderboard Modal */}
+      {showLeaderboard && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
+          <div className="bg-gray-900 p-6 rounded-lg border border-cyber-pink shadow-neon max-w-md w-full mx-4">
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-xl font-bold neon-text">Top 5 Players</h2>
+              <button onClick={() => setShowLeaderboard(false)} className="text-gray-400 hover:text-white">
+                ✕
+              </button>
+            </div>
+            <div className="space-y-2">
+              {Array.from({ length: 5 }).map((_, index) => {
+                const entry = leaderboardData[index]
+                return (
+                  <div key={index} className="flex justify-between items-center p-3 bg-gray-800 rounded-lg">
+                    <div className="flex items-center space-x-3">
+                      <span className="text-xl">{index === 0 ? '🥇' : index === 1 ? '🥈' : index === 2 ? '🥉' : `#${index + 1}`}</span>
+                      {entry ? (
+                        <span className="font-bold text-sm">
+                          {entry.address.slice(0, 6)}...{entry.address.slice(-4)}
+                        </span>
+                      ) : (
+                        <span className="font-bold text-sm text-gray-500 italic">Waiting for players...</span>
+                      )}
+                    </div>
+                    {entry ? <span className="text-lg">{entry.score} clicks</span> : <span className="text-lg text-gray-500">-</span>}
+                  </div>
+                )
+              })}
+            </div>
+          </div>
         </div>
-        {isWeb3Mode && (
-          <span className="text-sm font-bold bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">Web3 Mode</span>
-        )}
-      </div>
+      )}
 
       {/* Countdown Before Start */}
       {countdown !== null && (
@@ -429,18 +549,10 @@ export function ClickrGame() {
                 Send Amount to Reward Pool: <span className="text-green-400">{getRewardAmount().toFixed(3)} ALGO</span>
               </p>
 
-              {/* Commenting out on-chain click count display
-              {onChainClickCount !== null && (
-                <p className="text-sm mt-2">
-                  On-chain Clicks Recorded: <span className="text-blue-400">{onChainClickCount}</span>
-                </p>
-              )}
-              */}
-
               {txnStatus === 'success' && (
                 <div className="mt-6 text-green-400">
                   <p>Transaction successful! Reward sent to pool.</p>
-                  <button className="btn neon-btn mt-4" onClick={startGame}>
+                  <button className="btn neon-btn mt-4" onClick={handleRestart}>
                     Play New Game
                   </button>
                 </div>
@@ -467,6 +579,12 @@ export function ClickrGame() {
                 </div>
               )}
             </div>
+          )}
+
+          {!isWeb3Mode && (
+            <button className="btn neon-btn mt-6" onClick={handleRestart}>
+              Play New Game
+            </button>
           )}
         </div>
       )}
