@@ -240,21 +240,8 @@ export function ClickrGame() {
       return
     }
 
-    // Get click coordinates relative to the game area
-    const rect = e.currentTarget.getBoundingClientRect()
-    const x = e.clientX - rect.left
-    const y = e.clientY - rect.top
-
-    // Check if click is within the object's bounds
-    const objectRect = document.getElementById('clickable-object')?.getBoundingClientRect()
-    if (!objectRect) return
-
-    const objectX = objectRect.left - rect.left
-    const objectY = objectRect.top - rect.top
-    const objectWidth = objectRect.width
-    const objectHeight = objectRect.height
-
-    if (x >= objectX && x <= objectX + objectWidth && y >= objectY && y <= objectY + objectHeight) {
+    // Check if click is on the Algorand logo
+    if (target.id === 'click-target') {
       // Clicked the object
       setScore((prev) => prev + 1)
       setAnimateClick(true)
@@ -263,7 +250,7 @@ export function ClickrGame() {
     } else {
       // Missed the object
       setMissedClick(true)
-      setHearts((prev) => prev - 1)
+      setHearts((prev) => Math.max(0, prev - 1))
       setTimeout(() => setMissedClick(false), 200)
     }
   }

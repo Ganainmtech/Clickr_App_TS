@@ -1,7 +1,9 @@
 import { SupportedWallet, useWallet, WalletId, WalletManager, WalletProvider } from '@txnlab/use-wallet-react'
 import { SnackbarProvider } from 'notistack'
+import { useState } from 'react'
 import { Link, Route, BrowserRouter as Router, Routes, useLocation } from 'react-router-dom'
 import { ClickrGame } from './components/ClickrGame'
+import ConnectWallet from './components/ConnectWallet'
 import Home from './components/Home'
 import { getAlgodConfigFromViteEnvironment, getKmdConfigFromViteEnvironment } from './utils/network/getAlgoClientConfigs'
 
@@ -28,7 +30,7 @@ if (import.meta.env.VITE_ALGOD_NETWORK === 'localnet') {
   ]
 }
 
-function NavigationBar() {
+function NavigationBar({ toggleWalletModal }: { toggleWalletModal: () => void }) {
   const location = useLocation()
   const { activeAddress } = useWallet()
   const isGamePage = location.pathname === '/play'
@@ -65,9 +67,22 @@ function NavigationBar() {
               </span>
             </>
           ) : (
-            <Link to="/play" className="px-4 py-2 bg-cyber-pink text-white rounded-lg hover:bg-opacity-80 transition-colors">
-              Play Now
-            </Link>
+            <>
+              <Link to="/play" className="px-4 py-2 bg-cyber-pink text-white rounded-lg hover:bg-opacity-80 transition-colors">
+                Play Now
+              </Link>
+              <button
+                onClick={toggleWalletModal}
+                className="px-4 py-2 bg-gray-800 text-white rounded-lg hover:bg-gray-700 transition-colors border border-cyber-pink"
+              >
+                {activeAddress ? 'Wallet Connected' : 'Connect Wallet'}
+              </button>
+              {activeAddress && (
+                <span className="text-sm font-bold bg-gradient-to-r from-purple-400 to-pink-600 bg-clip-text text-transparent">
+                  {activeAddress.slice(0, 6)}...{activeAddress.slice(-4)}
+                </span>
+              )}
+            </>
           )}
         </div>
       </div>
@@ -77,6 +92,7 @@ function NavigationBar() {
 
 export default function App() {
   const algodConfig = getAlgodConfigFromViteEnvironment()
+  const [openWalletModal, setOpenWalletModal] = useState(false)
 
   const walletManager = new WalletManager({
     wallets: supportedWallets,
@@ -95,16 +111,21 @@ export default function App() {
     },
   })
 
+  const toggleWalletModal = () => {
+    setOpenWalletModal(!openWalletModal)
+  }
+
   return (
     <SnackbarProvider maxSnack={3}>
       <WalletProvider manager={walletManager}>
         <Router>
           <div className="min-h-screen bg-black">
-            <NavigationBar />
+            <NavigationBar toggleWalletModal={toggleWalletModal} />
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/play" element={<ClickrGame />} />
             </Routes>
+            <ConnectWallet openModal={openWalletModal} closeModal={toggleWalletModal} />
           </div>
         </Router>
       </WalletProvider>
