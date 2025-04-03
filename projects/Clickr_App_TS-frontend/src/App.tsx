@@ -9,17 +9,22 @@ import { getAlgodConfigFromViteEnvironment, getKmdConfigFromViteEnvironment } fr
 
 let supportedWallets: SupportedWallet[]
 if (import.meta.env.VITE_ALGOD_NETWORK === 'localnet') {
-  const kmdConfig = getKmdConfigFromViteEnvironment()
-  supportedWallets = [
-    {
-      id: WalletId.KMD,
-      options: {
-        baseServer: kmdConfig.server,
-        token: String(kmdConfig.token),
-        port: String(kmdConfig.port),
+  try {
+    const kmdConfig = getKmdConfigFromViteEnvironment()
+    supportedWallets = [
+      {
+        id: WalletId.KMD,
+        options: {
+          baseServer: kmdConfig.server,
+          token: String(kmdConfig.token),
+          port: String(kmdConfig.port),
+        },
       },
-    },
-  ]
+    ]
+  } catch (error) {
+    console.error('Error setting up KMD wallet:', error)
+    supportedWallets = []
+  }
 } else {
   supportedWallets = [
     { id: WalletId.DEFLY },
