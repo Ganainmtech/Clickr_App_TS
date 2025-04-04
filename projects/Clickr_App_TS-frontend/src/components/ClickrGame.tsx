@@ -1,10 +1,10 @@
 import * as algokit from '@algorandfoundation/algokit-utils'
+import { AlgorandClient } from '@algorandfoundation/algokit-utils'
 import { useWallet } from '@txnlab/use-wallet-react'
 import algosdk, { Transaction } from 'algosdk'
 import { useEffect, useState } from 'react'
 import algorandLogo from '../assets/algorand-logo-white.png'
 import { ClickrLogicClient } from '../contracts/clickrLogic'
-import { getAlgodConfigFromViteEnvironment } from '../utils/network/getAlgoClientConfigs'
 
 // Smart contract configuration
 const APP_ID = 736899333n
@@ -24,7 +24,7 @@ interface LeaderboardEntry {
 }
 
 export function ClickrGame() {
-  const { activeAddress, signTransactions } = useWallet()
+  const { activeAddress, signTransactions, algodClient } = useWallet()
   const [score, setScore] = useState(0)
   const [hearts, setHearts] = useState(5)
   const [objectPosition, setObjectPosition] = useState({ top: '50%', left: '50%' })
@@ -47,7 +47,23 @@ export function ClickrGame() {
   // const [onChainClickCount, setOnChainClickCount] = useState<number | null>(null)
 
   // Initialize AlgoKit client
-  const algorand = algokit.AlgorandClient.fromEnvironment()
+  const algorand = AlgorandClient.testNet()
+
+  // Verify network connection
+  useEffect(() => {
+    const verifyNetwork = async () => {
+      try {
+        const { isTestNet } = await algorand.client.network()
+        console.log('Connected to TestNet:', isTestNet)
+        if (!isTestNet) {
+          console.error('Not connected to TestNet!')
+        }
+      } catch (error) {
+        console.error('Error verifying network:', error)
+      }
+    }
+    verifyNetwork()
+  }, [])
 
   // Register signer when wallet is connected
   useEffect(() => {
@@ -90,7 +106,6 @@ export function ClickrGame() {
     if (!address) return false
     console.log('Checking opt-in status for address:', address)
     try {
-      const algodClient = algokit.getAlgoClient(getAlgodConfigFromViteEnvironment())
       const accountInfo = await algodClient.accountInformation(address).do()
       const optedIn = accountInfo.appsLocalState?.some((app) => BigInt(app.id) === APP_ID) ?? false
       console.log('Opt-in status:', optedIn)
