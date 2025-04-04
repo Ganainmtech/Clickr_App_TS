@@ -5,6 +5,7 @@ import algosdk, { Transaction } from 'algosdk'
 import { useEffect, useState } from 'react'
 import algorandLogo from '../assets/algorand-logo-white.png'
 import { ClickrLogicClient } from '../contracts/clickrLogic'
+import './Wallet.css'
 
 // Smart contract configuration
 const APP_ID = 736899333n
@@ -47,6 +48,7 @@ export function ClickrGame() {
   // const [onChainClickCount, setOnChainClickCount] = useState<number | null>(null)
   const [isWalletInitialized, setIsWalletInitialized] = useState(false)
   const [walletError, setWalletError] = useState<string | null>(null)
+  const [isConnecting, setIsConnecting] = useState(false)
 
   // Initialize AlgoKit client
   const algorand = AlgorandClient.testNet()
@@ -74,6 +76,23 @@ export function ClickrGame() {
 
     checkWalletInitialization()
   }, [wallets, activeAddress])
+
+  // Handle wallet connection
+  const handleConnectWallet = async () => {
+    try {
+      setIsConnecting(true)
+      setWalletError(null)
+      const peraWallet = wallets.find((wallet) => wallet.id === 'pera')
+      if (peraWallet) {
+        await peraWallet.connect()
+      }
+    } catch (error) {
+      console.error('Error connecting wallet:', error)
+      setWalletError('Failed to connect wallet. Please try again.')
+    } finally {
+      setIsConnecting(false)
+    }
+  }
 
   // Register signer when wallet is connected
   useEffect(() => {
@@ -455,22 +474,35 @@ export function ClickrGame() {
       }`}
       onClick={handleClick}
     >
+      {/* Wallet Connection Status Bar */}
+      <div className="wallet-status-bar">
+        {!activeAddress ? (
+          <button onClick={handleConnectWallet} disabled={isConnecting} className="connect-wallet-button">
+            {isConnecting ? 'Connecting...' : 'Connect Wallet'}
+          </button>
+        ) : (
+          <div className="wallet-connected">
+            <span className="wallet-address">
+              {activeAddress.slice(0, 6)}...{activeAddress.slice(-4)}
+            </span>
+            {walletError && (
+              <button onClick={handleConnectWallet} className="reconnect-button">
+                Reconnect
+              </button>
+            )}
+          </div>
+        )}
+      </div>
+
       {walletError && (
         <div className="wallet-error">
           {walletError}
-          <button
-            onClick={() => {
-              const peraWallet = wallets.find((wallet) => wallet.id === 'pera')
-              if (peraWallet) {
-                peraWallet.connect()
-              }
-            }}
-            className="reconnect-button"
-          >
-            Reconnect Wallet
+          <button onClick={handleConnectWallet} className="reconnect-button">
+            {isConnecting ? 'Connecting...' : 'Reconnect Wallet'}
           </button>
         </div>
       )}
+
       {/* Leaderboard Modal */}
       {showLeaderboard && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
