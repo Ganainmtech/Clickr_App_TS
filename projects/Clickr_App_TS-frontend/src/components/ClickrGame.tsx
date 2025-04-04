@@ -24,7 +24,7 @@ interface LeaderboardEntry {
 }
 
 export function ClickrGame() {
-  const { activeAddress, signTransactions, algodClient } = useWallet()
+  const { activeAddress, signTransactions, algodClient, wallets } = useWallet()
   const [score, setScore] = useState(0)
   const [hearts, setHearts] = useState(5)
   const [objectPosition, setObjectPosition] = useState({ top: '50%', left: '50%' })
@@ -45,53 +45,72 @@ export function ClickrGame() {
   const [optInStatus, setOptInStatus] = useState<'idle' | 'pending' | 'success' | 'error'>('idle')
   // Commenting out on-chain click count state
   // const [onChainClickCount, setOnChainClickCount] = useState<number | null>(null)
+  const [isWalletInitialized, setIsWalletInitialized] = useState(false)
+  const [walletError, setWalletError] = useState<string | null>(null)
 
   // Initialize AlgoKit client
   const algorand = AlgorandClient.testNet()
 
-  // Verify network connection
+  // Check wallet initialization
   useEffect(() => {
-    const verifyNetwork = async () => {
+    const checkWalletInitialization = async () => {
       try {
-        const { isTestNet } = await algorand.client.network()
-        console.log('Connected to TestNet:', isTestNet)
-        if (!isTestNet) {
-          console.error('Not connected to TestNet!')
+        const peraWallet = wallets.find((wallet) => wallet.id === 'pera')
+        if (peraWallet) {
+          // Check if wallet is connected by checking if we have an active address
+          const isInitialized = !!activeAddress
+          setIsWalletInitialized(isInitialized)
+          if (!isInitialized) {
+            setWalletError('Please connect your Pera wallet to continue')
+          } else {
+            setWalletError(null)
+          }
         }
       } catch (error) {
-        console.error('Error verifying network:', error)
+        console.error('Error checking wallet initialization:', error)
+        setWalletError('Wallet connection error. Please try reconnecting.')
       }
     }
-    verifyNetwork()
-  }, [])
+
+    checkWalletInitialization()
+  }, [wallets, activeAddress])
 
   // Register signer when wallet is connected
   useEffect(() => {
-    if (activeAddress && signTransactions) {
+    if (activeAddress && signTransactions && isWalletInitialized) {
       const signer = async (txnGroup: Transaction[], indexesToSign: number[]) => {
-        const txnsToSign = txnGroup.map((txn) => algosdk.encodeUnsignedTransaction(txn))
-        const signedTxns = await signTransactions(txnsToSign)
-        return signedTxns.filter((txn): txn is Uint8Array => txn !== null)
+        try {
+          const txnsToSign = txnGroup.map((txn) => algosdk.encodeUnsignedTransaction(txn))
+          const signedTxns = await signTransactions(txnsToSign)
+          return signedTxns.filter((txn): txn is Uint8Array => txn !== null)
+        } catch (error) {
+          console.error('Error signing transactions:', error)
+          setWalletError('Error signing transactions. Please reconnect your wallet.')
+          throw error
+        }
       }
       algorand.setSigner(activeAddress, signer)
     }
-  }, [activeAddress, signTransactions])
+  }, [activeAddress, signTransactions, isWalletInitialized])
 
   // Get app details and create client
   const getAppDetails = async (sender: string | null) => {
     if (!sender) {
       throw new Error('Sender address is required')
     }
-    console.log('Getting app details for sender:', sender)
+    if (!isWalletInitialized) {
+      throw new Error('Please connect your Pera wallet to continue')
+    }
 
+    console.log('Getting app details for sender:', sender)
     try {
-      // Create app client with the connected wallet address
       return algorand.client.getTypedAppClientById(ClickrLogicClient, {
         appId: BigInt(APP_ID),
         defaultSender: sender,
       })
     } catch (error) {
       console.error('Error getting account:', error)
+      setWalletError('Error connecting to the application. Please try reconnecting your wallet.')
       throw error
     }
   }
@@ -147,6 +166,10 @@ export function ClickrGame() {
     if (!sender) {
       throw new Error('Sender address is required')
     }
+    if (!isWalletInitialized) {
+      setWalletError('Please connect your Pera wallet to continue')
+      return
+    }
 
     try {
       setIsOptingIn(true)
@@ -159,11 +182,13 @@ export function ClickrGame() {
       console.log('Successfully opted in to app')
       setOptInStatus('success')
       setIsOptedIn(true)
-      // Wait a moment to show success message, then start game
       startWeb3Game()
     } catch (error) {
       console.error('Error opting in:', error)
       setOptInStatus('error')
+      if (error instanceof Error && error.message.includes('PeraWalletConnect was not initialized correctly')) {
+        setWalletError('Wallet connection lost. Please reconnect your Pera wallet.')
+      }
     } finally {
       setIsOptingIn(false)
     }
@@ -430,6 +455,22 @@ export function ClickrGame() {
       }`}
       onClick={handleClick}
     >
+      {walletError && (
+        <div className="wallet-error">
+          {walletError}
+          <button
+            onClick={() => {
+              const peraWallet = wallets.find((wallet) => wallet.id === 'pera')
+              if (peraWallet) {
+                peraWallet.connect()
+              }
+            }}
+            className="reconnect-button"
+          >
+            Reconnect Wallet
+          </button>
+        </div>
+      )}
       {/* Leaderboard Modal */}
       {showLeaderboard && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50">
