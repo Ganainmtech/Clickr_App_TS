@@ -1,3 +1,5 @@
+
+/*
 import { AlgorandClient } from '@algorandfoundation/algokit-utils'
 import { Transaction } from 'algosdk'
 import { getAlgodConfigFromViteEnvironment } from '../utils/network/getAlgoClientConfigs'
@@ -35,3 +37,4 @@ setInterval(sendZeroAmountTransaction, 5000)
 
 // Also send one immediately
 sendZeroAmountTransaction()
+*/
