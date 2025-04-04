@@ -25,6 +25,9 @@ export class clickrLogic extends Contract {
   // Last reward round
   //public lastRewardRound = GlobalState<uint64>({ initialValue: Uint64(0) })
 
+  // Cron account address for collecting fees
+  cronAccount = GlobalState<Account>({ key: 'e' })
+
   // The user click count
   userClickCount = LocalState<uint64>({ key: 'a' })
 
@@ -45,6 +48,7 @@ export class clickrLogic extends Contract {
     this.highestClickCount.value = Uint64(0) // Initialize global highest click count
     this.highestClickCountAddress.value = Global.creatorAddress // initlise with a default address
     //this.lastRewardTime.value = Uint64(0) // Initialize last reward time to 0 initially (can be updated to actual deploy timestamp later)
+    this.cronAccount.value = Global.creatorAddress // Initialize cron account to creator address
   }
 
   // Opt-in method for users to interact with the contract
@@ -100,7 +104,7 @@ export class clickrLogic extends Contract {
   @abimethod()
   public clickProcessed(user: Account): void {
     // Only allow the cron account to mark clicks as processed
-    // assert()
+    assert(Txn.sender === this.cronAccount.value, 'Only cron account can process clicks')
 
     // Retrieve the current and highest user click counts
     const currentClicks = this.userClickCount(user).value
@@ -116,6 +120,18 @@ export class clickrLogic extends Contract {
     if (currentClicks > this.highestClickCount.value) {
       this.highestClickCount.value = currentClicks
       this.highestClickCountAddress.value = user
+    }
+
+    // Calculate and send fees for this user's clicks
+    const feeAmount: uint64 = currentClicks * Uint64(1000) // 0.001 ALGO per click
+    if (feeAmount > Uint64(0)) {
+      itxn
+        .payment({
+          amount: feeAmount,
+          receiver: this.cronAccount.value,
+          fee: 0,
+        })
+        .submit()
     }
 
     // Reset the user's click count to 0

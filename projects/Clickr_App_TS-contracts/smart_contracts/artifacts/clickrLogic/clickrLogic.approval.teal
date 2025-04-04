@@ -4,7 +4,7 @@
 // @algorandfoundation/algorand-typescript/arc4/index.d.ts::Contract.approvalProgram() -> uint64:
 main:
     intcblock 0 1
-    bytecblock "a" "b" 0x151f7c75 "d" "c" "g" "l"
+    bytecblock "a" "b" 0x151f7c75 "d" "c" "g" "e" "l"
     // smart_contracts/clickrLogic/contract.algo.ts:15
     // export class clickrLogic extends Contract {
     txn NumAppArgs
@@ -20,7 +20,7 @@ main_after_if_else@16:
     return
 
 main_distributeRewards_route@12:
-    // smart_contracts/clickrLogic/contract.algo.ts:138
+    // smart_contracts/clickrLogic/contract.algo.ts:154
     // @abimethod()
     txn OnCompletion
     !
@@ -32,7 +32,7 @@ main_distributeRewards_route@12:
     return
 
 main_decrementHeart_route@11:
-    // smart_contracts/clickrLogic/contract.algo.ts:125
+    // smart_contracts/clickrLogic/contract.algo.ts:141
     // @abimethod()
     txn OnCompletion
     !
@@ -44,14 +44,14 @@ main_decrementHeart_route@11:
     txna ApplicationArgs 1
     btoi
     txnas Accounts
-    // smart_contracts/clickrLogic/contract.algo.ts:125
+    // smart_contracts/clickrLogic/contract.algo.ts:141
     // @abimethod()
     callsub decrementHeart
     intc_1 // 1
     return
 
 main_clickProcessed_route@10:
-    // smart_contracts/clickrLogic/contract.algo.ts:100
+    // smart_contracts/clickrLogic/contract.algo.ts:104
     // @abimethod()
     txn OnCompletion
     !
@@ -63,14 +63,14 @@ main_clickProcessed_route@10:
     txna ApplicationArgs 1
     btoi
     txnas Accounts
-    // smart_contracts/clickrLogic/contract.algo.ts:100
+    // smart_contracts/clickrLogic/contract.algo.ts:104
     // @abimethod()
     callsub clickProcessed
     intc_1 // 1
     return
 
 main_getUserAllTimeClickCount_route@9:
-    // smart_contracts/clickrLogic/contract.algo.ts:95
+    // smart_contracts/clickrLogic/contract.algo.ts:99
     // @abimethod()
     txn OnCompletion
     !
@@ -82,7 +82,7 @@ main_getUserAllTimeClickCount_route@9:
     txna ApplicationArgs 1
     btoi
     txnas Accounts
-    // smart_contracts/clickrLogic/contract.algo.ts:95
+    // smart_contracts/clickrLogic/contract.algo.ts:99
     // @abimethod()
     callsub getUserAllTimeClickCount
     itob
@@ -94,7 +94,7 @@ main_getUserAllTimeClickCount_route@9:
     return
 
 main_getHeartCount_route@8:
-    // smart_contracts/clickrLogic/contract.algo.ts:89
+    // smart_contracts/clickrLogic/contract.algo.ts:93
     // @abimethod()
     txn OnCompletion
     !
@@ -106,7 +106,7 @@ main_getHeartCount_route@8:
     txna ApplicationArgs 1
     btoi
     txnas Accounts
-    // smart_contracts/clickrLogic/contract.algo.ts:89
+    // smart_contracts/clickrLogic/contract.algo.ts:93
     // @abimethod()
     callsub getHeartCount
     itob
@@ -118,7 +118,7 @@ main_getHeartCount_route@8:
     return
 
 main_getHighestClickCount_route@7:
-    // smart_contracts/clickrLogic/contract.algo.ts:83
+    // smart_contracts/clickrLogic/contract.algo.ts:87
     // @abimethod()
     txn OnCompletion
     !
@@ -130,7 +130,7 @@ main_getHighestClickCount_route@7:
     txna ApplicationArgs 1
     btoi
     txnas Accounts
-    // smart_contracts/clickrLogic/contract.algo.ts:83
+    // smart_contracts/clickrLogic/contract.algo.ts:87
     // @abimethod()
     callsub getHighestClickCount
     itob
@@ -142,7 +142,7 @@ main_getHighestClickCount_route@7:
     return
 
 main_getClickCount_route@6:
-    // smart_contracts/clickrLogic/contract.algo.ts:77
+    // smart_contracts/clickrLogic/contract.algo.ts:81
     // @abimethod()
     txn OnCompletion
     !
@@ -154,7 +154,7 @@ main_getClickCount_route@6:
     txna ApplicationArgs 1
     btoi
     txnas Accounts
-    // smart_contracts/clickrLogic/contract.algo.ts:77
+    // smart_contracts/clickrLogic/contract.algo.ts:81
     // @abimethod()
     callsub getClickCount
     itob
@@ -166,7 +166,7 @@ main_getClickCount_route@6:
     return
 
 main_recordClick_route@5:
-    // smart_contracts/clickrLogic/contract.algo.ts:60
+    // smart_contracts/clickrLogic/contract.algo.ts:64
     // @abimethod()
     txn OnCompletion
     !
@@ -178,7 +178,7 @@ main_recordClick_route@5:
     return
 
 main_optIn_route@4:
-    // smart_contracts/clickrLogic/contract.algo.ts:51
+    // smart_contracts/clickrLogic/contract.algo.ts:55
     // @abimethod({ allowActions: 'OptIn' })
     txn OnCompletion
     intc_1 // OptIn
@@ -191,7 +191,7 @@ main_optIn_route@4:
     return
 
 main_createApplication_route@3:
-    // smart_contracts/clickrLogic/contract.algo.ts:40-42
+    // smart_contracts/clickrLogic/contract.algo.ts:43-45
     // @abimethod({
     //   onCreate: 'require',
     // })
@@ -211,15 +211,22 @@ createApplication:
     // smart_contracts/clickrLogic/contract.algo.ts:17
     // highestClickCount = GlobalState<uint64>({ key: 'g' })
     bytec 5 // "g"
-    // smart_contracts/clickrLogic/contract.algo.ts:45
+    // smart_contracts/clickrLogic/contract.algo.ts:48
     // this.highestClickCount.value = Uint64(0) // Initialize global highest click count
     intc_0 // 0
     app_global_put
     // smart_contracts/clickrLogic/contract.algo.ts:20
     // highestClickCountAddress = GlobalState<Account>({ key: 'd' })
     bytec_3 // "d"
-    // smart_contracts/clickrLogic/contract.algo.ts:46
+    // smart_contracts/clickrLogic/contract.algo.ts:49
     // this.highestClickCountAddress.value = Global.creatorAddress // initlise with a default address
+    global CreatorAddress
+    app_global_put
+    // smart_contracts/clickrLogic/contract.algo.ts:29
+    // cronAccount = GlobalState<Account>({ key: 'e' })
+    bytec 6 // "e"
+    // smart_contracts/clickrLogic/contract.algo.ts:51
+    // this.cronAccount.value = Global.creatorAddress // Initialize cron account to creator address
     global CreatorAddress
     app_global_put
     retsub
@@ -227,43 +234,43 @@ createApplication:
 
 // smart_contracts/clickrLogic/contract.algo.ts::clickrLogic.optIn() -> void:
 optIn:
-    // smart_contracts/clickrLogic/contract.algo.ts:53
+    // smart_contracts/clickrLogic/contract.algo.ts:57
     // this.userClickCount(Txn.sender).value = Uint64(0) // start at 0 clicks count
     txn Sender
-    // smart_contracts/clickrLogic/contract.algo.ts:29
+    // smart_contracts/clickrLogic/contract.algo.ts:32
     // userClickCount = LocalState<uint64>({ key: 'a' })
     bytec_0 // "a"
-    // smart_contracts/clickrLogic/contract.algo.ts:53
+    // smart_contracts/clickrLogic/contract.algo.ts:57
     // this.userClickCount(Txn.sender).value = Uint64(0) // start at 0 clicks count
     intc_0 // 0
     app_local_put
-    // smart_contracts/clickrLogic/contract.algo.ts:54
+    // smart_contracts/clickrLogic/contract.algo.ts:58
     // this.userHeartCount(Txn.sender).value = Uint64(5) // start with 5 hearts
     txn Sender
-    // smart_contracts/clickrLogic/contract.algo.ts:32
+    // smart_contracts/clickrLogic/contract.algo.ts:35
     // userHeartCount = LocalState<uint64>({ key: 'b' })
     bytec_1 // "b"
-    // smart_contracts/clickrLogic/contract.algo.ts:54
+    // smart_contracts/clickrLogic/contract.algo.ts:58
     // this.userHeartCount(Txn.sender).value = Uint64(5) // start with 5 hearts
     pushint 5 // 5
     app_local_put
-    // smart_contracts/clickrLogic/contract.algo.ts:55
+    // smart_contracts/clickrLogic/contract.algo.ts:59
     // this.userHighestClickCount(Txn.sender).value = Uint64(0) // storage for highest user click count
     txn Sender
-    // smart_contracts/clickrLogic/contract.algo.ts:35
+    // smart_contracts/clickrLogic/contract.algo.ts:38
     // userHighestClickCount = LocalState<uint64>({ key: 'c' })
     bytec 4 // "c"
-    // smart_contracts/clickrLogic/contract.algo.ts:55
+    // smart_contracts/clickrLogic/contract.algo.ts:59
     // this.userHighestClickCount(Txn.sender).value = Uint64(0) // storage for highest user click count
     intc_0 // 0
     app_local_put
-    // smart_contracts/clickrLogic/contract.algo.ts:56
+    // smart_contracts/clickrLogic/contract.algo.ts:60
     // this.useAllTimeClickCount(Txn.sender).value = Uint64(0) // storage for user all time click count
     txn Sender
-    // smart_contracts/clickrLogic/contract.algo.ts:38
+    // smart_contracts/clickrLogic/contract.algo.ts:41
     // useAllTimeClickCount = LocalState<uint64>({ key: 'l' })
-    bytec 6 // "l"
-    // smart_contracts/clickrLogic/contract.algo.ts:56
+    bytec 7 // "l"
+    // smart_contracts/clickrLogic/contract.algo.ts:60
     // this.useAllTimeClickCount(Txn.sender).value = Uint64(0) // storage for user all time click count
     intc_0 // 0
     app_local_put
@@ -272,38 +279,38 @@ optIn:
 
 // smart_contracts/clickrLogic/contract.algo.ts::clickrLogic.recordClick() -> void:
 recordClick:
-    // smart_contracts/clickrLogic/contract.algo.ts:60-61
+    // smart_contracts/clickrLogic/contract.algo.ts:64-65
     // @abimethod()
     // public recordClick(): void {
     proto 0 0
-    // smart_contracts/clickrLogic/contract.algo.ts:63
+    // smart_contracts/clickrLogic/contract.algo.ts:67
     // const user = Txn.sender
     txn Sender
     dupn 2
-    // smart_contracts/clickrLogic/contract.algo.ts:66
+    // smart_contracts/clickrLogic/contract.algo.ts:70
     // assert(Txn.sender === user, 'Only the user can record a click')
     dig 1
     ==
     assert // Only the user can record a click
-    // smart_contracts/clickrLogic/contract.algo.ts:68
+    // smart_contracts/clickrLogic/contract.algo.ts:72
     // assert(this.userHeartCount(user).value > 0, 'Only if user hearts are above 0 record click')
     dup
     intc_0 // 0
-    // smart_contracts/clickrLogic/contract.algo.ts:32
+    // smart_contracts/clickrLogic/contract.algo.ts:35
     // userHeartCount = LocalState<uint64>({ key: 'b' })
     bytec_1 // "b"
-    // smart_contracts/clickrLogic/contract.algo.ts:68
+    // smart_contracts/clickrLogic/contract.algo.ts:72
     // assert(this.userHeartCount(user).value > 0, 'Only if user hearts are above 0 record click')
     app_local_get_ex
     assert // check LocalState exists
     assert // Only if user hearts are above 0 record click
-    // smart_contracts/clickrLogic/contract.algo.ts:71
+    // smart_contracts/clickrLogic/contract.algo.ts:75
     // const currentCount = this.userClickCount(user).value || Uint64(0)
     intc_0 // 0
-    // smart_contracts/clickrLogic/contract.algo.ts:29
+    // smart_contracts/clickrLogic/contract.algo.ts:32
     // userClickCount = LocalState<uint64>({ key: 'a' })
     bytec_0 // "a"
-    // smart_contracts/clickrLogic/contract.algo.ts:71
+    // smart_contracts/clickrLogic/contract.algo.ts:75
     // const currentCount = this.userClickCount(user).value || Uint64(0)
     app_local_get_ex
     swap
@@ -314,31 +321,31 @@ recordClick:
     frame_dig 1
 
 recordClick_ternary_merge@3:
-    // smart_contracts/clickrLogic/contract.algo.ts:72
+    // smart_contracts/clickrLogic/contract.algo.ts:76
     // this.userClickCount(user).value = currentCount + Uint64(1)
     intc_1 // 1
     +
     frame_dig 0
     dup
     cover 2
-    // smart_contracts/clickrLogic/contract.algo.ts:29
+    // smart_contracts/clickrLogic/contract.algo.ts:32
     // userClickCount = LocalState<uint64>({ key: 'a' })
     bytec_0 // "a"
-    // smart_contracts/clickrLogic/contract.algo.ts:72
+    // smart_contracts/clickrLogic/contract.algo.ts:76
     // this.userClickCount(user).value = currentCount + Uint64(1)
     dig 2
     app_local_put
-    // smart_contracts/clickrLogic/contract.algo.ts:38
+    // smart_contracts/clickrLogic/contract.algo.ts:41
     // useAllTimeClickCount = LocalState<uint64>({ key: 'l' })
-    bytec 6 // "l"
-    // smart_contracts/clickrLogic/contract.algo.ts:73
+    bytec 7 // "l"
+    // smart_contracts/clickrLogic/contract.algo.ts:77
     // this.useAllTimeClickCount(user).value = currentCount + Uint64(1)
     swap
     app_local_put
     retsub
 
 recordClick_ternary_false@2:
-    // smart_contracts/clickrLogic/contract.algo.ts:71
+    // smart_contracts/clickrLogic/contract.algo.ts:75
     // const currentCount = this.userClickCount(user).value || Uint64(0)
     intc_0 // 0
     b recordClick_ternary_merge@3
@@ -346,18 +353,18 @@ recordClick_ternary_false@2:
 
 // smart_contracts/clickrLogic/contract.algo.ts::clickrLogic.getClickCount(user: bytes) -> uint64:
 getClickCount:
-    // smart_contracts/clickrLogic/contract.algo.ts:77-78
+    // smart_contracts/clickrLogic/contract.algo.ts:81-82
     // @abimethod()
     // public getClickCount(user: Account): uint64 {
     proto 1 1
-    // smart_contracts/clickrLogic/contract.algo.ts:79
+    // smart_contracts/clickrLogic/contract.algo.ts:83
     // return this.userClickCount(user).value || Uint64(0)
     frame_dig -1
     intc_0 // 0
-    // smart_contracts/clickrLogic/contract.algo.ts:29
+    // smart_contracts/clickrLogic/contract.algo.ts:32
     // userClickCount = LocalState<uint64>({ key: 'a' })
     bytec_0 // "a"
-    // smart_contracts/clickrLogic/contract.algo.ts:79
+    // smart_contracts/clickrLogic/contract.algo.ts:83
     // return this.userClickCount(user).value || Uint64(0)
     app_local_get_ex
     swap
@@ -368,13 +375,13 @@ getClickCount:
     frame_dig 0
 
 getClickCount_ternary_merge@3:
-    // smart_contracts/clickrLogic/contract.algo.ts:79
+    // smart_contracts/clickrLogic/contract.algo.ts:83
     // return this.userClickCount(user).value || Uint64(0)
     swap
     retsub
 
 getClickCount_ternary_false@2:
-    // smart_contracts/clickrLogic/contract.algo.ts:79
+    // smart_contracts/clickrLogic/contract.algo.ts:83
     // return this.userClickCount(user).value || Uint64(0)
     intc_0 // 0
     b getClickCount_ternary_merge@3
@@ -382,18 +389,18 @@ getClickCount_ternary_false@2:
 
 // smart_contracts/clickrLogic/contract.algo.ts::clickrLogic.getHighestClickCount(user: bytes) -> uint64:
 getHighestClickCount:
-    // smart_contracts/clickrLogic/contract.algo.ts:83-84
+    // smart_contracts/clickrLogic/contract.algo.ts:87-88
     // @abimethod()
     // public getHighestClickCount(user: Account): uint64 {
     proto 1 1
-    // smart_contracts/clickrLogic/contract.algo.ts:85
+    // smart_contracts/clickrLogic/contract.algo.ts:89
     // return this.userHighestClickCount(user).value || Uint64(0)
     frame_dig -1
     intc_0 // 0
-    // smart_contracts/clickrLogic/contract.algo.ts:35
+    // smart_contracts/clickrLogic/contract.algo.ts:38
     // userHighestClickCount = LocalState<uint64>({ key: 'c' })
     bytec 4 // "c"
-    // smart_contracts/clickrLogic/contract.algo.ts:85
+    // smart_contracts/clickrLogic/contract.algo.ts:89
     // return this.userHighestClickCount(user).value || Uint64(0)
     app_local_get_ex
     swap
@@ -404,13 +411,13 @@ getHighestClickCount:
     frame_dig 0
 
 getHighestClickCount_ternary_merge@3:
-    // smart_contracts/clickrLogic/contract.algo.ts:85
+    // smart_contracts/clickrLogic/contract.algo.ts:89
     // return this.userHighestClickCount(user).value || Uint64(0)
     swap
     retsub
 
 getHighestClickCount_ternary_false@2:
-    // smart_contracts/clickrLogic/contract.algo.ts:85
+    // smart_contracts/clickrLogic/contract.algo.ts:89
     // return this.userHighestClickCount(user).value || Uint64(0)
     intc_0 // 0
     b getHighestClickCount_ternary_merge@3
@@ -418,18 +425,18 @@ getHighestClickCount_ternary_false@2:
 
 // smart_contracts/clickrLogic/contract.algo.ts::clickrLogic.getHeartCount(user: bytes) -> uint64:
 getHeartCount:
-    // smart_contracts/clickrLogic/contract.algo.ts:89-90
+    // smart_contracts/clickrLogic/contract.algo.ts:93-94
     // @abimethod()
     // public getHeartCount(user: Account): uint64 {
     proto 1 1
-    // smart_contracts/clickrLogic/contract.algo.ts:91
+    // smart_contracts/clickrLogic/contract.algo.ts:95
     // return this.userHeartCount(user).value || Uint64(0)
     frame_dig -1
     intc_0 // 0
-    // smart_contracts/clickrLogic/contract.algo.ts:32
+    // smart_contracts/clickrLogic/contract.algo.ts:35
     // userHeartCount = LocalState<uint64>({ key: 'b' })
     bytec_1 // "b"
-    // smart_contracts/clickrLogic/contract.algo.ts:91
+    // smart_contracts/clickrLogic/contract.algo.ts:95
     // return this.userHeartCount(user).value || Uint64(0)
     app_local_get_ex
     swap
@@ -440,13 +447,13 @@ getHeartCount:
     frame_dig 0
 
 getHeartCount_ternary_merge@3:
-    // smart_contracts/clickrLogic/contract.algo.ts:91
+    // smart_contracts/clickrLogic/contract.algo.ts:95
     // return this.userHeartCount(user).value || Uint64(0)
     swap
     retsub
 
 getHeartCount_ternary_false@2:
-    // smart_contracts/clickrLogic/contract.algo.ts:91
+    // smart_contracts/clickrLogic/contract.algo.ts:95
     // return this.userHeartCount(user).value || Uint64(0)
     intc_0 // 0
     b getHeartCount_ternary_merge@3
@@ -454,18 +461,18 @@ getHeartCount_ternary_false@2:
 
 // smart_contracts/clickrLogic/contract.algo.ts::clickrLogic.getUserAllTimeClickCount(user: bytes) -> uint64:
 getUserAllTimeClickCount:
-    // smart_contracts/clickrLogic/contract.algo.ts:95-96
+    // smart_contracts/clickrLogic/contract.algo.ts:99-100
     // @abimethod()
     // public getUserAllTimeClickCount(user: Account): uint64 {
     proto 1 1
-    // smart_contracts/clickrLogic/contract.algo.ts:97
+    // smart_contracts/clickrLogic/contract.algo.ts:101
     // return this.useAllTimeClickCount(user).value || Uint64(0)
     frame_dig -1
     intc_0 // 0
-    // smart_contracts/clickrLogic/contract.algo.ts:38
+    // smart_contracts/clickrLogic/contract.algo.ts:41
     // useAllTimeClickCount = LocalState<uint64>({ key: 'l' })
-    bytec 6 // "l"
-    // smart_contracts/clickrLogic/contract.algo.ts:97
+    bytec 7 // "l"
+    // smart_contracts/clickrLogic/contract.algo.ts:101
     // return this.useAllTimeClickCount(user).value || Uint64(0)
     app_local_get_ex
     swap
@@ -476,13 +483,13 @@ getUserAllTimeClickCount:
     frame_dig 0
 
 getUserAllTimeClickCount_ternary_merge@3:
-    // smart_contracts/clickrLogic/contract.algo.ts:97
+    // smart_contracts/clickrLogic/contract.algo.ts:101
     // return this.useAllTimeClickCount(user).value || Uint64(0)
     swap
     retsub
 
 getUserAllTimeClickCount_ternary_false@2:
-    // smart_contracts/clickrLogic/contract.algo.ts:97
+    // smart_contracts/clickrLogic/contract.algo.ts:101
     // return this.useAllTimeClickCount(user).value || Uint64(0)
     intc_0 // 0
     b getUserAllTimeClickCount_ternary_merge@3
@@ -490,48 +497,62 @@ getUserAllTimeClickCount_ternary_false@2:
 
 // smart_contracts/clickrLogic/contract.algo.ts::clickrLogic.clickProcessed(user: bytes) -> void:
 clickProcessed:
-    // smart_contracts/clickrLogic/contract.algo.ts:100-101
+    // smart_contracts/clickrLogic/contract.algo.ts:104-105
     // @abimethod()
     // public clickProcessed(user: Account): void {
     proto 1 0
-    // smart_contracts/clickrLogic/contract.algo.ts:106
+    pushbytes ""
+    // smart_contracts/clickrLogic/contract.algo.ts:107
+    // assert(Txn.sender === this.cronAccount.value, 'Only cron account can process clicks')
+    txn Sender
+    // smart_contracts/clickrLogic/contract.algo.ts:29
+    // cronAccount = GlobalState<Account>({ key: 'e' })
+    intc_0 // 0
+    bytec 6 // "e"
+    app_global_get_ex
+    assert // check GlobalState exists
+    // smart_contracts/clickrLogic/contract.algo.ts:107
+    // assert(Txn.sender === this.cronAccount.value, 'Only cron account can process clicks')
+    ==
+    assert // Only cron account can process clicks
+    // smart_contracts/clickrLogic/contract.algo.ts:110
     // const currentClicks = this.userClickCount(user).value
     frame_dig -1
     intc_0 // 0
-    // smart_contracts/clickrLogic/contract.algo.ts:29
+    // smart_contracts/clickrLogic/contract.algo.ts:32
     // userClickCount = LocalState<uint64>({ key: 'a' })
     bytec_0 // "a"
-    // smart_contracts/clickrLogic/contract.algo.ts:106
+    // smart_contracts/clickrLogic/contract.algo.ts:110
     // const currentClicks = this.userClickCount(user).value
     app_local_get_ex
     swap
     dup
     uncover 2
     assert // check LocalState exists
-    // smart_contracts/clickrLogic/contract.algo.ts:107
+    // smart_contracts/clickrLogic/contract.algo.ts:111
     // const highestClicks = this.userHighestClickCount(user).value
     frame_dig -1
     intc_0 // 0
-    // smart_contracts/clickrLogic/contract.algo.ts:35
+    // smart_contracts/clickrLogic/contract.algo.ts:38
     // userHighestClickCount = LocalState<uint64>({ key: 'c' })
     bytec 4 // "c"
-    // smart_contracts/clickrLogic/contract.algo.ts:107
+    // smart_contracts/clickrLogic/contract.algo.ts:111
     // const highestClicks = this.userHighestClickCount(user).value
     app_local_get_ex
     assert // check LocalState exists
-    // smart_contracts/clickrLogic/contract.algo.ts:110
+    // smart_contracts/clickrLogic/contract.algo.ts:114
     // if (currentClicks > highestClicks) {
     >
     bz clickProcessed_after_if_else@2
-    // smart_contracts/clickrLogic/contract.algo.ts:112
+    // smart_contracts/clickrLogic/contract.algo.ts:116
     // this.userHighestClickCount(user).value = currentClicks
     frame_dig -1
-    // smart_contracts/clickrLogic/contract.algo.ts:35
+    // smart_contracts/clickrLogic/contract.algo.ts:38
     // userHighestClickCount = LocalState<uint64>({ key: 'c' })
     bytec 4 // "c"
-    // smart_contracts/clickrLogic/contract.algo.ts:112
+    // smart_contracts/clickrLogic/contract.algo.ts:116
     // this.userHighestClickCount(user).value = currentClicks
-    frame_dig 0
+    frame_dig 1
     app_local_put
 
 clickProcessed_after_if_else@2:
@@ -541,34 +562,86 @@ clickProcessed_after_if_else@2:
     bytec 5 // "g"
     app_global_get_ex
     assert // check GlobalState exists
-    // smart_contracts/clickrLogic/contract.algo.ts:116
+    // smart_contracts/clickrLogic/contract.algo.ts:120
     // if (currentClicks > this.highestClickCount.value) {
-    frame_dig 0
+    frame_dig 1
     <
     bz clickProcessed_after_if_else@4
     // smart_contracts/clickrLogic/contract.algo.ts:17
     // highestClickCount = GlobalState<uint64>({ key: 'g' })
     bytec 5 // "g"
-    // smart_contracts/clickrLogic/contract.algo.ts:117
+    // smart_contracts/clickrLogic/contract.algo.ts:121
     // this.highestClickCount.value = currentClicks
-    frame_dig 0
+    frame_dig 1
     app_global_put
     // smart_contracts/clickrLogic/contract.algo.ts:20
     // highestClickCountAddress = GlobalState<Account>({ key: 'd' })
     bytec_3 // "d"
-    // smart_contracts/clickrLogic/contract.algo.ts:118
+    // smart_contracts/clickrLogic/contract.algo.ts:122
     // this.highestClickCountAddress.value = user
     frame_dig -1
     app_global_put
 
 clickProcessed_after_if_else@4:
-    // smart_contracts/clickrLogic/contract.algo.ts:122
+    // smart_contracts/clickrLogic/contract.algo.ts:126
+    // const feeAmount: uint64 = currentClicks * Uint64(1000) // 0.001 ALGO per click
+    frame_dig 1
+    pushint 1000 // 1000
+    *
+    dup
+    frame_bury 0
+    // smart_contracts/clickrLogic/contract.algo.ts:127
+    // if (feeAmount > Uint64(0)) {
+    bz clickProcessed_after_if_else@7
+    // smart_contracts/clickrLogic/contract.algo.ts:128-134
+    // itxn
+    //   .payment({
+    //     amount: feeAmount,
+    //     receiver: this.cronAccount.value,
+    //     fee: 0,
+    //   })
+    //   .submit()
+    itxn_begin
+    // smart_contracts/clickrLogic/contract.algo.ts:29
+    // cronAccount = GlobalState<Account>({ key: 'e' })
+    intc_0 // 0
+    bytec 6 // "e"
+    app_global_get_ex
+    assert // check GlobalState exists
+    itxn_field Receiver
+    frame_dig 0
+    itxn_field Amount
+    // smart_contracts/clickrLogic/contract.algo.ts:128-133
+    // itxn
+    //   .payment({
+    //     amount: feeAmount,
+    //     receiver: this.cronAccount.value,
+    //     fee: 0,
+    //   })
+    intc_1 // 1
+    itxn_field TypeEnum
+    // smart_contracts/clickrLogic/contract.algo.ts:132
+    // fee: 0,
+    intc_0 // 0
+    itxn_field Fee
+    // smart_contracts/clickrLogic/contract.algo.ts:128-134
+    // itxn
+    //   .payment({
+    //     amount: feeAmount,
+    //     receiver: this.cronAccount.value,
+    //     fee: 0,
+    //   })
+    //   .submit()
+    itxn_submit
+
+clickProcessed_after_if_else@7:
+    // smart_contracts/clickrLogic/contract.algo.ts:138
     // this.userClickCount(user).value = Uint64(0)
     frame_dig -1
-    // smart_contracts/clickrLogic/contract.algo.ts:29
+    // smart_contracts/clickrLogic/contract.algo.ts:32
     // userClickCount = LocalState<uint64>({ key: 'a' })
     bytec_0 // "a"
-    // smart_contracts/clickrLogic/contract.algo.ts:122
+    // smart_contracts/clickrLogic/contract.algo.ts:138
     // this.userClickCount(user).value = Uint64(0)
     intc_0 // 0
     app_local_put
@@ -577,40 +650,40 @@ clickProcessed_after_if_else@4:
 
 // smart_contracts/clickrLogic/contract.algo.ts::clickrLogic.decrementHeart(user: bytes) -> void:
 decrementHeart:
-    // smart_contracts/clickrLogic/contract.algo.ts:125-126
+    // smart_contracts/clickrLogic/contract.algo.ts:141-142
     // @abimethod()
     // public decrementHeart(user: Account): void {
     proto 1 0
-    // smart_contracts/clickrLogic/contract.algo.ts:127
+    // smart_contracts/clickrLogic/contract.algo.ts:143
     // assert(this.userHeartCount(user).value > 0, 'To decrement hearts there has to be atleast 1')
     frame_dig -1
     intc_0 // 0
-    // smart_contracts/clickrLogic/contract.algo.ts:32
+    // smart_contracts/clickrLogic/contract.algo.ts:35
     // userHeartCount = LocalState<uint64>({ key: 'b' })
     bytec_1 // "b"
-    // smart_contracts/clickrLogic/contract.algo.ts:127
+    // smart_contracts/clickrLogic/contract.algo.ts:143
     // assert(this.userHeartCount(user).value > 0, 'To decrement hearts there has to be atleast 1')
     app_local_get_ex
     assert // check LocalState exists
     assert // To decrement hearts there has to be atleast 1
-    // smart_contracts/clickrLogic/contract.algo.ts:130
+    // smart_contracts/clickrLogic/contract.algo.ts:146
     // this.userHeartCount(user).value -= 1
     frame_dig -1
     intc_0 // 0
-    // smart_contracts/clickrLogic/contract.algo.ts:32
+    // smart_contracts/clickrLogic/contract.algo.ts:35
     // userHeartCount = LocalState<uint64>({ key: 'b' })
     bytec_1 // "b"
-    // smart_contracts/clickrLogic/contract.algo.ts:130
+    // smart_contracts/clickrLogic/contract.algo.ts:146
     // this.userHeartCount(user).value -= 1
     app_local_get_ex
     assert // check LocalState exists
     intc_1 // 1
     -
     frame_dig -1
-    // smart_contracts/clickrLogic/contract.algo.ts:32
+    // smart_contracts/clickrLogic/contract.algo.ts:35
     // userHeartCount = LocalState<uint64>({ key: 'b' })
     bytec_1 // "b"
-    // smart_contracts/clickrLogic/contract.algo.ts:130
+    // smart_contracts/clickrLogic/contract.algo.ts:146
     // this.userHeartCount(user).value -= 1
     uncover 2
     app_local_put
@@ -619,16 +692,16 @@ decrementHeart:
 
 // smart_contracts/clickrLogic/contract.algo.ts::clickrLogic.distributeRewards() -> void:
 distributeRewards:
-    // smart_contracts/clickrLogic/contract.algo.ts:144
+    // smart_contracts/clickrLogic/contract.algo.ts:160
     // const appAddress = Global.currentApplicationAddress
     global CurrentApplicationAddress
-    // smart_contracts/clickrLogic/contract.algo.ts:147
+    // smart_contracts/clickrLogic/contract.algo.ts:163
     // const availableBalance: uint64 = Uint64(appAddress.balance) - Uint64(Global.minBalance)
     acct_params_get AcctBalance
     assert // account funded
     global MinBalance
     -
-    // smart_contracts/clickrLogic/contract.algo.ts:150
+    // smart_contracts/clickrLogic/contract.algo.ts:166
     // assert(availableBalance > Uint64(0), 'No available balance to send')
     dup
     assert // No available balance to send
@@ -638,12 +711,12 @@ distributeRewards:
     bytec_3 // "d"
     app_global_get_ex
     assert // check GlobalState exists
-    // smart_contracts/clickrLogic/contract.algo.ts:153
+    // smart_contracts/clickrLogic/contract.algo.ts:169
     // assert(this.highestClickCountAddress.value !== Global.zeroAddress, 'No highest click holder found')
     global ZeroAddress
     !=
     assert // No highest click holder found
-    // smart_contracts/clickrLogic/contract.algo.ts:156-162
+    // smart_contracts/clickrLogic/contract.algo.ts:172-178
     // itxn
     //   .payment({
     //     amount: availableBalance,
@@ -660,7 +733,7 @@ distributeRewards:
     assert // check GlobalState exists
     itxn_field Receiver
     itxn_field Amount
-    // smart_contracts/clickrLogic/contract.algo.ts:156-161
+    // smart_contracts/clickrLogic/contract.algo.ts:172-177
     // itxn
     //   .payment({
     //     amount: availableBalance,
@@ -669,11 +742,11 @@ distributeRewards:
     //   })
     intc_1 // 1
     itxn_field TypeEnum
-    // smart_contracts/clickrLogic/contract.algo.ts:160
+    // smart_contracts/clickrLogic/contract.algo.ts:176
     // fee: 0,
     intc_0 // 0
     itxn_field Fee
-    // smart_contracts/clickrLogic/contract.algo.ts:156-162
+    // smart_contracts/clickrLogic/contract.algo.ts:172-178
     // itxn
     //   .payment({
     //     amount: availableBalance,

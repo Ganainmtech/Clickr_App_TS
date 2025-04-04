@@ -7,7 +7,7 @@ import { ClickrLogicClient } from '../contracts/clickrLogic'
 import { getAlgodConfigFromViteEnvironment } from '../utils/network/getAlgoClientConfigs'
 
 // Smart contract configuration
-const APP_ID = 1001n
+const APP_ID = 736899333n
 const REWARD_MULTIPLIER = 0.006 // Cost per click in ALGO
 
 interface PathPoint {

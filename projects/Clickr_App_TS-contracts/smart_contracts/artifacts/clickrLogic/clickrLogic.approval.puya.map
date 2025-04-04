@@ -3,7 +3,7 @@
   "sources": [
     "/Users/sarajane/Documents/AlgoKitProjects/Clickr/Clickr_App_TS/projects/Clickr_App_TS-contracts/smart_contracts/clickrLogic/contract.algo.ts"
   ],
-  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;AAcA;;AAAA;;;AAAA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;;;AAAA;;;;;;;;;;;;;;;;;;;;;;AAAA;;AA2HG;;AAAA;AAAA;AAAA;;AAAA;AAAA;;;AAAA;;AAbA;;AAAA;AAAA;AAAA;;AAAA;AA9GH;;;AAAA;AAAA;;AA8GG;;;AAAA;;AAzBA;;AAAA;AAAA;AAAA;;AAAA;AArFH;;;AAAA;AAAA;;AAqFG;;;AAAA;;AALA;;AAAA;AAAA;AAAA;;AAAA;AAhFH;;;AAAA;AAAA;;AAgFG;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;AANA;;AAAA;AAAA;AAAA;;AAAA;AA1EH;;;AAAA;AAAA;;AA0EG;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;AANA;;AAAA;AAAA;AAAA;;AAAA;AApEH;;;AAAA;AAAA;;AAoEG;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;AANA;;AAAA;AAAA;AAAA;;AAAA;AA9DH;;;AAAA;AAAA;;AA8DG;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;AAjBA;;AAAA;AAAA;AAAA;;AAAA;AAAA;;;AAAA;;AATA;;AAAA;AAAA;AAAA;AAAA;;AAAA;AAAA;;;AAAA;;AAXA;;AAAA;AAAA;AAAA;;AAAA;AAAA;AAAA;;;AAAA;;AAvB8C;;AA4BP;AAAtC;AAzBqD;AA0BR;;AAA7C;;AAOwB;;AAxBiB;AAwBM;AAA/C;AACwB;;AAtBiB;AAsBM;;AAA/C;AAC+B;;AApBiB;;AAoBM;AAAtD;AAC8B;;AAlBiB;;AAkBM;AAArD;;AAIF;;;AAGmB;;AAAX;;AAGC;;AAAA;AAAP;AAEiC;AAAA;AApCQ;AAoCR;AAAA;AAAjC;AAG+C;AA1CN;AA0CM;AAAA;AAAA;AAAA;;AAAA;AAA1B;;;;;AACmC;AAAtB;AAAlC;;AAAA;AAAA;;AA3CyC;AA2CzC;;AAAA;AAlC+C;;AAmC/C;AAAA;;AAF+D;;;;AAMjE;;;AAEmC;;AAAA;AAlDQ;AAkDR;AAAA;AAAA;AAAA;;AAAA;AAA1B;;;;;AAAP;AAAA;AAAiD;;;;AAInD;;;AAE0C;;AAAA;AAlDQ;;AAkDR;AAAA;AAAA;AAAA;;AAAA;AAAjC;;;;;AAAP;AAAA;AAAwD;;;;AAI1D;;;AAEmC;;AAAA;AA3DQ;AA2DR;AAAA;AAAA;AAAA;;AAAA;AAA1B;;;;;AAAP;AAAA;AAAiD;;;;AAInD;;;AAEyC;;AAAA;AA3DQ;;AA2DR;AAAA;AAAA;AAAA;;AAAA;AAAhC;;;;;AAAP;AAAA;AAAuD;;;;AAGzD;;;AAMkD;;AAAA;AA7EP;AA6EO;AAAA;AAAA;AAAA;;AAAA;AACO;;AAAA;AAxEP;;AAwEO;AAAA;AAGnD;AAAJ;;;AAEE;;AA7E8C;;AA6E9C;;AAAA;AA/F2C;AAAA;;AAAA;AAAA;AAmGzC;;AAAA;AAAJ;;;AAnG6C;;AAoG3C;;AAAA;AAjGmD;AAkGnD;;AAAA;AAIF;;AA7FyC;AA6FA;AAAzC;;AAGF;;;AAEmC;;AAAA;AA/FQ;AA+FR;AAAA;AAAjC;AAG0B;;AAAA;AAlGe;AAkGf;AAAA;AAAS;AAAnC;AAAA;;AAlGyC;AAkGzC;;AAAA;;AAc0B;;AAGyB;;AAAA;AAAyB;;AAA3C;AAGjC;AAAA;AAlIqD;AAAA;AAAA;AAAA;AAqIC;;AAA/C;AAAP;AAGA;AAxIqD;AAAA;AAAA;AAAA;;;;;AAwIrD;;;AAIS;;;AAJT;",
+  "mappings": ";;;;;;;;;;;;;;;;;;;;;;;;;;AAcA;;AAAA;;;AAAA;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;AAAA;;;AAAA;;;;;;;;;;;;;;;;;;;;;;AAAA;;AA2IG;;AAAA;AAAA;AAAA;;AAAA;AAAA;;;AAAA;;AAbA;;AAAA;AAAA;AAAA;;AAAA;AA9HH;;;AAAA;AAAA;;AA8HG;;;AAAA;;AArCA;;AAAA;AAAA;AAAA;;AAAA;AAzFH;;;AAAA;AAAA;;AAyFG;;;AAAA;;AALA;;AAAA;AAAA;AAAA;;AAAA;AApFH;;;AAAA;AAAA;;AAoFG;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;AANA;;AAAA;AAAA;AAAA;;AAAA;AA9EH;;;AAAA;AAAA;;AA8EG;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;AANA;;AAAA;AAAA;AAAA;;AAAA;AAxEH;;;AAAA;AAAA;;AAwEG;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;AANA;;AAAA;AAAA;AAAA;;AAAA;AAlEH;;;AAAA;AAAA;;AAkEG;;;AAAA;AAAA;AAAA;AAAA;AAAA;AAAA;;AAjBA;;AAAA;AAAA;AAAA;;AAAA;AAAA;;;AAAA;;AATA;;AAAA;AAAA;AAAA;AAAA;;AAAA;AAAA;;;AAAA;;AAZA;;AAAA;AAAA;AAAA;;AAAA;AAAA;AAAA;;;AAAA;;AA1B8C;;AA+BP;AAAtC;AA5BqD;AA6BR;;AAA7C;AApBwC;;AAsBR;;AAAhC;;AAMwB;;AAzBiB;AAyBM;AAA/C;AACwB;;AAvBiB;AAuBM;;AAA/C;AAC+B;;AArBiB;;AAqBM;AAAtD;AAC8B;;AAnBiB;;AAmBM;AAArD;;AAIF;;;AAGmB;;AAAX;;AAGC;;AAAA;AAAP;AAEiC;AAAA;AArCQ;AAqCR;AAAA;AAAjC;AAG+C;AA3CN;AA2CM;AAAA;AAAA;AAAA;;AAAA;AAA1B;;;;;AACmC;AAAtB;AAAlC;;AAAA;AAAA;;AA5CyC;AA4CzC;;AAAA;AAnC+C;;AAoC/C;AAAA;;AAF+D;;;;AAMjE;;;AAEmC;;AAAA;AAnDQ;AAmDR;AAAA;AAAA;AAAA;;AAAA;AAA1B;;;;;AAAP;AAAA;AAAiD;;;;AAInD;;;AAE0C;;AAAA;AAnDQ;;AAmDR;AAAA;AAAA;AAAA;;AAAA;AAAjC;;;;;AAAP;AAAA;AAAwD;;;;AAI1D;;;AAEmC;;AAAA;AA5DQ;AA4DR;AAAA;AAAA;AAAA;;AAAA;AAA1B;;;;;AAAP;AAAA;AAAiD;;;;AAInD;;;AAEyC;;AAAA;AA5DQ;;AA4DR;AAAA;AAAA;AAAA;;AAAA;AAAhC;;;;;AAAP;AAAA;AAAuD;;;;AAGzD;;;;;AAGa;;AA9E6B;AAAA;;AAAA;AAAA;AA8EjC;AAAP;AAGgD;;AAAA;AA9EP;AA8EO;AAAA;AAAA;AAAA;;AAAA;AACO;;AAAA;AAzEP;;AAyEO;AAAA;AAGnD;AAAJ;;;AAEE;;AA9E8C;;AA8E9C;;AAAA;AAnG2C;AAAA;;AAAA;AAAA;AAuGzC;;AAAA;AAAJ;;;AAvG6C;;AAwG3C;;AAAA;AArGmD;AAsGnD;;AAAA;AAII;;AAA2C;;;AAAvB;AAApB;AAAA;;AACN;;;AACE;AAnGsC;AAAA;;AAAA;AAAA;;;;;;;AAmGtC;;;AAIS;;;AAJT;AAUF;;AA1GyC;AA0GA;AAAzC;;AAGF;;;AAEmC;;AAAA;AA5GQ;AA4GR;AAAA;AAAjC;AAG0B;;AAAA;AA/Ge;AA+Gf;AAAA;AAAS;AAAnC;AAAA;;AA/GyC;AA+GzC;;AAAA;;AAc0B;;AAGyB;;AAAA;AAAyB;;AAA3C;AAGjC;AAAA;AAlJqD;AAAA;AAAA;AAAA;AAqJC;;AAA/C;AAAP;AAGA;AAxJqD;AAAA;AAAA;AAAA;;;;;AAwJrD;;;AAIS;;;AAJT;",
   "op_pc_offset": 0,
   "pc_events": {
     "1": {
@@ -14,9 +14,9 @@
       "op": "intcblock 0 1"
     },
     "5": {
-      "op": "bytecblock \"a\" \"b\" 0x151f7c75 \"d\" \"c\" \"g\" \"l\""
+      "op": "bytecblock \"a\" \"b\" 0x151f7c75 \"d\" \"c\" \"g\" \"e\" \"l\""
     },
-    "24": {
+    "26": {
       "op": "txn NumAppArgs",
       "defined_out": [
         "tmp%0#1"
@@ -25,11 +25,11 @@
         "tmp%0#1"
       ]
     },
-    "26": {
+    "28": {
       "op": "bz main_after_if_else@16",
       "stack_out": []
     },
-    "29": {
+    "31": {
       "op": "pushbytess 0xb8447b36 0x29314d95 0xfd62c66d 0x9e20fc26 0x21667e86 0xfbaf678f 0x2421d9c3 0x593338da 0x59fbdace 0xb0a93807 // method \"createApplication()void\", method \"optIn()void\", method \"recordClick()void\", method \"getClickCount(account)uint64\", method \"getHighestClickCount(account)uint64\", method \"getHeartCount(account)uint64\", method \"getUserAllTimeClickCount(account)uint64\", method \"clickProcessed(account)void\", method \"decrementHeart(account)void\", method \"distributeRewards()void\"",
       "defined_out": [
         "Method(clickProcessed(account)void)",
@@ -56,7 +56,7 @@
         "Method(distributeRewards()void)"
       ]
     },
-    "81": {
+    "83": {
       "op": "txna ApplicationArgs 0",
       "defined_out": [
         "Method(clickProcessed(account)void)",
@@ -85,11 +85,11 @@
         "tmp%2#0"
       ]
     },
-    "84": {
+    "86": {
       "op": "match main_createApplication_route@3 main_optIn_route@4 main_recordClick_route@5 main_getClickCount_route@6 main_getHighestClickCount_route@7 main_getHeartCount_route@8 main_getUserAllTimeClickCount_route@9 main_clickProcessed_route@10 main_decrementHeart_route@11 main_distributeRewards_route@12",
       "stack_out": []
     },
-    "106": {
+    "108": {
       "block": "main_after_if_else@16",
       "stack_in": [],
       "op": "intc_0 // 0",
@@ -100,11 +100,11 @@
         "tmp%0#0"
       ]
     },
-    "107": {
+    "109": {
       "op": "return",
       "stack_out": []
     },
-    "108": {
+    "110": {
       "block": "main_distributeRewards_route@12",
       "stack_in": [],
       "op": "txn OnCompletion",
@@ -115,7 +115,7 @@
         "tmp%55#0"
       ]
     },
-    "110": {
+    "112": {
       "op": "!",
       "defined_out": [
         "tmp%56#0"
@@ -124,12 +124,12 @@
         "tmp%56#0"
       ]
     },
-    "111": {
+    "113": {
       "error": "OnCompletion is not NoOp",
       "op": "assert // OnCompletion is not NoOp",
       "stack_out": []
     },
-    "112": {
+    "114": {
       "op": "txn ApplicationID",
       "defined_out": [
         "tmp%57#0"
@@ -138,16 +138,16 @@
         "tmp%57#0"
       ]
     },
-    "114": {
+    "116": {
       "error": "can only call when not creating",
       "op": "assert // can only call when not creating",
       "stack_out": []
     },
-    "115": {
+    "117": {
       "callsub": "smart_contracts/clickrLogic/contract.algo.ts::clickrLogic.distributeRewards",
       "op": "callsub distributeRewards"
     },
-    "118": {
+    "120": {
       "op": "intc_1 // 1",
       "defined_out": [
         "tmp%0#0"
@@ -156,11 +156,11 @@
         "tmp%0#0"
       ]
     },
-    "119": {
+    "121": {
       "op": "return",
       "stack_out": []
     },
-    "120": {
+    "122": {
       "block": "main_decrementHeart_route@11",
       "stack_in": [],
       "op": "txn OnCompletion",
@@ -171,7 +171,7 @@
         "tmp%49#0"
       ]
     },
-    "122": {
+    "124": {
       "op": "!",
       "defined_out": [
         "tmp%50#0"
@@ -180,12 +180,12 @@
         "tmp%50#0"
       ]
     },
-    "123": {
+    "125": {
       "error": "OnCompletion is not NoOp",
       "op": "assert // OnCompletion is not NoOp",
       "stack_out": []
     },
-    "124": {
+    "126": {
       "op": "txn ApplicationID",
       "defined_out": [
         "tmp%51#0"
@@ -194,12 +194,12 @@
         "tmp%51#0"
       ]
     },
-    "126": {
+    "128": {
       "error": "can only call when not creating",
       "op": "assert // can only call when not creating",
       "stack_out": []
     },
-    "127": {
+    "129": {
       "op": "txna ApplicationArgs 1",
       "defined_out": [
         "reinterpret_bytes[1]%5#0"
@@ -208,7 +208,7 @@
         "reinterpret_bytes[1]%5#0"
       ]
     },
-    "130": {
+    "132": {
       "op": "btoi",
       "defined_out": [
         "tmp%53#0"
@@ -217,7 +217,7 @@
         "tmp%53#0"
       ]
     },
-    "131": {
+    "133": {
       "op": "txnas Accounts",
       "defined_out": [
         "tmp%54#0"
@@ -226,12 +226,12 @@
         "tmp%54#0"
       ]
     },
-    "133": {
+    "135": {
       "callsub": "smart_contracts/clickrLogic/contract.algo.ts::clickrLogic.decrementHeart",
       "op": "callsub decrementHeart",
       "stack_out": []
     },
-    "136": {
+    "138": {
       "op": "intc_1 // 1",
       "defined_out": [
         "tmp%0#0"
@@ -240,11 +240,11 @@
         "tmp%0#0"
       ]
     },
-    "137": {
+    "139": {
       "op": "return",
       "stack_out": []
     },
-    "138": {
+    "140": {
       "block": "main_clickProcessed_route@10",
       "stack_in": [],
       "op": "txn OnCompletion",
@@ -255,7 +255,7 @@
         "tmp%43#0"
       ]
     },
-    "140": {
+    "142": {
       "op": "!",
       "defined_out": [
         "tmp%44#0"
@@ -264,12 +264,12 @@
         "tmp%44#0"
       ]
     },
-    "141": {
+    "143": {
       "error": "OnCompletion is not NoOp",
       "op": "assert // OnCompletion is not NoOp",
       "stack_out": []
     },
-    "142": {
+    "144": {
       "op": "txn ApplicationID",
       "defined_out": [
         "tmp%45#0"
@@ -278,12 +278,12 @@
         "tmp%45#0"
       ]
     },
-    "144": {
+    "146": {
       "error": "can only call when not creating",
       "op": "assert // can only call when not creating",
       "stack_out": []
     },
-    "145": {
+    "147": {
       "op": "txna ApplicationArgs 1",
       "defined_out": [
         "reinterpret_bytes[1]%4#0"
@@ -292,7 +292,7 @@
         "reinterpret_bytes[1]%4#0"
       ]
     },
-    "148": {
+    "150": {
       "op": "btoi",
       "defined_out": [
         "tmp%47#0"
@@ -301,7 +301,7 @@
         "tmp%47#0"
       ]
     },
-    "149": {
+    "151": {
       "op": "txnas Accounts",
       "defined_out": [
         "tmp%48#0"
@@ -310,12 +310,12 @@
         "tmp%48#0"
       ]
     },
-    "151": {
+    "153": {
       "callsub": "smart_contracts/clickrLogic/contract.algo.ts::clickrLogic.clickProcessed",
       "op": "callsub clickProcessed",
       "stack_out": []
     },
-    "154": {
+    "156": {
       "op": "intc_1 // 1",
       "defined_out": [
         "tmp%0#0"
@@ -324,11 +324,11 @@
         "tmp%0#0"
       ]
     },
-    "155": {
+    "157": {
       "op": "return",
       "stack_out": []
     },
-    "156": {
+    "158": {
       "block": "main_getUserAllTimeClickCount_route@9",
       "stack_in": [],
       "op": "txn OnCompletion",
@@ -339,7 +339,7 @@
         "tmp%36#0"
       ]
     },
-    "158": {
+    "160": {
       "op": "!",
       "defined_out": [
         "tmp%37#0"
@@ -348,12 +348,12 @@
         "tmp%37#0"
       ]
     },
-    "159": {
+    "161": {
       "error": "OnCompletion is not NoOp",
       "op": "assert // OnCompletion is not NoOp",
       "stack_out": []
     },
-    "160": {
+    "162": {
       "op": "txn ApplicationID",
       "defined_out": [
         "tmp%38#0"
@@ -362,12 +362,12 @@
         "tmp%38#0"
       ]
     },
-    "162": {
+    "164": {
       "error": "can only call when not creating",
       "op": "assert // can only call when not creating",
       "stack_out": []
     },
-    "163": {
+    "165": {
       "op": "txna ApplicationArgs 1",
       "defined_out": [
         "reinterpret_bytes[1]%3#0"
@@ -376,7 +376,7 @@
         "reinterpret_bytes[1]%3#0"
       ]
     },
-    "166": {
+    "168": {
       "op": "btoi",
       "defined_out": [
         "tmp%40#0"
@@ -385,7 +385,7 @@
         "tmp%40#0"
       ]
     },
-    "167": {
+    "169": {
       "op": "txnas Accounts",
       "defined_out": [
         "tmp%41#0"
@@ -394,7 +394,7 @@
         "tmp%41#0"
       ]
     },
-    "169": {
+    "171": {
       "callsub": "smart_contracts/clickrLogic/contract.algo.ts::clickrLogic.getUserAllTimeClickCount",
       "op": "callsub getUserAllTimeClickCount",
       "defined_out": [
@@ -404,7 +404,7 @@
         "to_encode%3#0"
       ]
     },
-    "172": {
+    "174": {
       "op": "itob",
       "defined_out": [
         "val_as_bytes%3#0"
@@ -413,7 +413,7 @@
         "val_as_bytes%3#0"
       ]
     },
-    "173": {
+    "175": {
       "op": "bytec_2 // 0x151f7c75",
       "defined_out": [
         "0x151f7c75",
@@ -424,14 +424,14 @@
         "0x151f7c75"
       ]
     },
-    "174": {
+    "176": {
       "op": "swap",
       "stack_out": [
         "0x151f7c75",
         "val_as_bytes%3#0"
       ]
     },
-    "175": {
+    "177": {
       "op": "concat",
       "defined_out": [
         "tmp%42#0"
@@ -440,11 +440,11 @@
         "tmp%42#0"
       ]
     },
-    "176": {
+    "178": {
       "op": "log",
       "stack_out": []
     },
-    "177": {
+    "179": {
       "op": "intc_1 // 1",
       "defined_out": [
         "tmp%0#0"
@@ -453,11 +453,11 @@
         "tmp%0#0"
       ]
     },
-    "178": {
+    "180": {
       "op": "return",
       "stack_out": []
     },
-    "179": {
+    "181": {
       "block": "main_getHeartCount_route@8",
       "stack_in": [],
       "op": "txn OnCompletion",
@@ -468,7 +468,7 @@
         "tmp%29#0"
       ]
     },
-    "181": {
+    "183": {
       "op": "!",
       "defined_out": [
         "tmp%30#0"
@@ -477,12 +477,12 @@
         "tmp%30#0"
       ]
     },
-    "182": {
+    "184": {
       "error": "OnCompletion is not NoOp",
       "op": "assert // OnCompletion is not NoOp",
       "stack_out": []
     },
-    "183": {
+    "185": {
       "op": "txn ApplicationID",
       "defined_out": [
         "tmp%31#0"
@@ -491,12 +491,12 @@
         "tmp%31#0"
       ]
     },
-    "185": {
+    "187": {
       "error": "can only call when not creating",
       "op": "assert // can only call when not creating",
       "stack_out": []
     },
-    "186": {
+    "188": {
       "op": "txna ApplicationArgs 1",
       "defined_out": [
         "reinterpret_bytes[1]%2#0"
@@ -505,7 +505,7 @@
         "reinterpret_bytes[1]%2#0"
       ]
     },
-    "189": {
+    "191": {
       "op": "btoi",
       "defined_out": [
         "tmp%33#0"
@@ -514,7 +514,7 @@
         "tmp%33#0"
       ]
     },
-    "190": {
+    "192": {
       "op": "txnas Accounts",
       "defined_out": [
         "tmp%34#0"
@@ -523,7 +523,7 @@
         "tmp%34#0"
       ]
     },
-    "192": {
+    "194": {
       "callsub": "smart_contracts/clickrLogic/contract.algo.ts::clickrLogic.getHeartCount",
       "op": "callsub getHeartCount",
       "defined_out": [
@@ -533,7 +533,7 @@
         "to_encode%2#0"
       ]
     },
-    "195": {
+    "197": {
       "op": "itob",
       "defined_out": [
         "val_as_bytes%2#0"
@@ -542,7 +542,7 @@
         "val_as_bytes%2#0"
       ]
     },
-    "196": {
+    "198": {
       "op": "bytec_2 // 0x151f7c75",
       "defined_out": [
         "0x151f7c75",
@@ -553,14 +553,14 @@
         "0x151f7c75"
       ]
     },
-    "197": {
+    "199": {
       "op": "swap",
       "stack_out": [
         "0x151f7c75",
         "val_as_bytes%2#0"
       ]
     },
-    "198": {
+    "200": {
       "op": "concat",
       "defined_out": [
         "tmp%35#0"
@@ -569,11 +569,11 @@
         "tmp%35#0"
       ]
     },
-    "199": {
+    "201": {
       "op": "log",
       "stack_out": []
     },
-    "200": {
+    "202": {
       "op": "intc_1 // 1",
       "defined_out": [
         "tmp%0#0"
@@ -582,11 +582,11 @@
         "tmp%0#0"
       ]
     },
-    "201": {
+    "203": {
       "op": "return",
       "stack_out": []
     },
-    "202": {
+    "204": {
       "block": "main_getHighestClickCount_route@7",
       "stack_in": [],
       "op": "txn OnCompletion",
@@ -597,7 +597,7 @@
         "tmp%22#0"
       ]
     },
-    "204": {
+    "206": {
       "op": "!",
       "defined_out": [
         "tmp%23#0"
@@ -606,12 +606,12 @@
         "tmp%23#0"
       ]
     },
-    "205": {
+    "207": {
       "error": "OnCompletion is not NoOp",
       "op": "assert // OnCompletion is not NoOp",
       "stack_out": []
     },
-    "206": {
+    "208": {
       "op": "txn ApplicationID",
       "defined_out": [
         "tmp%24#0"
@@ -620,12 +620,12 @@
         "tmp%24#0"
       ]
     },
-    "208": {
+    "210": {
       "error": "can only call when not creating",
       "op": "assert // can only call when not creating",
       "stack_out": []
     },
-    "209": {
+    "211": {
       "op": "txna ApplicationArgs 1",
       "defined_out": [
         "reinterpret_bytes[1]%1#0"
@@ -634,7 +634,7 @@
         "reinterpret_bytes[1]%1#0"
       ]
     },
-    "212": {
+    "214": {
       "op": "btoi",
       "defined_out": [
         "tmp%26#0"
@@ -643,7 +643,7 @@
         "tmp%26#0"
       ]
     },
-    "213": {
+    "215": {
       "op": "txnas Accounts",
       "defined_out": [
         "tmp%27#0"
@@ -652,7 +652,7 @@
         "tmp%27#0"
       ]
     },
-    "215": {
+    "217": {
       "callsub": "smart_contracts/clickrLogic/contract.algo.ts::clickrLogic.getHighestClickCount",
       "op": "callsub getHighestClickCount",
       "defined_out": [
@@ -662,7 +662,7 @@
         "to_encode%1#0"
       ]
     },
-    "218": {
+    "220": {
       "op": "itob",
       "defined_out": [
         "val_as_bytes%1#0"
@@ -671,7 +671,7 @@
         "val_as_bytes%1#0"
       ]
     },
-    "219": {
+    "221": {
       "op": "bytec_2 // 0x151f7c75",
       "defined_out": [
         "0x151f7c75",
@@ -682,14 +682,14 @@
         "0x151f7c75"
       ]
     },
-    "220": {
+    "222": {
       "op": "swap",
       "stack_out": [
         "0x151f7c75",
         "val_as_bytes%1#0"
       ]
     },
-    "221": {
+    "223": {
       "op": "concat",
       "defined_out": [
         "tmp%28#0"
@@ -698,11 +698,11 @@
         "tmp%28#0"
       ]
     },
-    "222": {
+    "224": {
       "op": "log",
       "stack_out": []
     },
-    "223": {
+    "225": {
       "op": "intc_1 // 1",
       "defined_out": [
         "tmp%0#0"
@@ -711,11 +711,11 @@
         "tmp%0#0"
       ]
     },
-    "224": {
+    "226": {
       "op": "return",
       "stack_out": []
     },
-    "225": {
+    "227": {
       "block": "main_getClickCount_route@6",
       "stack_in": [],
       "op": "txn OnCompletion",
@@ -726,7 +726,7 @@
         "tmp%15#0"
       ]
     },
-    "227": {
+    "229": {
       "op": "!",
       "defined_out": [
         "tmp%16#0"
@@ -735,12 +735,12 @@
         "tmp%16#0"
       ]
     },
-    "228": {
+    "230": {
       "error": "OnCompletion is not NoOp",
       "op": "assert // OnCompletion is not NoOp",
       "stack_out": []
     },
-    "229": {
+    "231": {
       "op": "txn ApplicationID",
       "defined_out": [
         "tmp%17#0"
@@ -749,12 +749,12 @@
         "tmp%17#0"
       ]
     },
-    "231": {
+    "233": {
       "error": "can only call when not creating",
       "op": "assert // can only call when not creating",
       "stack_out": []
     },
-    "232": {
+    "234": {
       "op": "txna ApplicationArgs 1",
       "defined_out": [
         "reinterpret_bytes[1]%0#0"
@@ -763,7 +763,7 @@
         "reinterpret_bytes[1]%0#0"
       ]
     },
-    "235": {
+    "237": {
       "op": "btoi",
       "defined_out": [
         "tmp%19#0"
@@ -772,7 +772,7 @@
         "tmp%19#0"
       ]
     },
-    "236": {
+    "238": {
       "op": "txnas Accounts",
       "defined_out": [
         "tmp%20#0"
@@ -781,7 +781,7 @@
         "tmp%20#0"
       ]
     },
-    "238": {
+    "240": {
       "callsub": "smart_contracts/clickrLogic/contract.algo.ts::clickrLogic.getClickCount",
       "op": "callsub getClickCount",
       "defined_out": [
@@ -791,7 +791,7 @@
         "to_encode%0#0"
       ]
     },
-    "241": {
+    "243": {
       "op": "itob",
       "defined_out": [
         "val_as_bytes%0#0"
@@ -800,7 +800,7 @@
         "val_as_bytes%0#0"
       ]
     },
-    "242": {
+    "244": {
       "op": "bytec_2 // 0x151f7c75",
       "defined_out": [
         "0x151f7c75",
@@ -811,14 +811,14 @@
         "0x151f7c75"
       ]
     },
-    "243": {
+    "245": {
       "op": "swap",
       "stack_out": [
         "0x151f7c75",
         "val_as_bytes%0#0"
       ]
     },
-    "244": {
+    "246": {
       "op": "concat",
       "defined_out": [
         "tmp%21#0"
@@ -827,11 +827,11 @@
         "tmp%21#0"
       ]
     },
-    "245": {
+    "247": {
       "op": "log",
       "stack_out": []
     },
-    "246": {
+    "248": {
       "op": "intc_1 // 1",
       "defined_out": [
         "tmp%0#0"
@@ -840,11 +840,11 @@
         "tmp%0#0"
       ]
     },
-    "247": {
+    "249": {
       "op": "return",
       "stack_out": []
     },
-    "248": {
+    "250": {
       "block": "main_recordClick_route@5",
       "stack_in": [],
       "op": "txn OnCompletion",
@@ -855,7 +855,7 @@
         "tmp%11#0"
       ]
     },
-    "250": {
+    "252": {
       "op": "!",
       "defined_out": [
         "tmp%12#0"
@@ -864,12 +864,12 @@
         "tmp%12#0"
       ]
     },
-    "251": {
+    "253": {
       "error": "OnCompletion is not NoOp",
       "op": "assert // OnCompletion is not NoOp",
       "stack_out": []
     },
-    "252": {
+    "254": {
       "op": "txn ApplicationID",
       "defined_out": [
         "tmp%13#0"
@@ -878,16 +878,16 @@
         "tmp%13#0"
       ]
     },
-    "254": {
+    "256": {
       "error": "can only call when not creating",
       "op": "assert // can only call when not creating",
       "stack_out": []
     },
-    "255": {
+    "257": {
       "callsub": "smart_contracts/clickrLogic/contract.algo.ts::clickrLogic.recordClick",
       "op": "callsub recordClick"
     },
-    "258": {
+    "260": {
       "op": "intc_1 // 1",
       "defined_out": [
         "tmp%0#0"
@@ -896,11 +896,11 @@
         "tmp%0#0"
       ]
     },
-    "259": {
+    "261": {
       "op": "return",
       "stack_out": []
     },
-    "260": {
+    "262": {
       "block": "main_optIn_route@4",
       "stack_in": [],
       "op": "txn OnCompletion",
@@ -911,7 +911,7 @@
         "tmp%7#0"
       ]
     },
-    "262": {
+    "264": {
       "op": "intc_1 // OptIn",
       "defined_out": [
         "OptIn",
@@ -922,7 +922,7 @@
         "OptIn"
       ]
     },
-    "263": {
+    "265": {
       "op": "==",
       "defined_out": [
         "tmp%8#0"
@@ -931,12 +931,12 @@
         "tmp%8#0"
       ]
     },
-    "264": {
+    "266": {
       "error": "OnCompletion is not OptIn",
       "op": "assert // OnCompletion is not OptIn",
       "stack_out": []
     },
-    "265": {
+    "267": {
       "op": "txn ApplicationID",
       "defined_out": [
         "tmp%9#0"
@@ -945,16 +945,16 @@
         "tmp%9#0"
       ]
     },
-    "267": {
+    "269": {
       "error": "can only call when not creating",
       "op": "assert // can only call when not creating",
       "stack_out": []
     },
-    "268": {
+    "270": {
       "callsub": "smart_contracts/clickrLogic/contract.algo.ts::clickrLogic.optIn",
       "op": "callsub optIn"
     },
-    "271": {
+    "273": {
       "op": "intc_1 // 1",
       "defined_out": [
         "tmp%0#0"
@@ -963,11 +963,11 @@
         "tmp%0#0"
       ]
     },
-    "272": {
+    "274": {
       "op": "return",
       "stack_out": []
     },
-    "273": {
+    "275": {
       "block": "main_createApplication_route@3",
       "stack_in": [],
       "op": "txn OnCompletion",
@@ -978,7 +978,7 @@
         "tmp%3#0"
       ]
     },
-    "275": {
+    "277": {
       "op": "!",
       "defined_out": [
         "tmp%4#0"
@@ -987,12 +987,12 @@
         "tmp%4#0"
       ]
     },
-    "276": {
+    "278": {
       "error": "OnCompletion is not NoOp",
       "op": "assert // OnCompletion is not NoOp",
       "stack_out": []
     },
-    "277": {
+    "279": {
       "op": "txn ApplicationID",
       "defined_out": [
         "tmp%5#0"
@@ -1001,7 +1001,7 @@
         "tmp%5#0"
       ]
     },
-    "279": {
+    "281": {
       "op": "!",
       "defined_out": [
         "tmp%6#0"
@@ -1010,16 +1010,16 @@
         "tmp%6#0"
       ]
     },
-    "280": {
+    "282": {
       "error": "can only call when creating",
       "op": "assert // can only call when creating",
       "stack_out": []
     },
-    "281": {
+    "283": {
       "callsub": "smart_contracts/clickrLogic/contract.algo.ts::clickrLogic.createApplication",
       "op": "callsub createApplication"
     },
-    "284": {
+    "286": {
       "op": "intc_1 // 1",
       "defined_out": [
         "tmp%0#0"
@@ -1028,11 +1028,11 @@
         "tmp%0#0"
       ]
     },
-    "285": {
+    "287": {
       "op": "return",
       "stack_out": []
     },
-    "286": {
+    "288": {
       "subroutine": "smart_contracts/clickrLogic/contract.algo.ts::clickrLogic.createApplication",
       "params": {},
       "block": "createApplication",
@@ -1045,7 +1045,7 @@
         "\"g\""
       ]
     },
-    "288": {
+    "290": {
       "op": "intc_0 // 0",
       "defined_out": [
         "\"g\"",
@@ -1056,11 +1056,11 @@
         "0"
       ]
     },
-    "289": {
+    "291": {
       "op": "app_global_put",
       "stack_out": []
     },
-    "290": {
+    "292": {
       "op": "bytec_3 // \"d\"",
       "defined_out": [
         "\"d\""
@@ -1069,7 +1069,7 @@
         "\"d\""
       ]
     },
-    "291": {
+    "293": {
       "op": "global CreatorAddress",
       "defined_out": [
         "\"d\"",
@@ -1080,15 +1080,39 @@
         "new_state_value%0#0"
       ]
     },
-    "293": {
+    "295": {
       "op": "app_global_put",
       "stack_out": []
     },
-    "294": {
+    "296": {
+      "op": "bytec 6 // \"e\"",
+      "defined_out": [
+        "\"e\""
+      ],
+      "stack_out": [
+        "\"e\""
+      ]
+    },
+    "298": {
+      "op": "global CreatorAddress",
+      "defined_out": [
+        "\"e\"",
+        "new_state_value%1#0"
+      ],
+      "stack_out": [
+        "\"e\"",
+        "new_state_value%1#0"
+      ]
+    },
+    "300": {
+      "op": "app_global_put",
+      "stack_out": []
+    },
+    "301": {
       "retsub": true,
       "op": "retsub"
     },
-    "295": {
+    "302": {
       "subroutine": "smart_contracts/clickrLogic/contract.algo.ts::clickrLogic.optIn",
       "params": {},
       "block": "optIn",
@@ -1101,7 +1125,7 @@
         "tmp%0#0"
       ]
     },
-    "297": {
+    "304": {
       "op": "bytec_0 // \"a\"",
       "defined_out": [
         "\"a\"",
@@ -1112,7 +1136,7 @@
         "\"a\""
       ]
     },
-    "298": {
+    "305": {
       "op": "intc_0 // 0",
       "defined_out": [
         "\"a\"",
@@ -1125,11 +1149,11 @@
         "0"
       ]
     },
-    "299": {
+    "306": {
       "op": "app_local_put",
       "stack_out": []
     },
-    "300": {
+    "307": {
       "op": "txn Sender",
       "defined_out": [
         "tmp%1#0"
@@ -1138,7 +1162,7 @@
         "tmp%1#0"
       ]
     },
-    "302": {
+    "309": {
       "op": "bytec_1 // \"b\"",
       "defined_out": [
         "\"b\"",
@@ -1149,7 +1173,7 @@
         "\"b\""
       ]
     },
-    "303": {
+    "310": {
       "op": "pushint 5 // 5",
       "defined_out": [
         "\"b\"",
@@ -1162,11 +1186,11 @@
         "5"
       ]
     },
-    "305": {
+    "312": {
       "op": "app_local_put",
       "stack_out": []
     },
-    "306": {
+    "313": {
       "op": "txn Sender",
       "defined_out": [
         "tmp%2#0"
@@ -1175,7 +1199,7 @@
         "tmp%2#0"
       ]
     },
-    "308": {
+    "315": {
       "op": "bytec 4 // \"c\"",
       "defined_out": [
         "\"c\"",
@@ -1186,7 +1210,7 @@
         "\"c\""
       ]
     },
-    "310": {
+    "317": {
       "op": "intc_0 // 0",
       "stack_out": [
         "tmp%2#0",
@@ -1194,11 +1218,11 @@
         "0"
       ]
     },
-    "311": {
+    "318": {
       "op": "app_local_put",
       "stack_out": []
     },
-    "312": {
+    "319": {
       "op": "txn Sender",
       "defined_out": [
         "tmp%3#0"
@@ -1207,8 +1231,8 @@
         "tmp%3#0"
       ]
     },
-    "314": {
-      "op": "bytec 6 // \"l\"",
+    "321": {
+      "op": "bytec 7 // \"l\"",
       "defined_out": [
         "\"l\"",
         "tmp%3#0"
@@ -1218,7 +1242,7 @@
         "\"l\""
       ]
     },
-    "316": {
+    "323": {
       "op": "intc_0 // 0",
       "stack_out": [
         "tmp%3#0",
@@ -1226,25 +1250,25 @@
         "0"
       ]
     },
-    "317": {
+    "324": {
       "op": "app_local_put",
       "stack_out": []
     },
-    "318": {
+    "325": {
       "retsub": true,
       "op": "retsub"
     },
-    "319": {
+    "326": {
       "subroutine": "smart_contracts/clickrLogic/contract.algo.ts::clickrLogic.recordClick",
       "params": {},
       "block": "recordClick",
       "stack_in": [],
       "op": "proto 0 0"
     },
-    "322": {
+    "329": {
       "op": "txn Sender"
     },
-    "324": {
+    "331": {
       "op": "dupn 2",
       "defined_out": [
         "tmp%0#0",
@@ -1256,7 +1280,7 @@
         "tmp%0#0"
       ]
     },
-    "326": {
+    "333": {
       "op": "dig 1",
       "defined_out": [
         "tmp%0#0",
@@ -1270,7 +1294,7 @@
         "user#0 (copy)"
       ]
     },
-    "328": {
+    "335": {
       "op": "==",
       "defined_out": [
         "tmp%1#0",
@@ -1282,7 +1306,7 @@
         "tmp%1#0"
       ]
     },
-    "329": {
+    "336": {
       "error": "Only the user can record a click",
       "op": "assert // Only the user can record a click",
       "stack_out": [
@@ -1290,7 +1314,7 @@
         "user#0"
       ]
     },
-    "330": {
+    "337": {
       "op": "dup",
       "stack_out": [
         "user#0",
@@ -1298,7 +1322,7 @@
         "user#0 (copy)"
       ]
     },
-    "331": {
+    "338": {
       "op": "intc_0 // 0",
       "stack_out": [
         "user#0",
@@ -1307,7 +1331,7 @@
         "0"
       ]
     },
-    "332": {
+    "339": {
       "op": "bytec_1 // \"b\"",
       "defined_out": [
         "\"b\"",
@@ -1323,7 +1347,7 @@
         "\"b\""
       ]
     },
-    "333": {
+    "340": {
       "op": "app_local_get_ex",
       "defined_out": [
         "maybe_exists%0#0",
@@ -1337,7 +1361,7 @@
         "maybe_exists%0#0"
       ]
     },
-    "334": {
+    "341": {
       "error": "check LocalState exists",
       "op": "assert // check LocalState exists",
       "stack_out": [
@@ -1346,7 +1370,7 @@
         "maybe_value%0#0"
       ]
     },
-    "335": {
+    "342": {
       "error": "Only if user hearts are above 0 record click",
       "op": "assert // Only if user hearts are above 0 record click",
       "stack_out": [
@@ -1354,7 +1378,7 @@
         "user#0"
       ]
     },
-    "336": {
+    "343": {
       "op": "intc_0 // 0",
       "stack_out": [
         "user#0",
@@ -1362,7 +1386,7 @@
         "0"
       ]
     },
-    "337": {
+    "344": {
       "op": "bytec_0 // \"a\"",
       "defined_out": [
         "\"a\"",
@@ -1376,7 +1400,7 @@
         "\"a\""
       ]
     },
-    "338": {
+    "345": {
       "op": "app_local_get_ex",
       "defined_out": [
         "maybe_exists%1#0",
@@ -1389,7 +1413,7 @@
         "maybe_exists%1#0"
       ]
     },
-    "339": {
+    "346": {
       "op": "swap",
       "stack_out": [
         "user#0",
@@ -1397,7 +1421,7 @@
         "maybe_value%1#0"
       ]
     },
-    "340": {
+    "347": {
       "op": "dup",
       "stack_out": [
         "user#0",
@@ -1406,7 +1430,7 @@
         "maybe_value%1#0 (copy)"
       ]
     },
-    "341": {
+    "348": {
       "op": "uncover 2",
       "defined_out": [
         "maybe_exists%1#0",
@@ -1420,7 +1444,7 @@
         "maybe_exists%1#0"
       ]
     },
-    "343": {
+    "350": {
       "error": "check LocalState exists",
       "op": "assert // check LocalState exists",
       "stack_out": [
@@ -1429,14 +1453,14 @@
         "maybe_value%1#0"
       ]
     },
-    "344": {
+    "351": {
       "op": "bz recordClick_ternary_false@2",
       "stack_out": [
         "user#0",
         "maybe_value%1#0"
       ]
     },
-    "347": {
+    "354": {
       "op": "frame_dig 1",
       "defined_out": [
         "currentCount#0",
@@ -1449,7 +1473,7 @@
         "currentCount#0"
       ]
     },
-    "349": {
+    "356": {
       "block": "recordClick_ternary_merge@3",
       "stack_in": [
         "user#0",
@@ -1468,7 +1492,7 @@
         "1"
       ]
     },
-    "350": {
+    "357": {
       "op": "+",
       "defined_out": [
         "new_state_value%0#0"
@@ -1479,7 +1503,7 @@
         "new_state_value%0#0"
       ]
     },
-    "351": {
+    "358": {
       "op": "frame_dig 0",
       "defined_out": [
         "new_state_value%0#0",
@@ -1492,7 +1516,7 @@
         "user#0"
       ]
     },
-    "353": {
+    "360": {
       "op": "dup",
       "defined_out": [
         "new_state_value%0#0",
@@ -1507,7 +1531,7 @@
         "user#0 (copy)"
       ]
     },
-    "354": {
+    "361": {
       "op": "cover 2",
       "stack_out": [
         "user#0",
@@ -1517,7 +1541,7 @@
         "user#0 (copy)"
       ]
     },
-    "356": {
+    "363": {
       "op": "bytec_0 // \"a\"",
       "defined_out": [
         "\"a\"",
@@ -1534,7 +1558,7 @@
         "\"a\""
       ]
     },
-    "357": {
+    "364": {
       "op": "dig 2",
       "defined_out": [
         "\"a\"",
@@ -1553,7 +1577,7 @@
         "new_state_value%0#0 (copy)"
       ]
     },
-    "359": {
+    "366": {
       "op": "app_local_put",
       "stack_out": [
         "user#0",
@@ -1562,10 +1586,10 @@
         "new_state_value%0#0"
       ]
     },
-    "360": {
-      "op": "bytec 6 // \"l\""
+    "367": {
+      "op": "bytec 7 // \"l\""
     },
-    "362": {
+    "369": {
       "op": "swap",
       "defined_out": [
         "\"l\"",
@@ -1580,18 +1604,18 @@
         "new_state_value%0#0"
       ]
     },
-    "363": {
+    "370": {
       "op": "app_local_put",
       "stack_out": [
         "user#0",
         "maybe_value%1#0"
       ]
     },
-    "364": {
+    "371": {
       "retsub": true,
       "op": "retsub"
     },
-    "365": {
+    "372": {
       "block": "recordClick_ternary_false@2",
       "stack_in": [
         "user#0",
@@ -1607,10 +1631,10 @@
         "currentCount#0"
       ]
     },
-    "366": {
+    "373": {
       "op": "b recordClick_ternary_merge@3"
     },
-    "369": {
+    "376": {
       "subroutine": "smart_contracts/clickrLogic/contract.algo.ts::clickrLogic.getClickCount",
       "params": {
         "user#0": "bytes"
@@ -1619,7 +1643,7 @@
       "stack_in": [],
       "op": "proto 1 1"
     },
-    "372": {
+    "379": {
       "op": "frame_dig -1",
       "defined_out": [
         "user#0 (copy)"
@@ -1628,7 +1652,7 @@
         "user#0 (copy)"
       ]
     },
-    "374": {
+    "381": {
       "op": "intc_0 // 0",
       "defined_out": [
         "0",
@@ -1639,7 +1663,7 @@
         "0"
       ]
     },
-    "375": {
+    "382": {
       "op": "bytec_0 // \"a\"",
       "defined_out": [
         "\"a\"",
@@ -1652,7 +1676,7 @@
         "\"a\""
       ]
     },
-    "376": {
+    "383": {
       "op": "app_local_get_ex",
       "defined_out": [
         "maybe_exists%0#0",
@@ -1663,14 +1687,14 @@
         "maybe_exists%0#0"
       ]
     },
-    "377": {
+    "384": {
       "op": "swap",
       "stack_out": [
         "maybe_exists%0#0",
         "maybe_value%0#0"
       ]
     },
-    "378": {
+    "385": {
       "op": "dup",
       "stack_out": [
         "maybe_exists%0#0",
@@ -1678,7 +1702,7 @@
         "maybe_value%0#0 (copy)"
       ]
     },
-    "379": {
+    "386": {
       "op": "uncover 2",
       "defined_out": [
         "maybe_exists%0#0",
@@ -1690,7 +1714,7 @@
         "maybe_exists%0#0"
       ]
     },
-    "381": {
+    "388": {
       "error": "check LocalState exists",
       "op": "assert // check LocalState exists",
       "stack_out": [
@@ -1698,13 +1722,13 @@
         "maybe_value%0#0"
       ]
     },
-    "382": {
+    "389": {
       "op": "bz getClickCount_ternary_false@2",
       "stack_out": [
         "maybe_value%0#0"
       ]
     },
-    "385": {
+    "392": {
       "op": "frame_dig 0",
       "defined_out": [
         "maybe_value%0#0",
@@ -1715,7 +1739,7 @@
         "ternary_result%0#1"
       ]
     },
-    "387": {
+    "394": {
       "block": "getClickCount_ternary_merge@3",
       "stack_in": [
         "maybe_value%0#0",
@@ -1726,11 +1750,11 @@
         "ternary_result%0#1"
       ]
     },
-    "388": {
+    "395": {
       "retsub": true,
       "op": "retsub"
     },
-    "389": {
+    "396": {
       "block": "getClickCount_ternary_false@2",
       "stack_in": [
         "maybe_value%0#0"
@@ -1744,10 +1768,10 @@
         "ternary_result%0#1"
       ]
     },
-    "390": {
+    "397": {
       "op": "b getClickCount_ternary_merge@3"
     },
-    "393": {
+    "400": {
       "subroutine": "smart_contracts/clickrLogic/contract.algo.ts::clickrLogic.getHighestClickCount",
       "params": {
         "user#0": "bytes"
@@ -1756,7 +1780,7 @@
       "stack_in": [],
       "op": "proto 1 1"
     },
-    "396": {
+    "403": {
       "op": "frame_dig -1",
       "defined_out": [
         "user#0 (copy)"
@@ -1765,7 +1789,7 @@
         "user#0 (copy)"
       ]
     },
-    "398": {
+    "405": {
       "op": "intc_0 // 0",
       "defined_out": [
         "0",
@@ -1776,7 +1800,7 @@
         "0"
       ]
     },
-    "399": {
+    "406": {
       "op": "bytec 4 // \"c\"",
       "defined_out": [
         "\"c\"",
@@ -1789,7 +1813,7 @@
         "\"c\""
       ]
     },
-    "401": {
+    "408": {
       "op": "app_local_get_ex",
       "defined_out": [
         "maybe_exists%0#0",
@@ -1800,14 +1824,14 @@
         "maybe_exists%0#0"
       ]
     },
-    "402": {
+    "409": {
       "op": "swap",
       "stack_out": [
         "maybe_exists%0#0",
         "maybe_value%0#0"
       ]
     },
-    "403": {
+    "410": {
       "op": "dup",
       "stack_out": [
         "maybe_exists%0#0",
@@ -1815,7 +1839,7 @@
         "maybe_value%0#0 (copy)"
       ]
     },
-    "404": {
+    "411": {
       "op": "uncover 2",
       "defined_out": [
         "maybe_exists%0#0",
@@ -1827,7 +1851,7 @@
         "maybe_exists%0#0"
       ]
     },
-    "406": {
+    "413": {
       "error": "check LocalState exists",
       "op": "assert // check LocalState exists",
       "stack_out": [
@@ -1835,13 +1859,13 @@
         "maybe_value%0#0"
       ]
     },
-    "407": {
+    "414": {
       "op": "bz getHighestClickCount_ternary_false@2",
       "stack_out": [
         "maybe_value%0#0"
       ]
     },
-    "410": {
+    "417": {
       "op": "frame_dig 0",
       "defined_out": [
         "maybe_value%0#0",
@@ -1852,7 +1876,7 @@
         "ternary_result%0#1"
       ]
     },
-    "412": {
+    "419": {
       "block": "getHighestClickCount_ternary_merge@3",
       "stack_in": [
         "maybe_value%0#0",
@@ -1863,11 +1887,11 @@
         "ternary_result%0#1"
       ]
     },
-    "413": {
+    "420": {
       "retsub": true,
       "op": "retsub"
     },
-    "414": {
+    "421": {
       "block": "getHighestClickCount_ternary_false@2",
       "stack_in": [
         "maybe_value%0#0"
@@ -1881,10 +1905,10 @@
         "ternary_result%0#1"
       ]
     },
-    "415": {
+    "422": {
       "op": "b getHighestClickCount_ternary_merge@3"
     },
-    "418": {
+    "425": {
       "subroutine": "smart_contracts/clickrLogic/contract.algo.ts::clickrLogic.getHeartCount",
       "params": {
         "user#0": "bytes"
@@ -1893,7 +1917,7 @@
       "stack_in": [],
       "op": "proto 1 1"
     },
-    "421": {
+    "428": {
       "op": "frame_dig -1",
       "defined_out": [
         "user#0 (copy)"
@@ -1902,7 +1926,7 @@
         "user#0 (copy)"
       ]
     },
-    "423": {
+    "430": {
       "op": "intc_0 // 0",
       "defined_out": [
         "0",
@@ -1913,7 +1937,7 @@
         "0"
       ]
     },
-    "424": {
+    "431": {
       "op": "bytec_1 // \"b\"",
       "defined_out": [
         "\"b\"",
@@ -1926,7 +1950,7 @@
         "\"b\""
       ]
     },
-    "425": {
+    "432": {
       "op": "app_local_get_ex",
       "defined_out": [
         "maybe_exists%0#0",
@@ -1937,14 +1961,14 @@
         "maybe_exists%0#0"
       ]
     },
-    "426": {
+    "433": {
       "op": "swap",
       "stack_out": [
         "maybe_exists%0#0",
         "maybe_value%0#0"
       ]
     },
-    "427": {
+    "434": {
       "op": "dup",
       "stack_out": [
         "maybe_exists%0#0",
@@ -1952,7 +1976,7 @@
         "maybe_value%0#0 (copy)"
       ]
     },
-    "428": {
+    "435": {
       "op": "uncover 2",
       "defined_out": [
         "maybe_exists%0#0",
@@ -1964,7 +1988,7 @@
         "maybe_exists%0#0"
       ]
     },
-    "430": {
+    "437": {
       "error": "check LocalState exists",
       "op": "assert // check LocalState exists",
       "stack_out": [
@@ -1972,13 +1996,13 @@
         "maybe_value%0#0"
       ]
     },
-    "431": {
+    "438": {
       "op": "bz getHeartCount_ternary_false@2",
       "stack_out": [
         "maybe_value%0#0"
       ]
     },
-    "434": {
+    "441": {
       "op": "frame_dig 0",
       "defined_out": [
         "maybe_value%0#0",
@@ -1989,7 +2013,7 @@
         "ternary_result%0#1"
       ]
     },
-    "436": {
+    "443": {
       "block": "getHeartCount_ternary_merge@3",
       "stack_in": [
         "maybe_value%0#0",
@@ -2000,11 +2024,11 @@
         "ternary_result%0#1"
       ]
     },
-    "437": {
+    "444": {
       "retsub": true,
       "op": "retsub"
     },
-    "438": {
+    "445": {
       "block": "getHeartCount_ternary_false@2",
       "stack_in": [
         "maybe_value%0#0"
@@ -2018,10 +2042,10 @@
         "ternary_result%0#1"
       ]
     },
-    "439": {
+    "446": {
       "op": "b getHeartCount_ternary_merge@3"
     },
-    "442": {
+    "449": {
       "subroutine": "smart_contracts/clickrLogic/contract.algo.ts::clickrLogic.getUserAllTimeClickCount",
       "params": {
         "user#0": "bytes"
@@ -2030,7 +2054,7 @@
       "stack_in": [],
       "op": "proto 1 1"
     },
-    "445": {
+    "452": {
       "op": "frame_dig -1",
       "defined_out": [
         "user#0 (copy)"
@@ -2039,7 +2063,7 @@
         "user#0 (copy)"
       ]
     },
-    "447": {
+    "454": {
       "op": "intc_0 // 0",
       "defined_out": [
         "0",
@@ -2050,8 +2074,8 @@
         "0"
       ]
     },
-    "448": {
-      "op": "bytec 6 // \"l\"",
+    "455": {
+      "op": "bytec 7 // \"l\"",
       "defined_out": [
         "\"l\"",
         "0",
@@ -2063,7 +2087,7 @@
         "\"l\""
       ]
     },
-    "450": {
+    "457": {
       "op": "app_local_get_ex",
       "defined_out": [
         "maybe_exists%0#0",
@@ -2074,14 +2098,14 @@
         "maybe_exists%0#0"
       ]
     },
-    "451": {
+    "458": {
       "op": "swap",
       "stack_out": [
         "maybe_exists%0#0",
         "maybe_value%0#0"
       ]
     },
-    "452": {
+    "459": {
       "op": "dup",
       "stack_out": [
         "maybe_exists%0#0",
@@ -2089,7 +2113,7 @@
         "maybe_value%0#0 (copy)"
       ]
     },
-    "453": {
+    "460": {
       "op": "uncover 2",
       "defined_out": [
         "maybe_exists%0#0",
@@ -2101,7 +2125,7 @@
         "maybe_exists%0#0"
       ]
     },
-    "455": {
+    "462": {
       "error": "check LocalState exists",
       "op": "assert // check LocalState exists",
       "stack_out": [
@@ -2109,13 +2133,13 @@
         "maybe_value%0#0"
       ]
     },
-    "456": {
+    "463": {
       "op": "bz getUserAllTimeClickCount_ternary_false@2",
       "stack_out": [
         "maybe_value%0#0"
       ]
     },
-    "459": {
+    "466": {
       "op": "frame_dig 0",
       "defined_out": [
         "maybe_value%0#0",
@@ -2126,7 +2150,7 @@
         "ternary_result%0#1"
       ]
     },
-    "461": {
+    "468": {
       "block": "getUserAllTimeClickCount_ternary_merge@3",
       "stack_in": [
         "maybe_value%0#0",
@@ -2137,11 +2161,11 @@
         "ternary_result%0#1"
       ]
     },
-    "462": {
+    "469": {
       "retsub": true,
       "op": "retsub"
     },
-    "463": {
+    "470": {
       "block": "getUserAllTimeClickCount_ternary_false@2",
       "stack_in": [
         "maybe_value%0#0"
@@ -2155,10 +2179,10 @@
         "ternary_result%0#1"
       ]
     },
-    "464": {
+    "471": {
       "op": "b getUserAllTimeClickCount_ternary_merge@3"
     },
-    "467": {
+    "474": {
       "subroutine": "smart_contracts/clickrLogic/contract.algo.ts::clickrLogic.clickProcessed",
       "params": {
         "user#0": "bytes"
@@ -2167,27 +2191,107 @@
       "stack_in": [],
       "op": "proto 1 0"
     },
-    "470": {
+    "477": {
+      "op": "pushbytes \"\"",
+      "stack_out": [
+        "feeAmount#0"
+      ]
+    },
+    "479": {
+      "op": "txn Sender",
+      "defined_out": [
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "feeAmount#0",
+        "tmp%0#0"
+      ]
+    },
+    "481": {
+      "op": "intc_0 // 0",
+      "defined_out": [
+        "0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "feeAmount#0",
+        "tmp%0#0",
+        "0"
+      ]
+    },
+    "482": {
+      "op": "bytec 6 // \"e\"",
+      "defined_out": [
+        "\"e\"",
+        "0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "feeAmount#0",
+        "tmp%0#0",
+        "0",
+        "\"e\""
+      ]
+    },
+    "484": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "maybe_exists%0#0",
+        "maybe_value%0#0",
+        "tmp%0#0"
+      ],
+      "stack_out": [
+        "feeAmount#0",
+        "tmp%0#0",
+        "maybe_value%0#0",
+        "maybe_exists%0#0"
+      ]
+    },
+    "485": {
+      "error": "check GlobalState exists",
+      "op": "assert // check GlobalState exists",
+      "stack_out": [
+        "feeAmount#0",
+        "tmp%0#0",
+        "maybe_value%0#0"
+      ]
+    },
+    "486": {
+      "op": "==",
+      "defined_out": [
+        "tmp%1#0"
+      ],
+      "stack_out": [
+        "feeAmount#0",
+        "tmp%1#0"
+      ]
+    },
+    "487": {
+      "error": "Only cron account can process clicks",
+      "op": "assert // Only cron account can process clicks",
+      "stack_out": [
+        "feeAmount#0"
+      ]
+    },
+    "488": {
       "op": "frame_dig -1",
       "defined_out": [
         "user#0 (copy)"
       ],
       "stack_out": [
+        "feeAmount#0",
         "user#0 (copy)"
       ]
     },
-    "472": {
+    "490": {
       "op": "intc_0 // 0",
-      "defined_out": [
-        "0",
-        "user#0 (copy)"
-      ],
       "stack_out": [
+        "feeAmount#0",
         "user#0 (copy)",
         "0"
       ]
     },
-    "473": {
+    "491": {
       "op": "bytec_0 // \"a\"",
       "defined_out": [
         "\"a\"",
@@ -2195,75 +2299,83 @@
         "user#0 (copy)"
       ],
       "stack_out": [
+        "feeAmount#0",
         "user#0 (copy)",
         "0",
         "\"a\""
       ]
     },
-    "474": {
+    "492": {
       "op": "app_local_get_ex",
       "defined_out": [
         "currentClicks#0",
-        "maybe_exists%0#0"
+        "maybe_exists%1#0"
       ],
       "stack_out": [
+        "feeAmount#0",
         "currentClicks#0",
-        "maybe_exists%0#0"
+        "maybe_exists%1#0"
       ]
     },
-    "475": {
+    "493": {
       "op": "swap",
       "stack_out": [
-        "maybe_exists%0#0",
+        "feeAmount#0",
+        "maybe_exists%1#0",
         "currentClicks#0"
       ]
     },
-    "476": {
+    "494": {
       "op": "dup",
       "stack_out": [
-        "maybe_exists%0#0",
+        "feeAmount#0",
+        "maybe_exists%1#0",
         "currentClicks#0",
         "currentClicks#0 (copy)"
       ]
     },
-    "477": {
+    "495": {
       "op": "uncover 2",
       "defined_out": [
         "currentClicks#0",
-        "maybe_exists%0#0"
+        "maybe_exists%1#0"
       ],
       "stack_out": [
+        "feeAmount#0",
         "currentClicks#0",
         "currentClicks#0",
-        "maybe_exists%0#0"
+        "maybe_exists%1#0"
       ]
     },
-    "479": {
+    "497": {
       "error": "check LocalState exists",
       "op": "assert // check LocalState exists",
       "stack_out": [
+        "feeAmount#0",
         "currentClicks#0",
         "currentClicks#0"
       ]
     },
-    "480": {
+    "498": {
       "op": "frame_dig -1",
       "stack_out": [
+        "feeAmount#0",
         "currentClicks#0",
         "currentClicks#0",
         "user#0 (copy)"
       ]
     },
-    "482": {
+    "500": {
       "op": "intc_0 // 0",
       "stack_out": [
+        "feeAmount#0",
         "currentClicks#0",
         "currentClicks#0",
         "user#0 (copy)",
         "0"
       ]
     },
-    "483": {
+    "501": {
       "op": "bytec 4 // \"c\"",
       "defined_out": [
         "\"c\"",
@@ -2272,6 +2384,7 @@
         "user#0 (copy)"
       ],
       "stack_out": [
+        "feeAmount#0",
         "currentClicks#0",
         "currentClicks#0",
         "user#0 (copy)",
@@ -2279,79 +2392,88 @@
         "\"c\""
       ]
     },
-    "485": {
+    "503": {
       "op": "app_local_get_ex",
       "defined_out": [
         "currentClicks#0",
         "highestClicks#0",
-        "maybe_exists%1#0"
+        "maybe_exists%2#0"
       ],
       "stack_out": [
+        "feeAmount#0",
         "currentClicks#0",
         "currentClicks#0",
         "highestClicks#0",
-        "maybe_exists%1#0"
+        "maybe_exists%2#0"
       ]
     },
-    "486": {
+    "504": {
       "error": "check LocalState exists",
       "op": "assert // check LocalState exists",
       "stack_out": [
+        "feeAmount#0",
         "currentClicks#0",
         "currentClicks#0",
         "highestClicks#0"
       ]
     },
-    "487": {
+    "505": {
       "op": ">",
       "defined_out": [
         "currentClicks#0",
-        "tmp%0#0"
+        "tmp%2#0"
       ],
       "stack_out": [
+        "feeAmount#0",
         "currentClicks#0",
-        "tmp%0#0"
+        "tmp%2#0"
       ]
     },
-    "488": {
+    "506": {
       "op": "bz clickProcessed_after_if_else@2",
       "stack_out": [
+        "feeAmount#0",
         "currentClicks#0"
       ]
     },
-    "491": {
+    "509": {
       "op": "frame_dig -1",
       "stack_out": [
+        "feeAmount#0",
         "currentClicks#0",
         "user#0 (copy)"
       ]
     },
-    "493": {
+    "511": {
       "op": "bytec 4 // \"c\"",
       "stack_out": [
+        "feeAmount#0",
         "currentClicks#0",
         "user#0 (copy)",
         "\"c\""
       ]
     },
-    "495": {
-      "op": "frame_dig 0",
+    "513": {
+      "op": "frame_dig 1",
       "stack_out": [
+        "feeAmount#0",
         "currentClicks#0",
         "user#0 (copy)",
         "\"c\"",
         "currentClicks#0"
       ]
     },
-    "497": {
+    "515": {
       "op": "app_local_put",
       "stack_out": [
+        "feeAmount#0",
         "currentClicks#0"
       ]
     },
-    "498": {
+    "516": {
       "block": "clickProcessed_after_if_else@2",
       "stack_in": [
+        "feeAmount#0",
         "currentClicks#0"
       ],
       "op": "intc_0 // 0",
@@ -2359,104 +2481,115 @@
         "0"
       ],
       "stack_out": [
+        "feeAmount#0",
         "currentClicks#0",
         "0"
       ]
     },
-    "499": {
+    "517": {
       "op": "bytec 5 // \"g\"",
       "defined_out": [
         "\"g\"",
         "0"
       ],
       "stack_out": [
+        "feeAmount#0",
         "currentClicks#0",
         "0",
         "\"g\""
       ]
     },
-    "501": {
+    "519": {
       "op": "app_global_get_ex",
       "defined_out": [
-        "maybe_exists%2#0",
-        "maybe_value%2#0"
+        "maybe_exists%3#0",
+        "maybe_value%3#0"
       ],
       "stack_out": [
+        "feeAmount#0",
         "currentClicks#0",
-        "maybe_value%2#0",
-        "maybe_exists%2#0"
+        "maybe_value%3#0",
+        "maybe_exists%3#0"
       ]
     },
-    "502": {
+    "520": {
       "error": "check GlobalState exists",
       "op": "assert // check GlobalState exists",
       "stack_out": [
+        "feeAmount#0",
         "currentClicks#0",
-        "maybe_value%2#0"
+        "maybe_value%3#0"
       ]
     },
-    "503": {
-      "op": "frame_dig 0",
+    "521": {
+      "op": "frame_dig 1",
       "defined_out": [
         "currentClicks#0",
-        "maybe_value%2#0"
+        "maybe_value%3#0"
       ],
       "stack_out": [
+        "feeAmount#0",
         "currentClicks#0",
-        "maybe_value%2#0",
+        "maybe_value%3#0",
         "currentClicks#0"
       ]
     },
-    "505": {
+    "523": {
       "op": "<",
       "defined_out": [
         "currentClicks#0",
-        "tmp%1#0"
+        "tmp%3#0"
       ],
       "stack_out": [
+        "feeAmount#0",
         "currentClicks#0",
-        "tmp%1#0"
+        "tmp%3#0"
       ]
     },
-    "506": {
+    "524": {
       "op": "bz clickProcessed_after_if_else@4",
       "stack_out": [
+        "feeAmount#0",
         "currentClicks#0"
       ]
     },
-    "509": {
+    "527": {
       "op": "bytec 5 // \"g\"",
       "stack_out": [
+        "feeAmount#0",
         "currentClicks#0",
         "\"g\""
       ]
     },
-    "511": {
-      "op": "frame_dig 0",
+    "529": {
+      "op": "frame_dig 1",
       "stack_out": [
+        "feeAmount#0",
         "currentClicks#0",
         "\"g\"",
         "currentClicks#0"
       ]
     },
-    "513": {
+    "531": {
       "op": "app_global_put",
       "stack_out": [
+        "feeAmount#0",
         "currentClicks#0"
       ]
     },
-    "514": {
+    "532": {
       "op": "bytec_3 // \"d\"",
       "defined_out": [
         "\"d\"",
         "currentClicks#0"
       ],
       "stack_out": [
+        "feeAmount#0",
         "currentClicks#0",
         "\"d\""
       ]
     },
-    "515": {
+    "533": {
       "op": "frame_dig -1",
       "defined_out": [
         "\"d\"",
@@ -2464,20 +2597,202 @@
         "user#0 (copy)"
       ],
       "stack_out": [
+        "feeAmount#0",
         "currentClicks#0",
         "\"d\"",
         "user#0 (copy)"
       ]
     },
-    "517": {
+    "535": {
       "op": "app_global_put",
       "stack_out": [
+        "feeAmount#0",
         "currentClicks#0"
       ]
     },
-    "518": {
+    "536": {
       "block": "clickProcessed_after_if_else@4",
       "stack_in": [
+        "feeAmount#0",
+        "currentClicks#0"
+      ],
+      "op": "frame_dig 1",
+      "defined_out": [
+        "currentClicks#0"
+      ],
+      "stack_out": [
+        "feeAmount#0",
+        "currentClicks#0",
+        "currentClicks#0"
+      ]
+    },
+    "538": {
+      "op": "pushint 1000 // 1000",
+      "defined_out": [
+        "1000",
+        "currentClicks#0"
+      ],
+      "stack_out": [
+        "feeAmount#0",
+        "currentClicks#0",
+        "currentClicks#0",
+        "1000"
+      ]
+    },
+    "541": {
+      "op": "*",
+      "defined_out": [
+        "currentClicks#0",
+        "feeAmount#0"
+      ],
+      "stack_out": [
+        "feeAmount#0",
+        "currentClicks#0",
+        "feeAmount#0"
+      ]
+    },
+    "542": {
+      "op": "dup",
+      "stack_out": [
+        "feeAmount#0",
+        "currentClicks#0",
+        "feeAmount#0",
+        "feeAmount#0"
+      ]
+    },
+    "543": {
+      "op": "frame_bury 0",
+      "defined_out": [
+        "currentClicks#0",
+        "feeAmount#0"
+      ],
+      "stack_out": [
+        "feeAmount#0",
+        "currentClicks#0",
+        "feeAmount#0"
+      ]
+    },
+    "545": {
+      "op": "bz clickProcessed_after_if_else@7",
+      "stack_out": [
+        "feeAmount#0",
+        "currentClicks#0"
+      ]
+    },
+    "548": {
+      "op": "itxn_begin"
+    },
+    "549": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "feeAmount#0",
+        "currentClicks#0",
+        "0"
+      ]
+    },
+    "550": {
+      "op": "bytec 6 // \"e\"",
+      "defined_out": [
+        "\"e\"",
+        "0",
+        "currentClicks#0",
+        "feeAmount#0"
+      ],
+      "stack_out": [
+        "feeAmount#0",
+        "currentClicks#0",
+        "0",
+        "\"e\""
+      ]
+    },
+    "552": {
+      "op": "app_global_get_ex",
+      "defined_out": [
+        "currentClicks#0",
+        "feeAmount#0",
+        "maybe_exists%4#0",
+        "maybe_value%4#0"
+      ],
+      "stack_out": [
+        "feeAmount#0",
+        "currentClicks#0",
+        "maybe_value%4#0",
+        "maybe_exists%4#0"
+      ]
+    },
+    "553": {
+      "error": "check GlobalState exists",
+      "op": "assert // check GlobalState exists",
+      "stack_out": [
+        "feeAmount#0",
+        "currentClicks#0",
+        "maybe_value%4#0"
+      ]
+    },
+    "554": {
+      "op": "itxn_field Receiver",
+      "stack_out": [
+        "feeAmount#0",
+        "currentClicks#0"
+      ]
+    },
+    "556": {
+      "op": "frame_dig 0",
+      "stack_out": [
+        "feeAmount#0",
+        "currentClicks#0",
+        "feeAmount#0"
+      ]
+    },
+    "558": {
+      "op": "itxn_field Amount",
+      "stack_out": [
+        "feeAmount#0",
+        "currentClicks#0"
+      ]
+    },
+    "560": {
+      "op": "intc_1 // 1",
+      "defined_out": [
+        "1",
+        "currentClicks#0",
+        "feeAmount#0"
+      ],
+      "stack_out": [
+        "feeAmount#0",
+        "currentClicks#0",
+        "1"
+      ]
+    },
+    "561": {
+      "op": "itxn_field TypeEnum",
+      "stack_out": [
+        "feeAmount#0",
+        "currentClicks#0"
+      ]
+    },
+    "563": {
+      "op": "intc_0 // 0",
+      "stack_out": [
+        "feeAmount#0",
+        "currentClicks#0",
+        "0"
+      ]
+    },
+    "564": {
+      "op": "itxn_field Fee",
+      "stack_out": [
+        "feeAmount#0",
+        "currentClicks#0"
+      ]
+    },
+    "566": {
+      "op": "itxn_submit"
+    },
+    "567": {
+      "block": "clickProcessed_after_if_else@7",
+      "stack_in": [
+        "feeAmount#0",
         "currentClicks#0"
       ],
       "op": "frame_dig -1",
@@ -2485,23 +2800,25 @@
         "user#0 (copy)"
       ],
       "stack_out": [
+        "feeAmount#0",
         "currentClicks#0",
         "user#0 (copy)"
       ]
     },
-    "520": {
+    "569": {
       "op": "bytec_0 // \"a\"",
       "defined_out": [
         "\"a\"",
         "user#0 (copy)"
       ],
       "stack_out": [
+        "feeAmount#0",
         "currentClicks#0",
         "user#0 (copy)",
         "\"a\""
       ]
     },
-    "521": {
+    "570": {
       "op": "intc_0 // 0",
       "defined_out": [
         "\"a\"",
@@ -2509,23 +2826,25 @@
         "user#0 (copy)"
       ],
       "stack_out": [
+        "feeAmount#0",
         "currentClicks#0",
         "user#0 (copy)",
         "\"a\"",
         "0"
       ]
     },
-    "522": {
+    "571": {
       "op": "app_local_put",
       "stack_out": [
+        "feeAmount#0",
         "currentClicks#0"
       ]
     },
-    "523": {
+    "572": {
       "retsub": true,
       "op": "retsub"
     },
-    "524": {
+    "573": {
       "subroutine": "smart_contracts/clickrLogic/contract.algo.ts::clickrLogic.decrementHeart",
       "params": {
         "user#0": "bytes"
@@ -2534,7 +2853,7 @@
       "stack_in": [],
       "op": "proto 1 0"
     },
-    "527": {
+    "576": {
       "op": "frame_dig -1",
       "defined_out": [
         "user#0 (copy)"
@@ -2543,7 +2862,7 @@
         "user#0 (copy)"
       ]
     },
-    "529": {
+    "578": {
       "op": "intc_0 // 0",
       "defined_out": [
         "0",
@@ -2554,7 +2873,7 @@
         "0"
       ]
     },
-    "530": {
+    "579": {
       "op": "bytec_1 // \"b\"",
       "defined_out": [
         "\"b\"",
@@ -2567,7 +2886,7 @@
         "\"b\""
       ]
     },
-    "531": {
+    "580": {
       "op": "app_local_get_ex",
       "defined_out": [
         "maybe_exists%0#0",
@@ -2578,32 +2897,32 @@
         "maybe_exists%0#0"
       ]
     },
-    "532": {
+    "581": {
       "error": "check LocalState exists",
       "op": "assert // check LocalState exists",
       "stack_out": [
         "maybe_value%0#0"
       ]
     },
-    "533": {
+    "582": {
       "error": "To decrement hearts there has to be atleast 1",
       "op": "assert // To decrement hearts there has to be atleast 1",
       "stack_out": []
     },
-    "534": {
+    "583": {
       "op": "frame_dig -1",
       "stack_out": [
         "user#0 (copy)"
       ]
     },
-    "536": {
+    "585": {
       "op": "intc_0 // 0",
       "stack_out": [
         "user#0 (copy)",
         "0"
       ]
     },
-    "537": {
+    "586": {
       "op": "bytec_1 // \"b\"",
       "stack_out": [
         "user#0 (copy)",
@@ -2611,7 +2930,7 @@
         "\"b\""
       ]
     },
-    "538": {
+    "587": {
       "op": "app_local_get_ex",
       "defined_out": [
         "maybe_exists%1#0",
@@ -2622,14 +2941,14 @@
         "maybe_exists%1#0"
       ]
     },
-    "539": {
+    "588": {
       "error": "check LocalState exists",
       "op": "assert // check LocalState exists",
       "stack_out": [
         "maybe_value%1#0"
       ]
     },
-    "540": {
+    "589": {
       "op": "intc_1 // 1",
       "defined_out": [
         "1",
@@ -2640,7 +2959,7 @@
         "1"
       ]
     },
-    "541": {
+    "590": {
       "op": "-",
       "defined_out": [
         "new_state_value%0#0"
@@ -2649,14 +2968,14 @@
         "new_state_value%0#0"
       ]
     },
-    "542": {
+    "591": {
       "op": "frame_dig -1",
       "stack_out": [
         "new_state_value%0#0",
         "user#0 (copy)"
       ]
     },
-    "544": {
+    "593": {
       "op": "bytec_1 // \"b\"",
       "stack_out": [
         "new_state_value%0#0",
@@ -2664,7 +2983,7 @@
         "\"b\""
       ]
     },
-    "545": {
+    "594": {
       "op": "uncover 2",
       "stack_out": [
         "user#0 (copy)",
@@ -2672,15 +2991,15 @@
         "new_state_value%0#0"
       ]
     },
-    "547": {
+    "596": {
       "op": "app_local_put",
       "stack_out": []
     },
-    "548": {
+    "597": {
       "retsub": true,
       "op": "retsub"
     },
-    "549": {
+    "598": {
       "subroutine": "smart_contracts/clickrLogic/contract.algo.ts::clickrLogic.distributeRewards",
       "params": {},
       "block": "distributeRewards",
@@ -2693,7 +3012,7 @@
         "appAddress#0"
       ]
     },
-    "551": {
+    "600": {
       "op": "acct_params_get AcctBalance",
       "defined_out": [
         "check%0#0",
@@ -2704,14 +3023,14 @@
         "check%0#0"
       ]
     },
-    "553": {
+    "602": {
       "error": "account funded",
       "op": "assert // account funded",
       "stack_out": [
         "value%0#0"
       ]
     },
-    "554": {
+    "603": {
       "op": "global MinBalance",
       "defined_out": [
         "tmp%0#0",
@@ -2722,7 +3041,7 @@
         "tmp%0#0"
       ]
     },
-    "556": {
+    "605": {
       "op": "-",
       "defined_out": [
         "availableBalance#0"
@@ -2731,7 +3050,7 @@
         "availableBalance#0"
       ]
     },
-    "557": {
+    "606": {
       "op": "dup",
       "defined_out": [
         "availableBalance#0",
@@ -2742,14 +3061,14 @@
         "availableBalance#0 (copy)"
       ]
     },
-    "558": {
+    "607": {
       "error": "No available balance to send",
       "op": "assert // No available balance to send",
       "stack_out": [
         "availableBalance#0"
       ]
     },
-    "559": {
+    "608": {
       "op": "intc_0 // 0",
       "defined_out": [
         "0",
@@ -2760,7 +3079,7 @@
         "0"
       ]
     },
-    "560": {
+    "609": {
       "op": "bytec_3 // \"d\"",
       "defined_out": [
         "\"d\"",
@@ -2773,7 +3092,7 @@
         "\"d\""
       ]
     },
-    "561": {
+    "610": {
       "op": "app_global_get_ex",
       "defined_out": [
         "availableBalance#0",
@@ -2786,7 +3105,7 @@
         "maybe_exists%0#0"
       ]
     },
-    "562": {
+    "611": {
       "error": "check GlobalState exists",
       "op": "assert // check GlobalState exists",
       "stack_out": [
@@ -2794,7 +3113,7 @@
         "maybe_value%0#0"
       ]
     },
-    "563": {
+    "612": {
       "op": "global ZeroAddress",
       "defined_out": [
         "availableBalance#0",
@@ -2807,7 +3126,7 @@
         "tmp%2#0"
       ]
     },
-    "565": {
+    "614": {
       "op": "!=",
       "defined_out": [
         "availableBalance#0",
@@ -2818,24 +3137,24 @@
         "tmp%3#0"
       ]
     },
-    "566": {
+    "615": {
       "error": "No highest click holder found",
       "op": "assert // No highest click holder found",
       "stack_out": [
         "availableBalance#0"
       ]
     },
-    "567": {
+    "616": {
       "op": "itxn_begin"
     },
-    "568": {
+    "617": {
       "op": "intc_0 // 0",
       "stack_out": [
         "availableBalance#0",
         "0"
       ]
     },
-    "569": {
+    "618": {
       "op": "bytec_3 // \"d\"",
       "stack_out": [
         "availableBalance#0",
@@ -2843,7 +3162,7 @@
         "\"d\""
       ]
     },
-    "570": {
+    "619": {
       "op": "app_global_get_ex",
       "defined_out": [
         "availableBalance#0",
@@ -2856,7 +3175,7 @@
         "maybe_exists%1#0"
       ]
     },
-    "571": {
+    "620": {
       "error": "check GlobalState exists",
       "op": "assert // check GlobalState exists",
       "stack_out": [
@@ -2864,17 +3183,17 @@
         "maybe_value%1#0"
       ]
     },
-    "572": {
+    "621": {
       "op": "itxn_field Receiver",
       "stack_out": [
         "availableBalance#0"
       ]
     },
-    "574": {
+    "623": {
       "op": "itxn_field Amount",
       "stack_out": []
     },
-    "576": {
+    "625": {
       "op": "intc_1 // 1",
       "defined_out": [
         "1"
@@ -2883,24 +3202,24 @@
         "1"
       ]
     },
-    "577": {
+    "626": {
       "op": "itxn_field TypeEnum",
       "stack_out": []
     },
-    "579": {
+    "628": {
       "op": "intc_0 // 0",
       "stack_out": [
         "0"
       ]
     },
-    "580": {
+    "629": {
       "op": "itxn_field Fee",
       "stack_out": []
     },
-    "582": {
+    "631": {
       "op": "itxn_submit"
     },
-    "583": {
+    "632": {
       "retsub": true,
       "op": "retsub"
     }
