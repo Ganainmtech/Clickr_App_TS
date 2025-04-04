@@ -2,6 +2,8 @@
 
 A simple clicker game availble on desktop or mobile for web2 or web3 players on Algorand. Web3 High Stakes mode is where players can earn rewards for their clicking skills.
 
+Dev Note* The logistics, UI and functionality may all change but the inspriation stays the same 1 click = 1 outer txn on Algorand.
+
 ## 🎮 How It Works
 
 1. **Play the Game**:
@@ -15,15 +17,15 @@ A simple clicker game availble on desktop or mobile for web2 or web3 players on 
 
 3. **Earn Rewards**:
    - Each click in Web3 mode is recorded on-chain
-   - A cron "account" job processes clicks and distributes rewards
    - Rewards are calculated based on your score
+   - Smart contract distributes rewards
 
 ## 🛠️ Technical Overview
 
-- **Smart Contract**: Records player clicks and manages rewards
-- **Cron Job**: Processes clicks and distributes rewards automatically
+- **Smart Contract**: Records player clicks and manages rewards distributes reward
+- **Cron Job**: Cron Account is just an Algorand Account - Processes clicks as txns sending a 0 amount txn to itself
 - **Frontend**: React app with Wallet integration
-- **TestNet**: Currently deployed on Algorand TestNet (Do not play it not complete - or play at your own risk, web2 works version works well)
+- **TestNet**: Currently deployed on Algorand TestNet (Do not play it, it is not complete - or play at your own risk, web2 works version works well)
 
 ## 🚀 Launching in the Summer
 
@@ -32,7 +34,7 @@ A simple clicker game availble on desktop or mobile for web2 or web3 players on 
 3. Choose Web3 mode
 4. Start clicking and earning!
 
-> Note: This is a development version on TestNet. Rewards are in test ALGO.
+> Note: This is a development version on TestNet and still in early development.
 
 ## 🎯 Game Rules
 
@@ -45,14 +47,16 @@ A simple clicker game availble on desktop or mobile for web2 or web3 players on 
 
 ## 💰 Web3 Mode Details
 
-- **Reward System**:
-  - Score multiplier: 0.006 ALGO per click [0.001 Txn fee + 0.005 for rewards pool]
-  - Smart contract integration
+- **Reward System: Powered by the Players Economy**:
+  - Score multiplier: 0.006 ALGO per click
+  -   0.001 Txn fee which will be sent to the Cron Account,
+  -   0.005 for rewards pool, the smart contract address.
+  - Smart contract distribution
   - Secure transaction handling
 
 - **Smart Contract**:
-  - App ID: {}
-  - TestNet deployment
+  - App ID: {Still in testing} 
+  - TestNet deployment / Local deployment
   - Score recording functionality
 
 ## 📱 UI/UX
