@@ -62,3 +62,6 @@ A simple clicker game availble on desktop or mobile for web2 or web3 players on 
 - Real-time feedback
 - Wallet connection status
 - Transaction status indicators
+
+Check out a video of the UI on [X](https://x.com/ganainmtech/status/1908172988840833262)!  
+
